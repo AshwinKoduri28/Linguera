@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ovo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        /* Removed: All CSS moved to css/home.css */
+    </style>
+    <script src="https://alcdn.msauth.net/browser/2.38.2/js/msal-browser.min.js"></script>
+</head>
+
+<body style="margin: 0; background-color: white;">
+
+    <!-- Fixed Navbar -->
+    <div class="navbar">
+        <button class="navbar-menu-btn">Menu</button>
+        <div class="navbar-title" style="display: flex; align-items: center; justify-content: center;">
+            <img src="images/image.png" alt="logo" style="width: 150px">
+            <a href="home.html#home" style="text-decoration:none; color:inherit; cursor:pointer; font-family: 'Ovo', serif !important;">Linguera</a>
+        </div>
+        <div class="navbar-links">
+            <a href="#home" style="text-decoration: none; color: black;">Home</a>
+            <a href="#about" style="text-decoration: none; color: black;">About Us</a>
+            <a href="#testimonial" style="text-decoration: none; color: black;">Testimonial</a>
+            <a href="#contacts" style="text-decoration: none; color: black;">Contacts</a>
+        </div>
+        <div class="navbar-login">
+            <button id="navbarLoginBtn"
+                style="padding: 10px 20px;font-size: 16px; background-color: #1883FD; color: white; border: none; border-radius: 50px; cursor: pointer;">
+                Log In
+            </button>
+            <button id="navbarLogoutBtn"
+                style="display:none; margin-left:10px; padding: 10px 20px; font-size: 16px; background-color: #f44336; color: white; border: none; border-radius: 50px; cursor: pointer;">
+                Log Out
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar Popup Menu -->
+    <div id="sidebar">
+        <button id="closeSidebar">&times;</button>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#testimonial">Testimonial</a>
+        <a href="#contacts">Contacts</a>
+    </div>
+
+    <!-- Main Content -->
+    <div id="home" class="main-content-flex" style="padding: 0 70px;">
+
+        <!-- Left Section -->
+        <div class="main-content-left">
+            <h1>Break the <br>Language Barrier <br>in Real Time</h1>
+            <p>Live multilingual translation at your fingertips.
+                <br>
+                Seamless live call translation --- connect with <br>
+                anyone, anywhere, anytime.
+            </p>
+            <button id="translateNowBtn">
+                Translate Now
+            </button>
+        </div>
+
+        <!-- Right Section -->
+        <div class="main-content-right">
+            <img src="images/2149231589 1.png" alt="Man on phone">
+
+            <!-- Language Bubbles -->
+            <div
+                style="position: absolute; top: 40px; left: 80px; background-color: white; padding: 5px 10px; border: 1px dashed #000; border-radius: 5px;">
+                こんにちは</div>
+            <div
+                style="position: absolute; top: 70px; right: 60px; background-color: white; padding: 5px 10px; border: 1px dashed #000; border-radius: 5px;">
+                नमस्ते</div>
+            <div
+                style="position: absolute; bottom: 70px; left: 80px; background-color: white; padding: 5px 10px; border: 1px dashed #000; border-radius: 5px;">
+                Hello</div>
+            <div
+                style="position: absolute; bottom: 100px; right: 50px; background-color: white; padding: 5px 10px; border: 1px dashed #000; border-radius: 5px;">
+                வணக்கம்</div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <!-- <div id="about" style="max-width:900px;margin:80px auto 0 auto;padding:40px 20px 20px 20px;">
+        <h2 style="font-family:'Ovo',serif;font-size:2rem;margin-bottom:12px;">About Us</h2>
+        <p style="font-size:1.1rem;line-height:1.7;color:#444;">
+            Linguera is dedicated to breaking language barriers in real time. Our mission is to make global
+            communication seamless and accessible for everyone, everywhere. With advanced translation technology, we
+            empower users to connect, collaborate, and understand each other instantly.
+        </p>
+    </div> -->
+
+    <!-- Testimonial Section -->
+    <div id="testimonial" class="testimonial-section" style="padding: 0px 60px;">
+        <h2 class="testimonial-title">What Our Users Say</h2>
+        <div class="testimonial-scroll" id="testimonialScroll">
+            <div class="testimonial-card">
+                <p>"I am impressed by the professionalism of the service desk team. Their ability to assist in multiple languages ensures that every request is clearly understood and addressed."</p>
+                <span>- Hari</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The real-time translation feature has made it much easier to collaborate with colleagues and the service desk, regardless of language preferences."</p>
+                <span>- Mohit</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The support experience is seamless and reliable. The language barrier is no longer a challenge when reaching out to the service desk for assistance."</p>
+                <span>- Sameer</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The service desk’s ability to communicate in my preferred language has made the process of getting IT support smooth and stress-free."</p>
+                <span>- Ashwin</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The multilingual support from the service desk has made resolving technical issues much faster and more efficient. Communication is now seamless across teams."</p>
+                <span>- Sampath</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"I appreciate how the service desk team can assist in multiple languages. It ensures that every request is clearly understood and addressed promptly."</p>
+                <span>- Haneef</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacts Section -->
+    <!-- <div id="contacts" style="max-width:900px;margin:80px auto 40px auto;padding:40px 20px 20px 20px;">
+        <h2 style="font-family:'Ovo',serif;font-size:2rem;margin-bottom:12px;">Contacts</h2>
+        <p style="font-size:1.1rem;line-height:1.7;color:#444;">
+            Email: <a href="mailto:support@linguera.com">support@linguera.com</a><br>
+            Phone: +1-234-567-8901<br>
+            Address: 123, Global Tech Park, Your City, Country
+        </p>
+    </div> -->
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content" style="font-family: 'Lato', Arial, sans-serif;">
+            <img src="images/wiproIcon (1).svg" alt="logo" style="display: block; margin: 0 auto 0 auto;">
+            <button id="closeLoginModal" class="modal-close"
+                style="font-family: 'Lato', Arial, sans-serif;font-size: 40px; color: black;">&times;</button>
+            <h2 id="modalTitle" style="margin-top:30px; text-align: center; font-family: 'Lato', Arial, sans-serif;">
+                Welcome to Linguera
+            </h2>
+            <p style="margin-top: 30px; font-family: 'Lato', Arial, sans-serif;">Email</p>
+            <input id="modalEmail" type="email" placeholder="name1.name2@lwpcoe.com"
+                style="border: 2px solid black; border-radius: 15px; width:93.5%;padding:10px;margin-bottom:10px; margin-top: -10px; font-family: 'Lato', Arial, sans-serif;">
+            <span id="emailError"
+                style="color: red; font-size: 13px; display: none; margin-top: -8px; margin-bottom: 15px;"></span>
+            <p style="margin-top: 0px; font-family: 'Lato', Arial, sans-serif;">Password</p>
+            <input id="modalPassword" type="password" placeholder="Password"
+                style="border: 2px solid black; border-radius: 15px;width:93.5%;padding:10px;margin-bottom:20px;margin-top: -10px; font-family: 'Lato', Arial, sans-serif;">
+            <span id="passwordError"
+                style="color: red; font-size: 13px; display: none; margin-top: -18px; margin-bottom: 15px;"></span>
+            <p id="forgotPassword" style="text-align: right; margin-top: -5px; font-family: 'Lato', Arial, sans-serif;">
+                Forgot Password?</p>
+            <button id="modalActionBtn"
+                style="font-size: 16px; width:100%;padding:10px 10px;background:#1883FD;color:#fff;border:none;border-radius:50px;cursor: pointer;margin-top: 20px; font-family: 'Lato', Arial, sans-serif;">Log
+                In</button>
+            <p style="text-align: center; font-family: 'Lato', Arial, sans-serif;"> ------ OR ------</p>
+            <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                <button id="msLoginBtn"
+                    style="flex: 1; font-size: 16px; display: flex; align-items: center; justify-content: center; border: 1.5px solid #000; background: none; color:black; padding:10px; cursor: pointer; border-radius: 50px; font-family: 'Lato', Arial, sans-serif;">
+                    <img src="images/msIcon (1).svg" alt="Microsoft Logo"
+                        style="height:22px; width:auto; margin-right:20px;">
+                    Continue with Microsoft
+                </button>
+            </div>
+            <p id="toggleAuthContainer" style="text-align: center; font-family: 'Lato', Arial, sans-serif;">
+                <!-- Toggle text will be set by JS -->
+            </p>
+        </div>
+    </div>
+
+    <footer
+        style="width:100%; background:#f5f5f5; padding:20px 0; text-align:center; font-size:16px; color:#666; margin-top:40px;">
+        &copy; 2025 Wipro Ltd. All rights reserved.
+    </footer>
+    <script>
+        // Sidebar open/close logic
+        document.querySelector('.navbar-menu-btn').onclick = function (e) {
+            document.getElementById('sidebar').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            e.stopPropagation();
+        };
+        document.getElementById('closeSidebar').onclick = function (e) {
+            document.getElementById('sidebar').classList.remove('open');
+            document.body.style.overflow = '';
+            e.stopPropagation();
+        };
+        // Optional: close sidebar when clicking outside
+        window.addEventListener('click', function (e) {
+            const sidebar = document.getElementById('sidebar');
+            if (
+                sidebar.classList.contains('open') &&
+                !sidebar.contains(e.target) &&
+                !e.target.classList.contains('navbar-menu-btn')
+            ) {
+                sidebar.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+        document.getElementById('sidebar').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Log In popup logic
+        const navbarLoginBtn = document.getElementById('navbarLoginBtn');
+        const navbarLogoutBtn = document.getElementById('navbarLogoutBtn');
+        navbarLoginBtn.onclick = function (e) {
+            // Only open modal if not already logged in (button still says "Log In")
+            if (navbarLoginBtn.textContent.trim().toLowerCase() === "log in") {
+                document.getElementById('loginModal').classList.add('open');
+                document.body.style.overflow = 'hidden';
+                e.stopPropagation();
+            }
+        };
+        navbarLogoutBtn.onclick = function () {
+            // Reset login button and hide logout
+            navbarLoginBtn.textContent = "Log In";
+            navbarLoginBtn.style = "padding: 10px 20px;font-size: 16px; background-color: #1883FD; color: white; border: none; border-radius: 50px; cursor: pointer;";
+            navbarLogoutBtn.style.display = "none";
+            // Clear default language on logout
+            localStorage.removeItem('lingueraDefaultLanguage');
+            // Optional: clear MSAL session
+            if (window.msalInstance && msalInstance.logoutPopup) {
+                msalInstance.logoutPopup();
+            }
+        };
+        document.getElementById('closeLoginModal').onclick = function (e) {
+            document.getElementById('loginModal').classList.remove('open');
+            document.body.style.overflow = '';
+            e.stopPropagation();
+        };
+        // Close modal when clicking outside the modal-content
+        document.getElementById('loginModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Toggle between Login and Sign Up in modal
+        const modalActionBtn = document.getElementById('modalActionBtn');
+        const modalTitle = document.getElementById('modalTitle');
+        const forgotPassword = document.getElementById('forgotPassword');
+        const toggleAuthContainer = document.getElementById('toggleAuthContainer');
+        const modalEmail = document.getElementById('modalEmail');
+        const modalPassword = document.getElementById('modalPassword');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        let isLogin = true;
+
+        function updateAuthToggleText() {
+            if (isLogin) {
+                toggleAuthContainer.innerHTML = `Don't have an account? <span id="toggleAuth" style="font-weight:bold;cursor:pointer;">Sign Up</span>`;
+            } else {
+                toggleAuthContainer.innerHTML = `Already have an account? <span id="toggleAuth" style="font-weight:bold;cursor:pointer;">Log In</span>`;
+            }
+            document.getElementById('toggleAuth').onclick = toggleAuthHandler;
+        }
+
+        function toggleAuthHandler() {
+            isLogin = !isLogin;
+            if (isLogin) {
+                modalActionBtn.textContent = 'Log In';
+                modalTitle.textContent = 'Welcome to Linguera';
+                forgotPassword.style.display = '';
+                modalPassword.placeholder = 'Password';
+            } else {
+                modalActionBtn.textContent = 'Sign Up';
+                modalTitle.textContent = 'Welcome to Linguera';
+                forgotPassword.style.display = 'none';
+                modalPassword.placeholder = 'Create a password';
+            }
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+            updateAuthToggleText();
+        }
+
+        updateAuthToggleText();
+
+        // Validation logic
+        function validateEmail(email) {
+            // name1.name2@lwpcoe.com
+            return /^[a-zA-Z]+\.[a-zA-Z]+@lwpcoe\.com$/i.test(email);
+        }
+
+        function validatePassword(password) {
+            // At least 1 upper, 1 lower, 1 number, 1 special, min 9 chars
+            return /[A-Z]/.test(password) &&
+                /[a-z]/.test(password) &&
+                /\d/.test(password) &&
+                /[^A-Za-z0-9]/.test(password) &&
+                password.length > 8;
+        }
+
+        // Hardcoded login/signup logic
+        let users = JSON.parse(localStorage.getItem('lingueraUsers') || '{}');
+        let loggedInUser = localStorage.getItem('lingueraLoggedInUser') || null;
+
+        // --- Default Language Modal ---
+        function showDefaultLanguageModal() {
+            // Always show modal for new employee signup
+            let modal = document.createElement('div');
+            modal.id = 'defaultLanguageModal';
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.background = 'rgba(0,0,0,0.4)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.zIndex = '9999';
+            modal.innerHTML = `
+              <div style="background: white; padding: 32px 40px; border-radius: 18px; box-shadow: 0 2px 16px #0002; min-width: 320px; text-align: center;">
+                <h2 style='margin-bottom: 18px;'>Select Your Default Language</h2>
+                <select id='defaultLangSelect' style='padding: 10px 20px; border-radius: 12px; font-size: 18px; margin-bottom: 18px;'>
+                  <option value='en-US'>English (US)</option>
+                  <option value='hi-IN'>Hindi</option>
+                  <option value='fr-FR'>French</option>
+                  <option value='es-ES'>Spanish</option>
+                  <option value='de-DE'>German</option>
+                </select><br>
+                <button id='saveDefaultLangBtn' style='margin-top: 10px; background: #1883FD; color: white; border: none; border-radius: 8px; padding: 10px 28px; font-size: 16px; cursor: pointer;'>Save</button>
+              </div>
+            `;
+            document.body.appendChild(modal);
+            document.getElementById('saveDefaultLangBtn').onclick = function() {
+                const lang = document.getElementById('defaultLangSelect').value;
+                localStorage.setItem('lingueraDefaultLanguage', lang);
+                document.body.removeChild(modal);
+            };
+        }
+
+        modalActionBtn.onclick = function (e) {
+            let valid = true;
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+            const email = modalEmail.value.trim();
+            const password = modalPassword.value;
+
+            // Only allow name@agent.com or name@employee.com
+            if (!/^([a-zA-Z]+)@(agent|employee)\.com$/i.test(email)) {
+                emailError.textContent = "Email must be in the format name@agent.com or name@employee.com";
+                emailError.style.display = 'block';
+                valid = false;
+            }
+            if (!validatePassword(password)) {
+                passwordError.textContent = "Password must be >8 chars, include upper, lower, number, and special symbol.";
+                passwordError.style.display = 'block';
+                valid = false;
+            }
+            if (!valid) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Extract username and role
+            let name = '';
+            let role = '';
+            if (/@agent\.com$/i.test(email)) {
+                name = email.split('@')[0];
+                role = 'agent';
+            } else if (/@employee\.com$/i.test(email)) {
+                name = email.split('@')[0];
+                role = 'employee';
+            }
+
+            if (isLogin) {
+                if (!users[email]) {
+                    emailError.textContent = "User not found. Please sign up first.";
+                    emailError.style.display = 'block';
+                    e.preventDefault();
+                    return false;
+                }
+                if (users[email].password !== password) {
+                    passwordError.textContent = "Incorrect password.";
+                    passwordError.style.display = 'block';
+                    e.preventDefault();
+                    return false;
+                }
+                loggedInUser = email;
+                localStorage.setItem('lingueraLoggedInUser', email);
+
+            } else {
+                if (users[email]) {
+                    emailError.textContent = "User already exists. Please log in.";
+                    emailError.style.display = 'block';
+                    e.preventDefault();
+                    return false;
+                }
+                users[email] = { password, name, role };
+                localStorage.setItem('lingueraUsers', JSON.stringify(users));
+                loggedInUser = email;
+                localStorage.setItem('lingueraLoggedInUser', email);
+                // Always clear previous default language for new signup
+                if (role === 'employee') {
+                    localStorage.removeItem('lingueraDefaultLanguage');
+                    setTimeout(showDefaultLanguageModal, 200);
+                }
+            }
+
+            // Set login button to first letter of name
+            if (name) {
+                navbarLoginBtn.textContent = name[0].toUpperCase();
+                navbarLoginBtn.style.fontSize = "22px";
+                navbarLoginBtn.style.background = "#1883FD";
+                navbarLoginBtn.style.color = "#fff";
+                navbarLoginBtn.style.width = "44px";
+                navbarLoginBtn.style.height = "44px";
+                navbarLoginBtn.style.borderRadius = "50%";
+                navbarLoginBtn.style.padding = "0";
+                navbarLogoutBtn.style.display = "inline-block";
+            }
+            document.getElementById('loginModal').classList.remove('open');
+            document.body.style.overflow = '';
+            modalEmail.value = '';
+            modalPassword.value = '';
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+        };
+
+        // --- SYNC LOGIN STATE TO INDEX.HTML ---
+        function updateNavbarLoginState() {
+            let loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+            if (loggedInUser) {
+                let name = loggedInUser.split('@')[0];
+                navbarLoginBtn.textContent = name[0].toUpperCase();
+                navbarLoginBtn.style.fontSize = "22px";
+                navbarLoginBtn.style.background = "#1883FD";
+                navbarLoginBtn.style.color = "#fff";
+                navbarLoginBtn.style.width = "44px";
+                navbarLoginBtn.style.height = "44px";
+                navbarLoginBtn.style.borderRadius = "50%";
+                navbarLoginBtn.style.padding = "0";
+                navbarLogoutBtn.style.display = "inline-block";
+            } else {
+                navbarLoginBtn.textContent = "Log In";
+                navbarLoginBtn.style = "padding: 10px 20px;font-size: 16px; background-color: #1883FD; color: white; border: none; border-radius: 50px; cursor: pointer;";
+                navbarLogoutBtn.style.display = "none";
+            }
+        }
+        updateNavbarLoginState();
+        window.addEventListener('storage', updateNavbarLoginState);
+
+        // Translate Now button navigation (require login)
+        document.getElementById('translateNowBtn').onclick = function () {
+            let loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+            if (!loggedInUser) {
+                alert("Please log in or sign up before using Translate Now.");
+                document.getElementById('loginModal').classList.add('open');
+                return;
+            }
+            window.location.href = "index.html";
+        };
+
+        // MSAL config for Microsoft login
+        const msalConfig = {
+            auth: {
+                clientId: "b8479f68-05f5-4e64-958c-15984e955152",
+                authority: "https://login.microsoftonline.com/f5791d91-daca-4d28-8700-680f7a2f8b6a",
+                redirectUri: "http://127.0.0.1:5500/public/home.html"
+            },
+            cache: {
+                cacheLocation: "sessionStorage",
+                storeAuthStateInCookie: false,
+            },
+            system: {
+                loggerOptions: {
+                    loggerCallback: (level, message, containsPii) => {
+                        if (containsPii) return;
+                        switch (level) {
+                            case msal.LogLevel.Error: console.error(message); return;
+                            case msal.LogLevel.Info: console.info(message); return;
+                            case msal.LogLevel.Verbose: console.debug(message); return;
+                            case msal.LogLevel.Warning: console.warn(message); return;
+                            default: return;
+                        }
+                    }
+                }
+            }
+        };
+
+        const loginRequest = {
+            scopes: ["User.Read"]
+        };
+
+        const graphConfig = {
+            graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
+        };
+
+        const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+        async function callMsGraph(accessToken) {
+            const headers = new Headers();
+            headers.append("Authorization", `Bearer ${accessToken}`);
+            const options = { method: "GET", headers: headers };
+            return fetch(graphConfig.graphMeEndpoint, options)
+                .then(response => response.json())
+                .catch(error => console.log(error));
+        }
+
+        document.getElementById('msLoginBtn').onclick = async function (e) {
+            e.preventDefault();
+            try {
+                const loginResponse = await msalInstance.loginPopup(loginRequest);
+                const account = loginResponse.account;
+                const accessTokenResponse = await msalInstance.acquireTokenSilent({
+                    ...loginRequest,
+                    account: account
+                }).catch(() => msalInstance.acquireTokenPopup(loginRequest));
+                const user = await callMsGraph(accessTokenResponse.accessToken);
+
+                // Get first letter of email (userPrincipalName is always present)
+                const email = user.mail || user.userPrincipalName || "";
+                if (email.length > 0) {
+                    navbarLoginBtn.textContent = email[0].toUpperCase();
+                    navbarLoginBtn.style.fontSize = "22px";
+                    navbarLoginBtn.style.background = "#1883FD";
+                    navbarLoginBtn.style.color = "#fff";
+                    navbarLoginBtn.style.width = "44px";
+                    navbarLoginBtn.style.height = "44px";
+                    navbarLoginBtn.style.borderRadius = "50%";
+                    navbarLoginBtn.style.padding = "0";
+                    navbarLogoutBtn.style.display = "inline-block";
+                }
+                document.getElementById('loginModal').classList.remove('open');
+                document.body.style.overflow = '';
+            } catch (err) {
+                alert("Microsoft Login failed.");
+                console.error(err);
+            }
+        };
+
+        // Auto-scroll for testimonial section
+        (function () {
+            const scrollContainer = document.getElementById('testimonialScroll');
+            if (!scrollContainer) return;
+            let cardWidth = 0;
+            let scrollAmount = 0;
+            let intervalId = null;
+
+            function getCardWidth() {
+                const card = scrollContainer.querySelector('.testimonial-card');
+                if (!card) return 0;
+                const style = window.getComputedStyle(card);
+                const gap = parseInt(style.marginRight) || 24;
+                return card.offsetWidth + gap;
+            }
+
+            function startAutoScroll() {
+                cardWidth = getCardWidth();
+                intervalId = setInterval(() => {
+                    // If at end, scroll back to start
+                    if (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth - 5) {
+                        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                        scrollAmount = 0;
+                    } else {
+                        scrollAmount = scrollContainer.scrollLeft + cardWidth;
+                        scrollContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                }, 3000);
+            }
+
+            function stopAutoScroll() {
+                if (intervalId) clearInterval(intervalId);
+            }
+
+            scrollContainer.addEventListener('mouseenter', stopAutoScroll);
+            scrollContainer.addEventListener('mouseleave', startAutoScroll);
+
+            window.addEventListener('resize', () => {
+                cardWidth = getCardWidth();
+            });
+
+            startAutoScroll();
+        })();
+    </script>
+</body>
+
+</html>

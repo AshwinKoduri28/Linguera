@@ -1,0 +1,448 @@
+/* All CSS from <style> in index.html moved here. */
+html {
+  scroll-behavior: smooth;
+}
+body,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+div,
+span,
+input,
+select,
+label {
+  font-family: 'Lato', Arial, sans-serif !important;
+}
+body {
+  padding-top: 0px;
+}
+.setup-panel-wrapper {
+  padding-top: 20px;
+}
+#call-and-transcript {
+  padding-top: 20px;
+}
+@media (max-width: 1024px) {
+  .setup-panel-wrapper {
+    padding-top: 120px;
+  }
+  #call-and-transcript {
+    padding-top: 60px;
+  }
+  .container {
+    padding: 0 0 !important;
+  }
+}
+.navbar-title {
+  font-size: 24px;
+  text-align: left;
+  margin-left: -50px;
+  flex: 1;
+  font-family: 'Ovo', serif !important;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 1000;
+  padding: 20px 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.navbar-links {
+  display: flex;
+  gap: 40px;
+  font-size: 16px;
+  flex: 2;
+  justify-content: center;
+}
+.navbar-login {
+  flex: 1;
+  display: flex;
+  font-size: 30px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.navbar-menu-btn {
+  display: none;
+  background: none;
+  color: black;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 290px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  transition: right 0.3s;
+  padding: 0px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+#sidebar.open {
+  right: 0;
+}
+#closeSidebar {
+  align-self: flex-end;
+  background: none;
+  margin-top: 10px;
+  margin-right: -8px;
+  margin-bottom: -15px;
+  border: none;
+  color: black;
+  font-size: 44px;
+  cursor: pointer;
+}
+#sidebar a {
+  margin: 16px 0;
+  font-size: 18px;
+  color: #222;
+  text-decoration: none;
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 19px 31px !important;
+    justify-content: space-between;
+    align-self: center;
+  }
+  .navbar-title {
+    text-align: left;
+    font-size: 28px;
+    margin-right: 50px;
+    margin-bottom: -5px;
+    color: black;
+  }
+  .navbar-links {
+    display: none;
+  }
+  .navbar-menu-btn {
+    display: flex;
+    font-size: 18px;
+  }
+  .navbar-login {
+    width: auto !important;
+    margin-right: 5px;
+    max-width: 300px !important;
+    justify-content: flex-end !important;
+    font-size: 30px !important;
+  }
+  .setup-panel-wrapper {
+    padding: 0px 40px;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 40px;
+  }
+  #setup-panel,
+  .setup-panel-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex: unset !important;
+  }
+  .setup-panel-image {
+    margin-top: 70px;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #img-caption {
+    width: 90% !important;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: white;
+  color: #333;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+.input-group {
+  display: flex;
+  margin-bottom: 20px;
+}
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1.5px solid #ddd;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+button {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.hidden {
+  display: none !important;
+}
+#call-and-transcript {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+#call-panel {
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 1600px;
+  box-sizing: border-box;
+}
+#room-display {
+  text-align: center;
+  font-size: 15px;
+  color: #3498db;
+}
+.call-status {
+  text-align: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+.call-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.control-btn {
+  padding: 12px 24px;
+  margin: 0 10px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+.danger {
+  background-color: #e74c3c;
+}
+.danger:hover {
+  background-color: #c0392b;
+}
+.audio-controls {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.volume-meter {
+  width: 200px;
+  text-align: center;
+}
+.volume-bar {
+  height: 10px;
+  background-color: #2ecc71;
+  width: 0%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: width 0.1s ease;
+}
+.audio-element-container {
+  margin-top: 20px;
+  text-align: center;
+}
+.audio-element-container audio {
+  width: 100%;
+  margin-top: 10px;
+}
+#debug-panel {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+#transcript-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.transcript-box {
+  width: 240px;
+  height: 150px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #aaa;
+  background: #f0f0f0;
+  font-family: 'Lato', Arial, sans-serif !important;
+  font-size: 14px;
+}
+.transcript-message {
+  margin-bottom: 6px;
+}
+#mute-btn,
+#hangup-btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+.volume-container {
+  display: none !important;
+}
+#mute-btn {
+  background-color: #3593ff;
+}
+#mute-btn:hover {
+  background-color: #0f7dfa;
+}
+#hangup-btn {
+  background-color: #FF4343;
+}
+#hangup-btn:hover {
+  background-color: #ee1e1e;
+}
+#status-message {
+  text-align: center;
+  margin-right: 40px;
+  width: 400px;
+  border-radius: 8px;
+}
+.volume-container {
+  margin: 20px 0;
+  text-align: center;
+}
+.volume-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.volume-bar-container {
+  width: 200px;
+  height: 10px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#room-type-select {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: 1.5px solid #ddd;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+#room-type-select:focus {
+  border-color: #1883FD;
+  outline: none;
+}
+#call-and-transcript,
+#call-and-transcript * {
+  font-family: 'Lato', Arial, sans-serif !important;
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px 40px;
+    justify-content: space-between;
+  }
+  .navbar-title {
+    text-align: center;
+    font-size: 28px;
+    margin-left: 100px;
+  }
+  .navbar-links {
+    display: none !important;
+  }
+  .navbar-menu-btn {
+    display: flex !important;
+    font-size: 18px;
+  }
+  .navbar-login {
+    width: auto !important;
+    max-width: 300px !important;
+    justify-content: flex-end !important;
+    font-size: 30px !important;
+  }
+  .setup-panel-wrapper {
+    padding: 0px 40px;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 40px;
+  }
+  .setup-panel-wrapper>div:first-child {
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0px 15px !important;
+  }
+  #setup-panel,
+  .setup-panel-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex: unset !important;
+  }
+  .setup-panel-image {
+    margin-top: 40px;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #img-caption {
+    width: 90% !important;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 1024px) {
+  #call-panel {
+    padding: 0px 20px !important;
+    margin: 0 0px 24px 0px !important;
+    gap: 30px !important;
+    align-items: stretch !important;
+    margin-bottom: 24px !important;
+    margin-top: 24px !important;
+  }
+  #call-panel>div {
+    margin-bottom: 10px;
+  }
+  #status-message {
+    width: 20% !important;
+    margin: 0 0px 0px 0 !important;
+  }
+}
+@media (max-width: 1024px) {
+  #chat-combined.chat-box {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    height: 550px !important;
+  }
+}

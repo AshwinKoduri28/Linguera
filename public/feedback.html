@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Modal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+  .feedback-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease-out;
+  }
+  @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+  .feedback-modal-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 550px;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.4s ease-out;
+      position: relative;
+  }
+  @keyframes slideUp {
+      from { 
+          transform: translateY(50px); 
+          opacity: 0; 
+      }
+      to { 
+          transform: translateY(0); 
+          opacity: 1; 
+      }
+  }
+  .feedback-modal-header {
+      text-align: center;
+      margin-bottom: 30px;
+  }
+  .feedback-modal-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 8px;
+  }
+  .feedback-subtitle {
+      font-size: 1rem;
+      color: #6b7280;
+      margin: 0;
+  }
+  .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+  }
+  .feedback-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  }
+  .feedback-label {
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.95rem;
+  }
+  .feedback-select, .feedback-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s ease;
+  }
+  .feedback-select:focus, .feedback-textarea:focus {
+      outline: none;
+      border-color: #1883FD;
+      box-shadow: 0 0 0 3px rgba(24, 131, 253, 0.1);
+  }
+  .feedback-textarea {
+      min-height: 100px;
+      resize: vertical;
+  }
+  .feedback-textarea::placeholder {
+      color: #9ca3af;
+  }
+  .rating-container {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+  }
+  .star {
+      font-size: 2rem;
+      color: #d1d5db;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+  }
+  .star:hover {
+      color: #fbbf24;
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.4));
+  }
+  .star.active {
+      color: #fbbf24;
+      transform: scale(1.05);
+  }
+  .feedback-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+  }
+  .feedback-btn {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+  }
+  .feedback-btn-primary {
+      background: linear-gradient(135deg, #1883FD 0%, #0066cc 100%);
+      color: white;
+  }
+  .feedback-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(24, 131, 253, 0.4);
+  }
+  .feedback-btn-secondary {
+      background: #f3f4f6;
+      color: #6b7280;
+      border: 2px solid #e5e7eb;
+  }
+  .feedback-btn-secondary:hover {
+      background: #e5e7eb;
+      color: #4b5563;
+  }
+  .feedback-btn:active {
+      transform: translateY(0);
+  }
+  .feedback-btn-primary::before {
+      content: "✈️";
+  }
+  .feedback-btn-secondary::before {
+      content: "⏭️";
+  }
+  @media (max-width: 768px) {
+      .feedback-modal-container {
+          padding: 24px;
+          margin: 20px;
+          max-width: calc(100% - 40px);
+      }
+      .feedback-modal-header h2 {
+          font-size: 1.5rem;
+      }
+      .star {
+          font-size: 1.8rem;
+      }
+      .feedback-actions {
+          flex-direction: column;
+      }
+  }
+  </style>
+</head>
+<body>
+  <div id="feedbackModal" class="feedback-modal-overlay" style="display: flex;">
+    <div class="feedback-modal-container">
+        <div class="feedback-modal-header">
+            <h2>Share Your Call Experience</h2>
+            <p class="feedback-subtitle">Help us improve by sharing your thoughts about this call</p>
+        </div>
+        <form id="employeeFeedbackForm" class="feedback-form">
+            <div class="feedback-group">
+                <label class="feedback-label">Overall Rating</label>
+                <div class="rating-container">
+                    <span class="star" data-rating="1">★</span>
+                    <span class="star" data-rating="2">★</span>
+                    <span class="star" data-rating="3">★</span>
+                    <span class="star" data-rating="4">★</span>
+                    <span class="star" data-rating="5">★</span>
+                </div>
+            </div>
+            <div class="feedback-group" id="likedMostGroup">
+                <label class="feedback-label">What did you like the most?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="likedMost" value="Call Accuracy"> Call Accuracy</label><br>
+                    <label><input type="checkbox" name="likedMost" value="Voice Clarity"> Voice Clarity</label><br>
+                    <label><input type="checkbox" name="likedMost" value="Translation Speed"> Translation Speed</label><br>
+                    <label><input type="checkbox" name="likedMost" value="Issue Resolution"> Issue Resolution</label>
+                </div>
+            </div>
+            <div class="feedback-group" id="wentWrongGroup" style="display:none;">
+                <label class="feedback-label">What didn't you like?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="wentWrong" value="Inaccurate Translation"> Inaccurate Translation</label><br>
+                    <label><input type="checkbox" name="wentWrong" value="Poor Voice Clarity"> Poor Voice Clarity</label><br>
+                    <label><input type="checkbox" name="wentWrong" value="Major Delay in Translation"> Major Delay in Translation</label><br>
+                    <label><input type="checkbox" name="wentWrong" value="Communication Not Effective"> Communication Not Effective</label><br>
+                    <label><input type="checkbox" name="wentWrong" value="Language Not Detected Properly"> Language Not Detected Properly</label>
+                </div>
+            </div>
+            <div class="feedback-group">
+                <label class="feedback-label" for="feedbackMessage">Suggestions / Issues Faced <span style='font-size:1.2em;'>📝</span></label>
+                <textarea class="feedback-textarea" id="feedbackMessage" name="feedback" 
+                    placeholder="Tell us about your suggestions or issues faced..." required></textarea>
+            </div>
+            <div class="feedback-actions">
+                <button type="button" id="skipFeedbackBtn" class="feedback-btn feedback-btn-secondary">
+                    Skip for Now
+                </button>
+                <button type="submit" class="feedback-btn feedback-btn-primary">
+                    Submit Feedback
+                </button>
+            </div>
+        </form>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Star rating functionality
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+    const likedMostGroup = document.getElementById('likedMostGroup');
+    const wentWrongGroup = document.getElementById('wentWrongGroup');
+    function updateFeedbackGroups() {
+      if (selectedRating >= 4) {
+        likedMostGroup.style.display = '';
+        wentWrongGroup.style.display = 'none';
+      } else if (selectedRating > 0) {
+        likedMostGroup.style.display = 'none';
+        wentWrongGroup.style.display = '';
+      } else {
+        likedMostGroup.style.display = 'none';
+        wentWrongGroup.style.display = 'none';
+      }
+    }
+    if (stars.length > 0) {
+      stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+          selectedRating = index + 1;
+          updateStars();
+          updateFeedbackGroups();
+        });
+        star.addEventListener('mouseenter', () => {
+          highlightStars(index + 1);
+        });
+      });
+      const ratingContainer = document.querySelector('.rating-container');
+      if (ratingContainer) {
+        ratingContainer.addEventListener('mouseleave', () => {
+          updateStars();
+        });
+      }
+    }
+    function highlightStars(rating) {
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+    function updateStars() {
+      highlightStars(selectedRating);
+    }
+    // Form submission
+    const feedbackForm = document.getElementById('employeeFeedbackForm');
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const feedbackMessage = document.getElementById('feedbackMessage');
+        if (!feedbackMessage) {
+          return;
+        }
+        let likedMost = [];
+        let wentWrong = [];
+        if (selectedRating >= 4) {
+          likedMost = Array.from(feedbackForm.querySelectorAll('input[name="likedMost"]:checked')).map(cb => cb.value);
+        } else if (selectedRating > 0) {
+          wentWrong = Array.from(feedbackForm.querySelectorAll('input[name="wentWrong"]:checked')).map(cb => cb.value);
+        }
+        const formData = {
+          rating: selectedRating,
+          likedMost: likedMost,
+          wentWrong: wentWrong,
+          feedback: feedbackMessage.value,
+          timestamp: new Date().toISOString(),
+          userEmail: localStorage.getItem('lingueraLoggedInUser')
+        };
+        // Validate rating
+        if (selectedRating === 0) {
+          alert('Please select a rating!');
+          return;
+        }
+        // Validate required fields
+        if (!feedbackMessage.value.trim()) {
+          alert('Please fill in all required fields!');
+          return;
+        }
+        console.log('Feedback data:', formData);
+        // Store feedback in feedback_response folder via server API
+        try {
+          await fetch('/api/feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+          console.log('Feedback sent to server for storage');
+        } catch (error) {
+          console.error('Error sending feedback to server:', error);
+        }
+        // Simulate form submission with loading state
+        const submitBtn = feedbackForm.querySelector('.feedback-btn-primary');
+        if (submitBtn) {
+          const originalHTML = submitBtn.innerHTML;
+          submitBtn.innerHTML = '✅ Submitting...';
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            alert('Thank you for your feedback! We appreciate your input.');
+            // Hide modal
+            document.getElementById('feedbackModal').style.display = 'none';
+            // Reset form
+            feedbackForm.reset();
+            selectedRating = 0;
+            updateStars();
+            updateFeedbackGroups();
+            // Redirect to index page
+            window.location.href = 'index.html';
+          }, 1500);
+        }
+      });
+    }
+    // Skip feedback button
+    const skipBtn = document.getElementById('skipFeedbackBtn');
+    if (skipBtn) {
+      skipBtn.addEventListener('click', () => {
+        document.getElementById('feedbackModal').style.display = 'none';
+        window.location.href = 'index.html';
+      });
+    }
+    // Close modal when clicking outside
+    const modal = document.getElementById('feedbackModal');
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          window.location.href = 'index.html';
+        }
+      });
+    }
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('feedbackModal');
+        if (modal && modal.style.display === 'flex') {
+          modal.style.display = 'none';
+          window.location.href = 'index.html';
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

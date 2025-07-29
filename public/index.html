@@ -1,0 +1,1591 @@
+<!-- Toast Notification Container -->
+<div id="toast-container"
+  style="position: fixed; top: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 12px;">
+</div>
+<style>
+  .toast {
+    min-width: 220px;
+    max-width: 350px;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #fff;
+    padding: 16px 28px 16px 22px;
+    border-radius: 16px;
+    font-size: 1.08em;
+    box-shadow: 0 8px 32px rgba(24, 131, 253, 0.13), 0 2px 8px rgba(0, 0, 0, 0.10);
+    opacity: 0.98;
+    animation: toastIn 0.3s cubic-bezier(.4, 2, .6, 1) both;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    border: 1.5px solid #1883FD;
+    transition: box-shadow 0.2s, border 0.2s;
+    overflow: hidden;
+  }
+
+  .toast:hover {
+    box-shadow: 0 12px 36px rgba(24, 131, 253, 0.22), 0 4px 16px rgba(0, 0, 0, 0.13);
+    border: 1.5px solid #34a853;
+  }
+
+  .toast-success {
+    background: linear-gradient(135deg, #1883FD 0%, #0066cc 100%);
+    color: #fff;
+    border-color: #1883FD;
+  }
+
+  .toast-info {
+    background: linear-gradient(135deg, #333 0%, #444 100%);
+    color: #fff;
+    border-color: #333;
+  }
+
+  .toast-error {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+    color: #fff;
+    border-color: #d32f2f;
+  }
+
+  .toast button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 0;
+  }
+
+  .toast button:hover {
+    opacity: 1;
+    color: #34a853;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  @keyframes toastIn {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 0.97;
+    }
+  }
+</style>
+<script>
+  // Simple toast function
+  window.showToast = function (message, type = 'info', duration = 3200) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-' + type;
+    // Toast content wrapper
+    const content = document.createElement('span');
+    content.textContent = message;
+    toast.appendChild(content);
+    // Close button
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.style.background = 'none';
+    closeBtn.style.border = 'none';
+    closeBtn.style.color = 'inherit';
+    closeBtn.style.fontSize = '1.3em';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.marginLeft = '10px';
+    closeBtn.style.fontWeight = 'bold';
+    closeBtn.onclick = function () {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-20px)';
+      setTimeout(() => { if (toast.parentNode) container.removeChild(toast); }, 400);
+    };
+    toast.appendChild(closeBtn);
+    container.appendChild(toast);
+    // Auto-dismiss
+    const timeout = setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-20px)';
+      setTimeout(() => { if (toast.parentNode) container.removeChild(toast); }, 400);
+    }, duration);
+    // Prevent auto-dismiss if closed manually
+    closeBtn.addEventListener('click', () => clearTimeout(timeout));
+  };
+</script>
+<script>
+  // Patch: Replace alert for participant join/leave with toast
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.io && window.socket) {
+      window.socket.on('user-joined', function () {
+        showToast('A participant joined the room.', 'success');
+      });
+      window.socket.on('user-disconnected', function () {
+        showToast('A participant left the room.', 'info');
+      });
+    } else {
+      // Fallback: patch joinMeeting if used
+      const origJoinMeeting = window.joinMeeting;
+      window.joinMeeting = function (...args) {
+        if (typeof origJoinMeeting === 'function') origJoinMeeting.apply(this, args);
+        showToast('You joined the room.', 'success');
+      };
+    }
+  });
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Voice Call</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ovo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <!-- Fixed Navbar -->
+  <div class="navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <div class="navbar-title"
+      style="display: flex; align-items: center; justify-content: flex-start; margin-left: 0px;">
+      <img src="images/image.png" alt="logo" style="width: 150px">
+      <a
+        style="text-decoration:none; color:inherit; cursor:pointer; font-family: 'Ovo', serif !important; margin-left: 12px;">Linguera</a>
+    </div>
+    <div class="navbar-toggle" style="display: flex; align-items: center;">
+      <label class="switch-small" style="margin-left: 20px;">
+        <input type="checkbox" id="roleToggle">
+        <span class="slider-small"></span>
+      </label>
+      <span id="role-toggle-status"
+        style="font-size: 1.08em; color: #1883FD; font-weight: bold; margin-left: 8px;">Employee</span>
+    </div>
+  </div>
+
+  <!-- Sidebar Popup Menu -->
+  <div id="sidebar">
+    <button id="closeSidebar">&times;</button>
+    <a href="home.html#home">Home</a>
+    <a href="home.html#about">About Us</a>
+    <a href="home.html#testimonial">Testimonial</a>
+    <a href="home.html#contacts">Contacts</a>
+    <a href="dictionary.html">Dictionary</a>
+  </div>
+
+  <div class="container"
+    style="margin-top:80px; max-width: 1500px; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 0px 80px">
+    <div class="setup-panel-wrapper" id="setup-panel"
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div
+        style="flex: 0 0 50%; max-width: 50%; text-align: left; align-items: flex-start; display: flex; flex-direction: column;">
+        <h1 id="main-heading" style="font-size: 50px; color: black;">Welcome!</h1>
+        <p id="main-desc" style="margin-top: -35px; font-size: 18px; margin-bottom: 50px; color: #444;"></p>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+            const isEmployee = loggedInUser && /@employee\.com$/i.test(loggedInUser);
+            const heading = document.getElementById('main-heading');
+            const desc = document.getElementById('main-desc');
+            if (isEmployee) {
+              heading.textContent = "Welcome to the Help Desk!";
+              desc.textContent = "Got a question or an issue? — we'll ensure you're connected with the right agent and understood perfectly through our real-time translation.";
+            } else {
+              heading.textContent = "Welcome to the Agent Lobby!";
+              desc.textContent = "Monitor live calls, join active meetings, and assist employees in their preferred language. Stay ready to help and keep communication seamless!";
+            }
+          });
+        </script>
+        <div id="calls-summary-wrapper" style="margin-bottom: 8px; display: none;">
+          <span id="calls-count-label" style="font-size: 1.15em; font-weight: bold; color: #1883FD;"></span>
+        </div>
+        <div id="active-meetings"
+          style="margin: 0 0 15px 0; max-width: 600px; padding-bottom: 24px; padding-top: 8px; align-self: flex-start;">
+        </div>
+        <script>
+          // Show number of calls for agents above the active meetings list
+          document.addEventListener('DOMContentLoaded', function () {
+            const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+            const isAgent = loggedInUser && !/@employee\.com$/i.test(loggedInUser);
+            const callsSummaryWrapper = document.getElementById('calls-summary-wrapper');
+            const callsCountLabel = document.getElementById('calls-count-label');
+            const activeMeetingsDiv = document.getElementById('active-meetings');
+            if (isAgent && callsSummaryWrapper && callsCountLabel && activeMeetingsDiv) {
+              callsSummaryWrapper.style.display = 'block';
+              // Function to update call count
+              function updateCallsCount() {
+                // Count number of meeting entries (assuming each call is a child div or li)
+                let count = 0;
+                // Try to count direct children that represent calls (skip empty text nodes)
+                for (let i = 0; i < activeMeetingsDiv.children.length; i++) {
+                  const el = activeMeetingsDiv.children[i];
+                  if (el.nodeType === 1 && (el.tagName === 'DIV' || el.tagName === 'LI')) count++;
+                }
+                callsCountLabel.textContent = `Active Calls: ${count}`;
+              }
+              // Observe changes to active meetings
+              const observer = new MutationObserver(updateCallsCount);
+              observer.observe(activeMeetingsDiv, { childList: true, subtree: false });
+              // Initial count
+              updateCallsCount();
+            }
+          });
+        </script>
+
+        <div style="margin: 10px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+          <!-- Agent Availability (for employee view) -->
+          <div id="agent-availability-wrapper" style="display:none; margin-bottom: 10px;">
+            <span id="agent-availability-label" style="font-size: 1.08em; color: #34a853; font-weight: bold;"></span>
+          </div>
+          <!-- Agent Availability Toggle (for agent view) -->
+          <div id="agent-toggle-wrapper" style="display:none; margin-bottom: 10px; align-items: center; gap: 8px;">
+            <label style="font-size: 1.08em; font-weight: bold; color: #1883FD; margin-right: 10px;">Available for
+              Calls:</label>
+            <label class="switch-small">
+              <input type="checkbox" id="agent-available-toggle" checked>
+              <span class="slider-small"></span>
+            </label>
+            <span id="agent-available-status"
+              style="font-size: 1.08em; color: #34a853; font-weight: bold; margin-left: 6px;">Available</span>
+          </div>
+          <style>
+            /* Modern small toggle switch for agent availability */
+            .switch-small {
+              position: relative;
+              display: inline-block;
+              width: 36px;
+              height: 20px;
+              vertical-align: middle;
+            }
+
+            .switch-small input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+
+            .slider-small {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: #ccc;
+              transition: .2s;
+              border-radius: 20px;
+              box-shadow: 0 1px 4px rgba(24, 131, 253, 0.08);
+            }
+
+            .slider-small:before {
+              position: absolute;
+              content: "";
+              height: 14px;
+              width: 14px;
+              left: 3px;
+              bottom: 3px;
+              background: #fff;
+              transition: .2s;
+              border-radius: 50%;
+              box-shadow: 0 1px 4px rgba(24, 131, 253, 0.13);
+            }
+
+            .switch-small input:checked+.slider-small {
+              background: #34a853;
+            }
+
+            .switch-small input:checked+.slider-small:before {
+              transform: translateX(16px);
+            }
+
+            .slider-small:active:before {
+              width: 16px;
+            }
+
+            .switch-small {
+              position: relative;
+              display: inline-block;
+              width: 36px;
+              height: 20px;
+              vertical-align: middle;
+            }
+
+            .switch-small input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+
+            .slider-small {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: #ccc;
+              transition: .2s;
+              border-radius: 20px;
+              box-shadow: 0 1px 4px rgba(24, 131, 253, 0.08);
+            }
+
+            .slider-small:before {
+              position: absolute;
+              content: "";
+              height: 14px;
+              width: 14px;
+              left: 3px;
+              bottom: 3px;
+              background: #fff;
+              transition: .2s;
+              border-radius: 50%;
+              box-shadow: 0 1px 4px rgba(24, 131, 253, 0.13);
+            }
+
+            .switch-small input:checked+.slider-small {
+              background: #34a853;
+            }
+
+            .switch-small input:checked+.slider-small:before {
+              transform: translateX(16px);
+            }
+
+            .slider-small:active:before {
+              width: 16px;
+            }
+          </style>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const roleToggle = document.getElementById('roleToggle');
+              const roleStatus = document.getElementById('role-toggle-status');
+              // Read current role from localStorage
+              let loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+              if (!loggedInUser || /@employee\.com$/i.test(loggedInUser)) {
+                // Employee
+                roleToggle.checked = false;
+                roleStatus.textContent = 'Employee';
+                roleStatus.style.color = '#1883FD';
+                localStorage.setItem('lingueraLoggedInUser', 'user@employee.com');
+              } else {
+                // Agent
+                roleToggle.checked = true;
+                roleStatus.textContent = 'Agent';
+                roleStatus.style.color = '#34a853';
+                localStorage.setItem('lingueraLoggedInUser', 'user@agent.com');
+              }
+              // On toggle, update role and reload
+              roleToggle.addEventListener('change', function () {
+                if (roleToggle.checked) {
+                  localStorage.setItem('lingueraLoggedInUser', 'user@agent.com');
+                  roleStatus.textContent = 'Agent';
+                  roleStatus.style.color = '#34a853';
+                } else {
+                  localStorage.setItem('lingueraLoggedInUser', 'user@employee.com');
+                  roleStatus.textContent = 'Employee';
+                  roleStatus.style.color = '#1883FD';
+                }
+                window.location.reload();
+              });
+            });
+            // --- AGENT AVAILABILITY LOGIC (SOCKET-BASED) ---
+            document.addEventListener('DOMContentLoaded', function () {
+              const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+              const isEmployee = loggedInUser && /@employee\.com$/i.test(loggedInUser);
+              const isAgent = loggedInUser && !/@employee\.com$/i.test(loggedInUser);
+              const agentToggleWrapper = document.getElementById('agent-toggle-wrapper');
+              const agentAvailableToggle = document.getElementById('agent-available-toggle');
+              const agentAvailableStatus = document.getElementById('agent-available-status');
+              const agentAvailabilityWrapper = document.getElementById('agent-availability-wrapper');
+              const agentAvailabilityLabel = document.getElementById('agent-availability-label');
+
+              // AGENT: Show toggle and handle changes
+              if (isAgent && agentToggleWrapper && agentAvailableToggle && agentAvailableStatus) {
+                agentToggleWrapper.style.display = 'flex';
+                // Set initial state
+                agentAvailableToggle.checked = true;
+                agentAvailableStatus.textContent = 'Available';
+                agentAvailableStatus.style.color = '#34a853';
+                // Notify server: available on load
+                let socket = window.socket;
+                if (!socket && window.io) {
+                  socket = window.io();
+                  window.socket = socket;
+                }
+                if (socket && loggedInUser) {
+                  socket.emit('agent-availability-changed', { email: loggedInUser, available: true });
+                }
+                agentAvailableToggle.addEventListener('change', function () {
+                  if (agentAvailableToggle.checked) {
+                    agentAvailableStatus.textContent = 'Available';
+                    agentAvailableStatus.style.color = '#34a853';
+                    if (socket && loggedInUser) socket.emit('agent-availability-changed', { email: loggedInUser, available: true });
+                  } else {
+                    agentAvailableStatus.textContent = 'Unavailable';
+                    agentAvailableStatus.style.color = '#d32f2f';
+                    if (socket && loggedInUser) socket.emit('agent-availability-changed', { email: loggedInUser, available: false });
+                  }
+                });
+                // Remove from available list on logout or close
+                window.addEventListener('beforeunload', function () {
+                  if (socket && loggedInUser) socket.emit('agent-availability-changed', { email: loggedInUser, available: false });
+                });
+              }
+
+              // EMPLOYEE: Show number of available agents (real-time via socket, and update like active meetings)
+              function updateAgentCountDisplaySocket(count) {
+                if (isEmployee && agentAvailabilityWrapper && agentAvailabilityLabel) {
+                  agentAvailabilityWrapper.style.display = 'block';
+                  agentAvailabilityLabel.textContent = (typeof count === 'number' && !isNaN(count))
+                    ? (count === 1 ? 'Agent Available: 1' : `Agents Available: ${count}`)
+                    : 'No Agents Available';
+                  // Blue for available, red for none
+                  agentAvailabilityLabel.style.color = (typeof count === 'number' && count > 0) ? '#1883FD' : '#d32f2f';
+                } else if (isEmployee && agentAvailabilityWrapper) {
+                  agentAvailabilityWrapper.style.display = 'block';
+                  if (agentAvailabilityLabel) agentAvailabilityLabel.textContent = 'No Agents Available';
+                }
+              }
+
+              // Observe agent count changes and update UI (like active meetings)
+              function observeAgentCount() {
+                if (!isEmployee || !agentAvailabilityWrapper) return;
+                // Listen for DOM changes (in case agent count is updated by other scripts)
+                const observer = new MutationObserver(() => {
+                  // Optionally, could re-request count from server here if needed
+                  // But for now, just update color/text if changed
+                  const text = agentAvailabilityLabel.textContent;
+                  if (text && text.includes('Agent')) {
+                    const count = parseInt(text);
+                    agentAvailabilityLabel.style.color = count > 0 ? '#34a853' : '#d32f2f';
+                  }
+                });
+                observer.observe(agentAvailabilityLabel, { childList: true, subtree: true, characterData: true });
+              }
+
+              // Listen for agents-online event from server
+              function ensureSocketAndListen() {
+                let socket = window.socket;
+                if (!socket && window.io) {
+                  socket = window.io();
+                  window.socket = socket;
+                }
+                if (isEmployee && socket) {
+                  // Always remove previous listener to avoid duplicate updates
+                  if (typeof socket.off === 'function') socket.off('agents-online');
+                  socket.on('agents-online', function (count) {
+                    updateAgentCountDisplaySocket(count);
+                  });
+                  // Request the current count on load (use a dedicated event for count request)
+                  socket.emit('get-agents-online');
+                }
+                // Fallback: if no socket or no event, show "No Agents Available"
+                setTimeout(function () {
+                  if (isEmployee && agentAvailabilityWrapper && agentAvailabilityLabel && agentAvailabilityLabel.textContent === '') {
+                    agentAvailabilityWrapper.style.display = 'block';
+                    agentAvailabilityLabel.textContent = 'No Agents Available';
+                    agentAvailabilityLabel.style.color = '#d32f2f';
+                  }
+                }, 2000);
+              }
+              // Run immediately and also after a short delay in case socket is late
+              ensureSocketAndListen();
+              setTimeout(ensureSocketAndListen, 500);
+              observeAgentCount();
+            });
+          </script>
+          <!-- New Join with Default Language Button -->
+          <button id="join-default-lang-btn"
+            style="background: #1883FD; color: white; border-radius: 50px; padding: 10px 32px; border: none; font-size: 18px; font-weight: bold; margin-bottom: 8px; display: none;">Get
+            Support</button>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span id="lang-select-label" style="font-weight: bold; margin-right: 10px;">Language:</span>
+            <select id="language-select"
+              style="display:none; cursor: pointer; padding: 10px 15px; border-radius: 15px;">
+              <option value="en-US">English (US)</option>
+              <option value="hi-IN">Hindi</option>
+              <option value="fr-FR">French</option>
+              <option value="es-ES">Spanish</option>
+              <option value="de-DE">German</option>
+            </select>
+            <span id="quick-connect-btns" style="display:none;">
+              <button class="lang-quick-btn" data-lang="hi-IN"
+                style="background: #1883FD; color: white; border-radius: 50px; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">Hindi</button>
+              <button class="lang-quick-btn" data-lang="fr-FR"
+                style="background: #1883FD; color: white; border-radius: 50px; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">French</button>
+              <button class="lang-quick-btn" data-lang="es-ES"
+                style="background: #1883FD; color: white; border-radius: 50px; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">Spanish</button>
+              <button class="lang-quick-btn" data-lang="de-DE"
+                style="background: #1883FD; color: white; border-radius: 50px; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">German</button>
+            </span>
+            <label for="room-type-select" id="room-type-label"
+              style="margin: 0; margin-left: 50px; font-weight: bold;">Room Type:</label>
+            <select id="room-type-select">
+              <option value="public" selected>Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+        </div>
+        <script>
+          // Show Join (Default Language) button for employees with a default language
+          document.addEventListener('DOMContentLoaded', function () {
+            const joinDefaultBtn = document.getElementById('join-default-lang-btn');
+            const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+            const defaultLang = localStorage.getItem('lingueraDefaultLanguage');
+            if (loggedInUser && /@employee\.com$/i.test(loggedInUser) && defaultLang) {
+              joinDefaultBtn.style.display = 'inline-block';
+            }
+            joinDefaultBtn.onclick = function () {
+              // Generate a random room ID and create+join as employee with default language
+              const roomId = Math.random().toString(36).substring(2, 10);
+              localStorage.setItem('lastRoomId', roomId);
+              if (typeof window.createAndJoinRoom === 'function') {
+                window.createAndJoinRoom(roomId, defaultLang);
+              } else {
+                // Fallback: set room id and redirect
+                const roomIdInput = document.getElementById('room-id');
+                if (roomIdInput) roomIdInput.value = roomId;
+                // Simulate join button click
+                const joinBtn = document.getElementById('join-btn');
+                if (joinBtn) joinBtn.click();
+              }
+            };
+          });
+        </script>
+        <div style="display: flex; justify-content: space-between; gap: 15px; margin-top: 20px; margin-bottom: 20px;">
+          <button id="create-btn" style="background-color: #1883FD; border-radius: 25px; padding: 12.5px 25px;">Create
+            Room</button>
+
+          <input type="text" id="room-id" style="border-radius: 15px; border: solid 1.5px; padding: 12.5px 25px;"
+            placeholder="Enter room ID">
+          <button id="join-btn"
+            style="background-color: transparent; color: #555555; font-weight: bold; padding: 0;">Join</button>
+        </div>
+        <!-- Quick Connect UI (for employee only) -->
+        <div id="quick-connect-wrapper" style="display: none; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <select id="quickConnectLang" style="padding: 8px 16px; border-radius: 20px;">
+            <option value="en-US">English (US)</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="fr-FR">French</option>
+            <option value="es-ES">Spanish</option>
+            <option value="de-DE">German</option>
+          </select>
+          <button id="quickConnectBtn"
+            style="background: #34a853; color: white; border-radius: 50px; padding: 10px 24px; border: none; font-size: 16px; cursor: pointer;">Quick
+            Connect</button>
+        </div>
+      </div>
+      <div class="setup-panel-image"
+        style="flex: 0 0 50%; max-width: 50%; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 40px;">
+          <span id="img-left" style="font-size: 32px; cursor: pointer; user-select: none;">&#60;</span>
+          <img id="main-setup-img" src="images/premium_photo-1661761404923-dd79fbc351fd.avif" alt="Global Communication"
+            style="max-width: 350px; height: 350px; width: 100%; border-radius: 250px; object-fit: cover;">
+          <span id="img-right" style="font-size: 32px; cursor: pointer; user-select: none;">&#62;</span>
+        </div>
+        <div id="img-caption" style="margin-top: 30px; font-size: 17px; color: #333; text-align: center; width: 50%;">
+          Jump into a public room or start a private one with just a click.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="call-and-transcript" class="center-wrapper hidden"
+    style="max-width: 1500px; align-items: center; justify-content: center; padding: 0px 80px">
+    <div id="transcript-container" style="gap: 80px; margin-bottom: 20px;">
+      <div id="call-panel"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 0 80px; margin-top: 30px;">
+        <div style="display: flex-row;">
+          <h2 id="room-display" style="text-align: left;"></h2>
+          <div id="user-role-language" style="font-size: 15px; text-align:left; color:#555;"></div>
+        </div>
+        <div id="status-message">Waiting for connection...</div>
+        <!-- Timer display -->
+        <div id="call-timer">00:00:00</div>
+        <div style="display: flex; gap: 10px;">
+          <button id="mute-btn">
+            <img id="mute-icon" src="images/icon_mic.svg" alt="Unmute" style="width:24px;height:24px;">
+          </button>
+          <button id="hangup-btn" title="Hang Up">
+            <img src="images/Dial icon.svg" alt="Hang Up" style="width:24px;height:24px;">
+          </button>
+        </div>
+        <div class="volume-container">
+          <label>Local Volume</label>
+          <div class="volume-bar-container">
+            <div id="local-volume" class="volume-bar"></div>
+          </div>
+        </div>
+        <script>
+          // --- CALL TIMER LOGIC (from js/index.html reference) ---
+          let callTimerInterval = null;
+          let callStartTime = null;
+          let timer = "00:00:00";        // Shows the current ticking timer
+          let lastDuration = "00:00:00"; // Stores the last call duration
+
+          function formatDuration(seconds) {
+            const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+            const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            return `${h}:${m}:${s}`;
+          }
+
+          function startCallTimer() {
+            callStartTime = Date.now();
+            const timerEl = document.getElementById('call-timer');
+            if (callTimerInterval) clearInterval(callTimerInterval);
+            timerEl.textContent = "00:00:00";
+            timer = "00:00:00";
+            callTimerInterval = setInterval(() => {
+              const elapsed = Math.floor((Date.now() - callStartTime) / 1000);
+              timer = formatDuration(elapsed);
+              timerEl.textContent = timer;
+            }, 1000);
+          }
+
+          function stopCallTimer() {
+            const timerEl = document.getElementById('call-timer');
+            lastDuration = timer; // Store the last duration before reset
+            if (callTimerInterval) clearInterval(callTimerInterval);
+            // Reset timer and lastDuration
+            timer = "00:00:00";
+            lastDuration = "00:00:00";
+            timerEl.textContent = timer;
+            callStartTime = null;
+          }
+
+          // Start timer when call panel is shown
+          document.addEventListener('DOMContentLoaded', function () {
+            const callAndTranscript = document.getElementById('call-and-transcript');
+            const hangupBtn = document.getElementById('hangup-btn');
+
+            // Start timer when panel is shown
+            const showObserver = new MutationObserver(() => {
+              if (!callAndTranscript.classList.contains('hidden')) {
+                startCallTimer();
+              }
+            });
+            showObserver.observe(callAndTranscript, { attributes: true, attributeFilter: ['class'] });
+
+            // Stop timer on hangup
+            if (hangupBtn) {
+              hangupBtn.addEventListener('click', function () {
+                stopCallTimer();
+              });
+            }
+
+            // Reset timer if panel is hidden for any other reason
+            const hideObserver = new MutationObserver(() => {
+              if (callAndTranscript.classList.contains('hidden')) {
+                stopCallTimer();
+              }
+            });
+            hideObserver.observe(callAndTranscript, { attributes: true, attributeFilter: ['class'] });
+          });
+        </script>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+        <div id="chat-combined" class="chat-box"
+          style="width: 1200px; background-color: white; border: 1px solid black; height: 540px; margin-top: -90px; border-radius: 20px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback Modal (Only for Employees) -->
+  <div id="feedbackModal" class="feedback-modal-overlay" style="display: none;">
+    <div class="feedback-modal-container">
+      <div class="feedback-modal-header">
+        <h2>Share Your Call Experience</h2>
+        <p class="feedback-subtitle">Help us improve by sharing your thoughts about this call</p>
+      </div>
+      <form id="employeeFeedbackForm" class="feedback-form">
+        <div class="feedback-group">
+          <label class="feedback-label">Overall Rating</label>
+          <div class="rating-container">
+            <span class="star" data-rating="1">★</span>
+            <span class="star" data-rating="2">★</span>
+            <span class="star" data-rating="3">★</span>
+            <span class="star" data-rating="4">★</span>
+            <span class="star" data-rating="5">★</span>
+          </div>
+        </div>
+        <div class="feedback-group" id="likedMostGroup">
+          <label class="feedback-label">What did you like the most?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="likedMost" value="Call Accuracy"> Call Accuracy</label><br>
+            <label><input type="checkbox" name="likedMost" value="Voice Clarity"> Voice Clarity</label><br>
+            <label><input type="checkbox" name="likedMost" value="Translation Speed"> Translation Speed</label><br>
+            <label><input type="checkbox" name="likedMost" value="Issue Resolution"> Issue Resolution</label>
+          </div>
+        </div>
+        <div class="feedback-group" id="wentWrongGroup" style="display:none;">
+          <label class="feedback-label">What went wrong during the call?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="wentWrong" value="Inaccurate Translation"> Inaccurate
+              Translation</label><br>
+            <label><input type="checkbox" name="wentWrong" value="Poor Voice Clarity"> Poor Voice Clarity</label><br>
+            <label><input type="checkbox" name="wentWrong" value="Major Delay in Translation"> Major Delay in
+              Translation</label><br>
+            <label><input type="checkbox" name="wentWrong" value="Communication Not Effective"> Communication Not
+              Effective</label><br>
+            <label><input type="checkbox" name="wentWrong" value="Language Not Detected Properly"> Language Not Detected
+              Properly</label>
+          </div>
+        </div>
+        <div class="feedback-group">
+          <label class="feedback-label" for="feedbackMessage">Suggestions / Issues Faced <span
+              style='font-size:1.2em;'>📝</span></label>
+          <textarea class="feedback-textarea" id="feedbackMessage" name="feedback"
+            placeholder="Tell us about your suggestions or issues faced..." required></textarea>
+        </div>
+        <div class="feedback-actions">
+          <button type="button" id="skipFeedbackBtn" class="feedback-btn feedback-btn-secondary">
+            Skip for Now
+          </button>
+          <button type="submit" class="feedback-btn feedback-btn-primary">
+            Submit Feedback
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .feedback-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .feedback-modal-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 550px;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.4s ease-out;
+      position: relative;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .feedback-modal-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .feedback-modal-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .feedback-subtitle {
+      font-size: 1rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .feedback-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .feedback-label {
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+
+    .feedback-select,
+    .feedback-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .feedback-select:focus,
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: #1883FD;
+      box-shadow: 0 0 0 3px rgba(24, 131, 253, 0.1);
+    }
+
+    .feedback-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .feedback-textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .rating-container {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .star {
+      font-size: 2rem;
+      color: #d1d5db;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .star:hover {
+      color: #fbbf24;
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.4));
+    }
+
+    .star.active {
+      color: #fbbf24;
+      transform: scale(1.05);
+    }
+
+    .feedback-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .feedback-btn {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .feedback-btn-primary {
+      background: linear-gradient(135deg, #1883FD 0%, #0066cc 100%);
+      color: white;
+    }
+
+    .feedback-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(24, 131, 253, 0.4);
+    }
+
+    .feedback-btn-secondary {
+      background: #f3f4f6;
+      color: #6b7280;
+      border: 2px solid #e5e7eb;
+    }
+
+    .feedback-btn-secondary:hover {
+      background: #e5e7eb;
+      color: #4b5563;
+    }
+
+    .feedback-btn:active {
+      transform: translateY(0);
+    }
+
+    .feedback-btn-primary::before {
+      content: "✈️";
+    }
+
+    .feedback-btn-secondary::before {
+      content: "⏭️";
+    }
+
+    @media (max-width: 768px) {
+      .feedback-modal-container {
+        padding: 24px;
+        margin: 20px;
+        max-width: calc(100% - 40px);
+      }
+
+      .feedback-modal-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .star {
+        font-size: 1.8rem;
+      }
+
+      .feedback-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Define feedback modal functions globally
+      window.showEmployeeFeedbackModal = function () {
+        const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+        // Only show for employees
+        if (!loggedInUser || !/@employee\.com$/i.test(loggedInUser)) {
+          console.log('Feedback modal: Not an employee, skipping');
+          return false;
+        }
+        const modal = document.getElementById('feedbackModal');
+        if (!modal) {
+          console.error('Feedback modal element not found');
+          return false;
+        }
+        console.log('Showing feedback modal for employee');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Reset form when opening
+        const form = document.getElementById('employeeFeedbackForm');
+        if (form) {
+          form.reset();
+        }
+        // Reset star rating
+        selectedRating = 0;
+        updateStars();
+        updateFeedbackGroups();
+        return true;
+      };
+      window.hideEmployeeFeedbackModal = function () {
+        const modal = document.getElementById('feedbackModal');
+        if (!modal) return;
+        console.log('Hiding feedback modal');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      };
+      // Star rating functionality
+      const stars = document.querySelectorAll('.star');
+      let selectedRating = 0;
+      const likedMostGroup = document.getElementById('likedMostGroup');
+      const wentWrongGroup = document.getElementById('wentWrongGroup');
+      function updateFeedbackGroups() {
+        if (selectedRating >= 4) {
+          likedMostGroup.style.display = '';
+          wentWrongGroup.style.display = 'none';
+        } else if (selectedRating > 0) {
+          likedMostGroup.style.display = 'none';
+          wentWrongGroup.style.display = '';
+        } else {
+          likedMostGroup.style.display = 'none';
+          wentWrongGroup.style.display = 'none';
+        }
+      }
+      if (stars.length > 0) {
+        stars.forEach((star, index) => {
+          star.addEventListener('click', () => {
+            selectedRating = index + 1;
+            updateStars();
+            updateFeedbackGroups();
+          });
+          star.addEventListener('mouseenter', () => {
+            highlightStars(index + 1);
+          });
+        });
+        const ratingContainer = document.querySelector('.rating-container');
+        if (ratingContainer) {
+          ratingContainer.addEventListener('mouseleave', () => {
+            updateStars();
+          });
+        }
+      }
+      function highlightStars(rating) {
+        stars.forEach((star, index) => {
+          if (index < rating) {
+            star.classList.add('active');
+          } else {
+            star.classList.remove('active');
+          }
+        });
+      }
+      function updateStars() {
+        highlightStars(selectedRating);
+      }
+      // Make updateStars available globally for reset function
+      window.updateStars = updateStars;
+      // Form submission
+      const feedbackForm = document.getElementById('employeeFeedbackForm');
+      if (feedbackForm) {
+        feedbackForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const feedbackMessage = document.getElementById('feedbackMessage');
+          if (!feedbackMessage) {
+            return;
+          }
+          let likedMost = [];
+          let wentWrong = [];
+          if (selectedRating >= 4) {
+            likedMost = Array.from(feedbackForm.querySelectorAll('input[name="likedMost"]:checked')).map(cb => cb.value);
+          } else if (selectedRating > 0) {
+            wentWrong = Array.from(feedbackForm.querySelectorAll('input[name="wentWrong"]:checked')).map(cb => cb.value);
+          }
+          const formData = {
+            rating: selectedRating,
+            likedMost: likedMost,
+            wentWrong: wentWrong,
+            feedback: feedbackMessage.value,
+            timestamp: new Date().toISOString(),
+            userEmail: localStorage.getItem('lingueraLoggedInUser')
+          };
+          // Validate rating
+          if (selectedRating === 0) {
+            showToast('Please select a rating!', 'error');
+            return;
+          }
+          // Validate required fields
+          if (!feedbackMessage.value.trim()) {
+            showToast('Please fill in all required fields!', 'error');
+            return;
+          }
+          console.log('Feedback data:', formData);
+          // Store feedback in feedback_response folder via server API
+          try {
+            await fetch('/api/feedback', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData)
+            });
+            console.log('Feedback sent to server for storage');
+          } catch (error) {
+            console.error('Error sending feedback to server:', error);
+          }
+          // Simulate form submission with loading state
+          const submitBtn = feedbackForm.querySelector('.feedback-btn-primary');
+          if (submitBtn) {
+            const originalHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML = '✅ Submitting...';
+            submitBtn.disabled = true;
+            setTimeout(() => {
+              showToast('Thank you for your feedback! We appreciate your input.', 'success');
+              // Hide modal
+              window.hideEmployeeFeedbackModal();
+              // Reset form
+              feedbackForm.reset();
+              selectedRating = 0;
+              updateStars();
+              updateFeedbackGroups();
+              // Redirect to index page
+              console.log('Redirecting to index.html');
+              window.location.href = 'index.html';
+            }, 1500);
+          }
+        });
+      }
+      // Skip feedback button
+      const skipBtn = document.getElementById('skipFeedbackBtn');
+      if (skipBtn) {
+        skipBtn.addEventListener('click', () => {
+          console.log('Feedback skipped');
+          window.hideEmployeeFeedbackModal();
+          // Redirect to index page
+          window.location.href = 'index.html';
+        });
+      }
+      // Close modal when clicking outside
+      const modal = document.getElementById('feedbackModal');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            console.log('Modal clicked outside, closing');
+            window.hideEmployeeFeedbackModal();
+            // Redirect to index page
+            window.location.href = 'index.html';
+          }
+        });
+      }
+      // Close modal with Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          const modal = document.getElementById('feedbackModal');
+          if (modal && modal.style.display === 'flex') {
+            console.log('Escape key pressed, closing modal');
+            window.hideEmployeeFeedbackModal();
+            window.location.href = 'index.html';
+          }
+        }
+      });
+      console.log('Feedback modal script initialized');
+    });
+  </script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    // Ensure socket is initialized globally before any other script uses it
+    window.socket = window.io();
+  </script>
+  <script type="module" src="js/app.js"></script>
+  <script>
+    // Fallback: define createAndJoinRoom if not already defined by app.js
+    if (typeof window.createAndJoinRoom !== 'function') {
+      window.createAndJoinRoom = function (roomId, lang) {
+        // Use socket.io to emit a createRoom event, then join the room
+        if (window.io) {
+          const socket = window.socket || window.io();
+          window.socket = socket;
+          // Patch: match backend expects (roomId, lang) as separate args, not an object
+          socket.emit('createRoom', roomId, lang);
+          socket.once('createRoomResult', (response) => {
+            if (response && response.success) {
+              // After creation, join the room (simulate the joinMeeting logic)
+              if (typeof window.joinMeeting === 'function') {
+                window.joinMeeting(roomId, lang);
+              } else {
+                // Fallback: reload with params
+                window.location.href = `index.html?room=${encodeURIComponent(roomId)}&lang=${encodeURIComponent(lang)}`;
+              }
+            } else {
+              showToast('Room creation failed: ' + (response && (response.error || response.message) ? (response.error || response.message) : 'Unknown error'), 'error');
+            }
+          });
+        } else {
+          // Fallback: reload with params
+          window.location.href = `index.html?room=${encodeURIComponent(roomId)}&lang=${encodeURIComponent(lang)}`;
+        }
+      };
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+      const isEmployee = loggedInUser && /@employee\.com$/i.test(loggedInUser);
+      const chatCombined = document.getElementById('chat-combined');
+      if (chatCombined) {
+        const observer = new MutationObserver(() => {
+          chatCombined.scrollTop = chatCombined.scrollHeight;
+        });
+        observer.observe(chatCombined, { childList: true, subtree: true });
+      }
+      // Hide "Create Room" and "Room Type" for employee, show Quick Connect inline instead
+      if (isEmployee) {
+        // Hide Create Room button
+        const createBtn = document.getElementById('create-btn');
+        if (createBtn) createBtn.style.display = 'none';
+
+        // Show inline Quick Connect button
+        const quickConnectBtnInline = document.getElementById('quickConnectBtn-inline');
+        if (quickConnectBtnInline) quickConnectBtnInline.style.display = 'inline-block';
+
+        // Hide Room Type label and select
+        const roomTypeLabel = document.getElementById('room-type-label');
+        if (roomTypeLabel) roomTypeLabel.style.display = 'none';
+        const roomTypeSelect = document.getElementById('room-type-select');
+        if (roomTypeSelect) roomTypeSelect.style.display = 'none';
+
+        // Show the separate Quick Connect wrapper (for employee only)
+        const quickConnectWrapper = document.getElementById('quick-connect-wrapper');
+        if (quickConnectWrapper) quickConnectWrapper.style.display = 'none';
+
+        // Hide active meetings for employee
+        const activeMeetingsDiv = document.getElementById('active-meetings');
+        if (activeMeetingsDiv) activeMeetingsDiv.style.display = 'none';
+      } else {
+        // Hide inline Quick Connect for agent, hide the wrapper version
+        const quickConnectBtnInline = document.getElementById('quickConnectBtn-inline');
+        if (quickConnectBtnInline) quickConnectBtnInline.style.display = 'none';
+        const quickConnectWrapper = document.getElementById('quick-connect-wrapper');
+        if (quickConnectWrapper) quickConnectWrapper.style.display = 'none';
+      }
+
+      // Hide join-btn for agent
+      if (loggedInUser && !/@employee\.com$/i.test(loggedInUser)) {
+        const joinBtn = document.getElementById('join-btn');
+        if (joinBtn) joinBtn.style.display = 'none';
+      }
+
+      // Show dropdown for agent, buttons for employee
+      var _loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+      var _isEmployee = _loggedInUser && /@employee\.com$/i.test(_loggedInUser);
+      const langSelect = document.getElementById('language-select');
+      const quickBtns = document.getElementById('quick-connect-btns');
+      if (_isEmployee) {
+        if (langSelect) langSelect.style.display = 'none';
+        if (quickBtns) quickBtns.style.display = 'inline-block';
+        // Quick Connect language buttons logic
+        document.querySelectorAll('.lang-quick-btn').forEach(function (btn) {
+          if (btn) {
+            btn.onclick = function () {
+              const lang = btn.getAttribute('data-lang');
+              const roomId = Math.random().toString(36).substring(2, 10);
+              if (typeof window.createAndJoinRoom === 'function') {
+                window.createAndJoinRoom(roomId, lang);
+              } else {
+                showToast('Room creation function not found.', 'error');
+              }
+            };
+          }
+        });
+      } else {
+        if (langSelect) langSelect.style.display = 'inline-block';
+        if (quickBtns) quickBtns.style.display = 'none';
+      }
+
+      // Quick Connect logic for employee (wrapper)
+      const quickConnectBtn = document.getElementById('quickConnectBtn');
+      if (quickConnectBtn) {
+        quickConnectBtn.onclick = function () {
+          // Use the language from the quick connect language select
+          const quickConnectLang = document.getElementById('quickConnectLang');
+          const lang = quickConnectLang ? quickConnectLang.value : 'en-US';
+          // Generate a random room ID
+          const roomId = Math.random().toString(36).substring(2, 10);
+          if (typeof window.createAndJoinRoom === 'function') {
+            window.createAndJoinRoom(roomId, lang);
+          } else {
+            showToast('Room creation function not found.', 'error');
+          }
+        };
+      }
+
+      // Sidebar open/close logic
+      const navbarMenuBtn = document.querySelector('.navbar-menu-btn');
+      if (navbarMenuBtn) {
+        navbarMenuBtn.onclick = function (e) {
+          const sidebar = document.getElementById('sidebar');
+          if (sidebar) {
+            sidebar.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+          e.stopPropagation();
+        };
+      }
+      const closeSidebarBtn = document.getElementById('closeSidebar');
+      if (closeSidebarBtn) {
+        closeSidebarBtn.onclick = function (e) {
+          const sidebar = document.getElementById('sidebar');
+          if (sidebar) {
+            sidebar.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+          e.stopPropagation();
+        };
+      }
+      window.addEventListener('click', function (e) {
+        const sidebar = document.getElementById('sidebar');
+        if (
+          sidebar &&
+          sidebar.classList.contains('open') &&
+          !sidebar.contains(e.target) &&
+          !e.target.classList.contains('navbar-menu-btn')
+        ) {
+          sidebar.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+      const sidebarDiv = document.getElementById('sidebar');
+      if (sidebarDiv) {
+        sidebarDiv.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
+
+      // Dummy login/logout logic for navbar (customize as needed)
+      const navbarLoginBtn = document.getElementById('navbarLoginBtn');
+      const navbarLogoutBtn = document.getElementById('navbarLogoutBtn');
+      if (navbarLoginBtn) {
+        navbarLoginBtn.onclick = function (e) {
+          if (navbarLoginBtn.textContent.trim().toLowerCase() === "log in") {
+            showToast("Login modal would open here (implement as needed).", 'info');
+            e.stopPropagation();
+          }
+        };
+      }
+      if (navbarLogoutBtn) {
+        navbarLogoutBtn.onclick = function () {
+          navbarLoginBtn.textContent = "Log In";
+          navbarLoginBtn.style = "padding: 10px 20px;font-size: 16px; background-color: #1883FD; color: white; border: none; border-radius: 50px; cursor: pointer;";
+          navbarLogoutBtn.style.display = "none";
+        };
+      }
+
+      // Change join button color when input is not empty
+      const roomIdInput = document.getElementById('room-id');
+      const joinBtn = document.getElementById('join-btn');
+      if (joinBtn && roomIdInput) {
+        joinBtn.style.color = roomIdInput.value.trim().length > 0 ? '#1883FD' : '#555555';
+        roomIdInput.addEventListener('input', function () {
+          if (roomIdInput.value.trim().length > 0) {
+            joinBtn.style.color = '#1883FD';
+          } else {
+            joinBtn.style.color = '#555555';
+          }
+        });
+        roomIdInput.addEventListener('focus', function () {
+          roomIdInput.style.borderColor = '#1883FD';
+        });
+        roomIdInput.addEventListener('blur', function () {
+          if (roomIdInput.value.trim().length === 0) {
+            roomIdInput.style.borderColor = '#000';
+          }
+        });
+      }
+
+      // Image carousel logic with captions
+      const images = [
+        {
+          src: "images/premium_photo-1661761404923-dd79fbc351fd.avif",
+          caption: "Jump into a public room or start a private one with just a click."
+        },
+        {
+          src: "images/premium_photo-1726768992426-768a7beaa4cc.jpg",
+          caption: "Share laughs, ideas, and cultures without the limits of language."
+        },
+        {
+          src: "images/different-language-7389469_1280.jpg",
+          caption: "Our real-time voice translation ensures your message is delivered clearly."
+        }
+      ];
+      let currentImg = 0;
+      const imgEl = document.getElementById('main-setup-img');
+      const captionEl = document.getElementById('img-caption');
+      function updateImage() {
+        imgEl.src = images[currentImg].src;
+        captionEl.textContent = images[currentImg].caption;
+      }
+      document.getElementById('img-left').onclick = function () {
+        currentImg = (currentImg - 1 + images.length) % images.length;
+        updateImage();
+      };
+      document.getElementById('img-right').onclick = function () {
+        currentImg = (currentImg + 1) % images.length;
+        updateImage();
+      };
+      updateImage();
+
+      // --- LOGIN STATE SYNC WITH HOME.HTML ---
+      function updateNavbarLoginState() {
+        const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+        if (navbarLoginBtn && navbarLogoutBtn) {
+          if (loggedInUser) {
+            const name = loggedInUser.split('@')[0];
+            navbarLoginBtn.textContent = name[0].toUpperCase();
+            navbarLoginBtn.style.fontSize = "22px";
+            navbarLoginBtn.style.background = "#1883FD";
+            navbarLoginBtn.style.color = "#fff";
+            navbarLoginBtn.style.width = "44px";
+            navbarLoginBtn.style.height = "44px";
+            navbarLoginBtn.style.borderRadius = "50%";
+            navbarLoginBtn.style.padding = "0";
+            navbarLogoutBtn.style.display = "inline-block";
+          } else {
+            navbarLoginBtn.textContent = "Log In";
+            navbarLoginBtn.style = "padding: 10px 20px;font-size: 16px; background-color: #1883FD; color: white; border: none; border-radius: 50px; cursor: pointer;";
+            navbarLogoutBtn.style.display = "none";
+          }
+        }
+      }
+      updateNavbarLoginState();
+      window.addEventListener('storage', updateNavbarLoginState);
+
+      navbarLoginBtn.onclick = function (e) {
+        if (navbarLoginBtn.textContent.trim().toLowerCase() === "log in") {
+          showToast("Please log in or sign up on the Home page.", 'info');
+          window.location.href = "home.html";
+          e.stopPropagation();
+        }
+      };
+      navbarLogoutBtn.onclick = function () {
+        localStorage.removeItem('lingueraLoggedInUser');
+        updateNavbarLoginState();
+        window.location.href = "home.html";
+      };
+
+      // --- REQUIRE LOGIN FOR CALL/TRANSLATE ---
+      function requireLoginOrRedirect(action) {
+        const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+        if (!loggedInUser) {
+          showToast("Please log in or sign up before you can " + action + ".", 'info');
+          window.location.href = "home.html";
+          return false;
+        }
+        return true;
+      }
+
+      // --- DYNAMIC TRANSCRIPT LABELS BASED ON ROLE ---
+      function updateTranscriptLabels() {
+        const localCombined = document.querySelector('h3[for-local-combined]');
+        const remoteCombined = document.querySelector('h3[for-remote-combined]');
+        if (!localCombined && !remoteCombined) return;
+        const loggedInUser = localStorage.getItem('lingueraLoggedInUser');
+        let role = 'agent';
+        if (loggedInUser && /@employee\.com$/i.test(loggedInUser)) role = 'employee';
+        if (localCombined) {
+          localCombined.textContent =
+            role === 'employee' ? 'Employee Transcript & Translation' : 'Agent Transcript & Translation';
+        }
+        if (remoteCombined) {
+          remoteCombined.textContent =
+            role === 'employee' ? 'Agent Transcript & Translation' : 'Employee Transcript & Translation';
+        }
+      }
+
+      // Call on load and after switching to call panel
+      document.addEventListener('DOMContentLoaded', updateTranscriptLabels);
+      window.updateTranscriptLabels = updateTranscriptLabels;
+
+      // --- CALL TIMER LOGIC ---
+      let callTimerInterval = null;
+      let callStartTime = null;
+      let timer = "00:00:00";        // Shows the current ticking timer
+      let lastDuration = "00:00:00"; // Stores the last call duration
+
+      function formatDuration(seconds) {
+        const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+        const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${h}:${m}:${s}`;
+      }
+
+      function startCallTimer() {
+        callStartTime = Date.now();
+        const timerEl = document.getElementById('call-timer');
+        if (callTimerInterval) clearInterval(callTimerInterval);
+        timerEl.textContent = "00:00:00";
+        timer = "00:00:00";
+        callTimerInterval = setInterval(() => {
+          const elapsed = Math.floor((Date.now() - callStartTime) / 1000);
+          timer = formatDuration(elapsed);
+          timerEl.textContent = timer;
+        }, 1000);
+      }
+
+      function stopCallTimer() {
+        const timerEl = document.getElementById('call-timer');
+        lastDuration = timer; // Store the last duration before reset
+        if (callTimerInterval) clearInterval(callTimerInterval);
+        // Reset timer and lastDuration
+        timer = "00:00:00";
+        lastDuration = "00:00:00";
+        timerEl.textContent = timer;
+        callStartTime = null;
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      function getParam(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+      }
+      const role = getParam('role');
+      if (role === 'employee' || role === 'agent') {
+        const email = role === 'employee' ? 'user@employee.com' : 'user@agent.com';
+        localStorage.setItem('lingueraLoggedInUser', email);
+        // Optionally reload to ensure UI updates
+        if (!window.location.hash.includes('role-set')) {
+          window.location.hash = 'role-set';
+          window.location.reload();
+        }
+      }
+    });
+
+    // --- SAFEGUARD ALL ONCLICK ASSIGNMENTS ---
+    // img-left
+    var imgLeft = document.getElementById('img-left');
+    if (imgLeft) {
+      imgLeft.onclick = function () {
+        currentImg = (currentImg - 1 + images.length) % images.length;
+        updateImage();
+      };
+    }
+    // img-right
+    var imgRight = document.getElementById('img-right');
+    if (imgRight) {
+      imgRight.onclick = function () {
+        currentImg = (currentImg + 1) % images.length;
+        updateImage();
+      };
+    }
+    // join-default-lang-btn
+    var joinDefaultBtn = document.getElementById('join-default-lang-btn');
+    if (joinDefaultBtn) {
+      joinDefaultBtn.onclick = function () {
+        const roomId = Math.random().toString(36).substring(2, 10);
+        localStorage.setItem('lastRoomId', roomId);
+        if (typeof window.createAndJoinRoom === 'function') {
+          window.createAndJoinRoom(roomId, localStorage.getItem('lingueraDefaultLanguage'));
+        } else {
+          const roomIdInput = document.getElementById('room-id');
+          if (roomIdInput) roomIdInput.value = roomId;
+          const joinBtn = document.getElementById('join-btn');
+          if (joinBtn) joinBtn.click();
+        }
+      };
+    }
+    // create-btn
+    var createBtn = document.getElementById('create-btn');
+    if (createBtn) {
+      createBtn.onclick = function () {
+        // ...existing code for create-btn click...
+      };
+    }
+    // join-btn
+    var joinBtn = document.getElementById('join-btn');
+    if (joinBtn) {
+      joinBtn.onclick = function () {
+        // ...existing code for join-btn click...
+      };
+    }
+    // img carousel left/right already handled above
+  </script>
+</body>
+
+</html>

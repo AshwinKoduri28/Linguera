@@ -1,0 +1,4 @@
+[7/29/2025, 8:28:30 AM] Tz5-B6vASGjJsO6IAAAf: Good morning. This is Sameer from the IT service desk. 
+[7/29/2025, 8:28:31 AM] Tz5-B6vASGjJsO6IAAAf: How can I help you today? 
+[7/29/2025, 8:28:54 AM] s6xRSedjTY4QwdEIAAAj: गुड मॉर्निंग समीर मेरा सिस्टम बहुत स्लो चल रहा है 
+[7/29/2025, 8:29:00 AM] s6xRSedjTY4QwdEIAAAj: क्या काम ठीक से नहीं हो रहा है क्या आप कुछ मदद कर सकते हो 

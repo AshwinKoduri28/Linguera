@@ -1,0 +1,416 @@
+import Loader from './components/Loader';
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connecting to Agent - Linguera</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #4a5279 0%, #cbc4d1 100%);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .modal {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 40px 32px;
+      text-align: center;
+      width: 90%;
+      max-width: 460px;
+      box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+      animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 200% 0; }
+      50% { background-position: -200% 0; }
+    }
+
+    @keyframes slideUp {
+      from { 
+        transform: translateY(60px) scale(0.9); 
+        opacity: 0; 
+      }
+      to { 
+        transform: translateY(0) scale(1); 
+        opacity: 1; 
+      }
+    }
+
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .modal h2 {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .modal p {
+      color: #64748b;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .timer-section {
+      background: rgba(102, 126, 234, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(102, 126, 234, 0.12);
+    }
+
+    .timer {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .queue-position {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    .status {
+      margin-bottom: 24px;
+      font-size: 1rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .connecting {
+      color: #667eea;
+      font-weight: 600;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      animation: bounce 1.6s infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { 
+        transform: scale(1) translateY(0); 
+        opacity: 0.7; 
+      }
+      40% { 
+        transform: scale(1.2) translateY(-8px); 
+        opacity: 1; 
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .buttons.single {
+      justify-content: center;
+    }
+
+    .buttons.dual {
+      justify-content: center;
+    }
+
+    button {
+      padding: 14px 24px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-cancel {
+      background: rgba(71, 85, 105, 0.08);
+      color: #475569;
+      border: 1px solid rgba(71, 85, 105, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-cancel:hover {
+      background: rgba(71, 85, 105, 0.12);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(71, 85, 105, 0.15);
+    }
+
+    .btn-refresh {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-refresh:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-refresh:active {
+      transform: translateY(0);
+    }
+
+    .tips {
+      background: rgba(52, 168, 83, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 24px;
+      border-left: 4px solid #34a853;
+      text-align: left;
+    }
+
+    .tips h4 {
+      color: #34a853;
+      margin: 0 0 8px 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .tips p {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      .modal {
+        margin: 20px;
+        padding: 32px 24px;
+      }
+      
+      .buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="waitingModal">
+  <div class="modal">
+    <Loader /> 
+    <h2>Finding Your Perfect Agent</h2>
+    <p>We're connecting you with a specialist who can best assist with your needs. This usually takes just a moment.</p>
+
+    <div class="timer-section">
+      <div class="timer"><span id="timer">00:00</span></div>
+      <div class="queue-position">Average wait time: ~1 minute</div>
+    </div>
+
+    <div class="status">
+      <div class="connecting">
+        <span>🔄</span> Connecting to agent
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tips">
+      <h4>💡 Pro Tip</h4>
+      <p>Keep this tab active to maintain your position in the queue. We'll notify you the moment an agent becomes available.</p>
+    </div>
+
+    <div class="buttons">
+      <button class="btn-cancel" onclick="cancel()" id="leaveBtn">Leave Queue</button>
+      <button class="btn-refresh" onclick="refresh()" id="checkBtn" style="display: none;">Check Status</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let startTime = Date.now();
+  let interval = setInterval(updateTimer, 1000);
+  const averageWaitTime = 120; // 2 minutes in seconds
+  let checkStatusShown = false;
+
+  function updateTimer() {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+    
+    document.getElementById('timer').textContent = 
+      `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Show check status button after average wait time
+    if (elapsed >= averageWaitTime && !checkStatusShown) {
+      showCheckStatusButton();
+      checkStatusShown = true;
+    }
+  }
+
+  function showCheckStatusButton() {
+    const checkBtn = document.getElementById('checkBtn');
+    const buttonsContainer = document.querySelector('.buttons');
+    
+    checkBtn.style.display = 'block';
+    buttonsContainer.classList.remove('single');
+    buttonsContainer.classList.add('dual');
+    
+    // Add a subtle animation
+    checkBtn.style.opacity = '0';
+    checkBtn.style.transform = 'translateY(10px)';
+    
+    setTimeout(() => {
+      checkBtn.style.transition = 'all 0.3s ease';
+      checkBtn.style.opacity = '1';
+      checkBtn.style.transform = 'translateY(0)';
+    }, 50);
+  }
+
+  function cancel() {
+    if (confirm('Are you sure you want to leave the queue? You may need to wait again if you rejoin.')) {
+      clearInterval(interval);
+      document.getElementById('waitingModal').style.display = 'none';
+      // Add your cancel logic here
+      console.log('User cancelled the queue');
+    }
+  }
+
+  function refresh() {
+    // Add visual feedback
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = 'Refreshing...';
+    btn.disabled = true;
+    
+    // Simulate refresh delay
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      // Add your refresh logic here
+      console.log('Queue status refreshed');
+    }, 1000);
+  }
+
+  // Simulate connection updates
+  const statuses = [
+    "🔄 Connecting to agent",
+    "👀 Agent reviewing your request",
+    "📞 Preparing connection",
+    "✨ Almost ready"
+  ];
+
+  let statusIndex = 0;
+  setInterval(() => {
+    const connectingElement = document.querySelector('.connecting span');
+    statusIndex = (statusIndex + 1) % statuses.length;
+    connectingElement.textContent = statuses[statusIndex].split(' ')[0];
+  }, 3000);
+</script>
+
+</body>
+</html>

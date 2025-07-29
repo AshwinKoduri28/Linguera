@@ -1,0 +1,44 @@
+[
+  {
+    "en": "network",
+    "hi": "नेटवर्क",
+    "fr": "réseau",
+    "es": "red",
+    "de": "Netz"
+  },
+  {
+    "en": "restart",
+    "hi": "पुनरारंभ करें",
+    "fr": "redémarrer",
+    "es": "reinicie",
+    "de": "Neustart"
+  },
+  {
+    "en": "reset",
+    "hi": "reset करना",
+    "fr": "réinitialiser",
+    "es": "resetla",
+    "de": "Zurücksetzen"
+  },
+  {
+    "en": "phone",
+    "hi": "फोन",
+    "fr": "téléphone",
+    "es": "teléfono",
+    "de": "Telefon"
+  },
+  {
+    "en": "computer",
+    "hi": "कंप्यूटर",
+    "fr": "ordinateur",
+    "es": "computadora",
+    "de": "Computer"
+  },
+  {
+    "en": "password",
+    "hi": "पासवर्ड",
+    "fr": "mot de passe",
+    "es": "contraseña",
+    "de": "Passwort"
+  }
+]
