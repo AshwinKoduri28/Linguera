@@ -1,44 +1,5306 @@
 [
   {
+    "en": "login",
+    "hi": "लॉगिन",
+    "fr": "connexion",
+    "es": "registro",
+    "de": "Eintritt"
+  },
+  {
+    "en": "logout",
+    "hi": "लॉग आउट",
+    "fr": "dépôt",
+    "es": "el registro",
+    "de": "Ausstellung"
+  },
+  {
+    "en": "username",
+    "hi": "उपयोगकर्ता नाम",
+    "fr": "nom d'utilisateur",
+    "es": "nombre de usuario",
+    "de": "Benutzername"
+  },
+  {
+    "en": "password",
+    "hi": "password",
+    "fr": "password",
+    "es": "password",
+    "de": "password"
+  },
+  {
+    "en": "reset",
+    "hi": "रीसेट",
+    "fr": "réinitialisation",
+    "es": "reinicio",
+    "de": "Wiederherstellen"
+  },
+  {
+    "en": "restart",
+    "hi": "पुनः आरंभ",
+    "fr": "redémarrage",
+    "es": "reinicio",
+    "de": "Wiederherstellen"
+  },
+  {
+    "en": "update",
+    "hi": "update",
+    "fr": "update",
+    "es": "update",
+    "de": "update"
+  },
+  {
+    "en": "reboot",
+    "hi": "पुनः आरंभ",
+    "fr": "redémarrage",
+    "es": "reinicio",
+    "de": "Wiederstart"
+  },
+  {
+    "en": "install",
+    "hi": "स्थापित",
+    "fr": "installer",
+    "es": "instalar",
+    "de": "Installation"
+  },
+  {
+    "en": "uninstall",
+    "hi": "अनइंस्टॉल ",
+    "fr": "désinstaller",
+    "es": "Desinstalar",
+    "de": "Entfernen"
+  },
+  {
+    "en": "connection",
+    "hi": "कनेक्शन",
+    "fr": "connexion",
+    "es": "conexión",
+    "de": "Verbindung"
+  },
+  {
+    "en": "disconnected",
+    "hi": "डिस्कनेक्ट",
+    "fr": "déconnecté",
+    "es": "desconectado",
+    "de": "Abgeschaltet"
+  },
+  {
+    "en": "internet",
+    "hi": "इंटरनेट",
+    "fr": "Internet",
+    "es": "Internet",
+    "de": "Internet"
+  },
+  {
     "en": "network",
     "hi": "नेटवर्क",
     "fr": "réseau",
     "es": "red",
-    "de": "Netz"
+    "de": "Netzwerk"
   },
   {
-    "en": "restart",
-    "hi": "पुनरारंभ करें",
-    "fr": "redémarrer",
-    "es": "reinicie",
-    "de": "Neustart"
+    "en": "signal",
+    "hi": "संकेत",
+    "fr": "signal",
+    "es": "señal",
+    "de": "Signal"
   },
   {
-    "en": "reset",
-    "hi": "reset करना",
-    "fr": "réinitialiser",
-    "es": "resetla",
-    "de": "Zurücksetzen"
+    "en": "bandwidth",
+    "hi": "बैंडविड्थ",
+    "fr": "largeur de bande",
+    "es": "ancho de banda",
+    "de": "Bandbreite"
   },
   {
-    "en": "phone",
-    "hi": "फोन",
-    "fr": "téléphone",
-    "es": "teléfono",
-    "de": "Telefon"
+    "en": "router",
+    "hi": "राउटर",
+    "fr": "routeur",
+    "es": "el router",
+    "de": "Router"
   },
   {
-    "en": "computer",
-    "hi": "कंप्यूटर",
-    "fr": "ordinateur",
-    "es": "computadora",
-    "de": "Computer"
+    "en": "modem",
+    "hi": "मॉडेम",
+    "fr": "modem",
+    "es": "Modem",
+    "de": "Modem"
   },
   {
-    "en": "password",
-    "hi": "पासवर्ड",
-    "fr": "mot de passe",
-    "es": "contraseña",
-    "de": "Passwort"
+    "en": "firewall",
+    "hi": "फायरवॉल",
+    "fr": "firewall",
+    "es": "firewall",
+    "de": "firewall"
+  },
+  {
+    "en": "proxy",
+    "hi": "प्रॉक्सी",
+    "fr": "proxy",
+    "es": "proxy",
+    "de": "proxy"
+  },
+  {
+    "en": "support",
+    "hi": "support",
+    "fr": "support",
+    "es": "support",
+    "de": "support"
+  },
+  {
+    "en": "agent",
+    "hi": "एजेंट",
+    "fr": "agent",
+    "es": "agente",
+    "de": "Agent"
+  },
+  {
+    "en": "ticket",
+    "hi": "ticket",
+    "fr": "ticket",
+    "es": "ticket",
+    "de": "ticket"
+  },
+  {
+    "en": "incident",
+    "hi": "घटना",
+    "fr": "incident",
+    "es": "Incidente",
+    "de": "Vorfall"
+  },
+  {
+    "en": "issue",
+    "hi": "issue",
+    "fr": "issue",
+    "es": "issue",
+    "de": "issue"
+  },
+  {
+    "en": "error",
+    "hi": "error",
+    "fr": "error",
+    "es": "error",
+    "de": "error"
+  },
+  {
+    "en": "crash",
+    "hi": "दुर्घटना",
+    "fr": "accident",
+    "es": "accidente",
+    "de": "Unfall"
+  },
+  {
+    "en": "freeze",
+    "hi": "जमे हुए",
+    "fr": "congélation",
+    "es": "congelamiento",
+    "de": "Gefrieren"
+  },
+  {
+    "en": "slow",
+    "hi": "धीमी",
+    "fr": "lentement",
+    "es": "lento",
+    "de": "langsam"
+  },
+  {
+    "en": "delay",
+    "hi": "देरी",
+    "fr": "retard",
+    "es": "retraso",
+    "de": "Verzögerung"
+  },
+  {
+    "en": "response",
+    "hi": "feedback",
+    "fr": "response",
+    "es": "response",
+    "de": "response"
+  },
+  {
+    "en": "resolution",
+    "hi": "संकल्प",
+    "fr": "résolution",
+    "es": "Resolución",
+    "de": "Entschließung"
+  },
+  {
+    "en": "escalation",
+    "hi": "escalation",
+    "fr": "escalation",
+    "es": "escalation",
+    "de": "escalation"
+  },
+  {
+    "en": "priority",
+    "hi": "प्राथमिकता",
+    "fr": "priorité",
+    "es": "prioridad",
+    "de": "Prioritäten"
+  },
+  {
+    "en": "urgent",
+    "hi": "तत्काल",
+    "fr": "d'urgence",
+    "es": "urgente",
+    "de": "dringend"
+  },
+  {
+    "en": "normal",
+    "hi": "सामान्य",
+    "fr": "de façon normale",
+    "es": "Normal",
+    "de": "Normal"
+  },
+  {
+    "en": "closed",
+    "hi": "बंद",
+    "fr": "fermé",
+    "es": "cerrado",
+    "de": "geschlossen"
+  },
+  {
+    "en": "pending",
+    "hi": "प्रतीक्षा",
+    "fr": "en attente",
+    "es": "En espera",
+    "de": "in Auswahl"
+  },
+  {
+    "en": "status",
+    "hi": "status",
+    "fr": "status",
+    "es": "status",
+    "de": "status"
+  },
+  {
+    "en": "resolved",
+    "hi": "हल किया गया",
+    "fr": "résolu",
+    "es": "Resolvido",
+    "de": "gelöst"
+  },
+  {
+    "en": "monitor",
+    "hi": "मॉनिटर",
+    "fr": "moniteur",
+    "es": "el monitor",
+    "de": "Monitor"
+  },
+  {
+    "en": "screen",
+    "hi": "स्क्रीन",
+    "fr": "écran",
+    "es": "pantalla",
+    "de": "Bildschirm"
+  },
+  {
+    "en": "keyboard",
+    "hi": "कीबोर्ड",
+    "fr": "clavier",
+    "es": "teclado",
+    "de": "Schlüsselteile"
+  },
+  {
+    "en": "mouse",
+    "hi": "माउस",
+    "fr": "souris",
+    "es": "ratón",
+    "de": "Maus"
+  },
+  {
+    "en": "printer",
+    "hi": "प्रिंटर",
+    "fr": "imprimante",
+    "es": "impresora",
+    "de": "Drucker"
+  },
+  {
+    "en": "scanner",
+    "hi": "स्कैनर",
+    "fr": "scanner",
+    "es": "el escáner",
+    "de": "Scanner"
+  },
+  {
+    "en": "speaker",
+    "hi": "स्पीकर",
+    "fr": "haut-parleur",
+    "es": "altavoz",
+    "de": "Sprecher"
+  },
+  {
+    "en": "cable",
+    "hi": "केबल",
+    "fr": "câble",
+    "es": "cable",
+    "de": "Kabel"
+  },
+  {
+    "en": "adapter",
+    "hi": "एडाप्टर",
+    "fr": "adaptateur",
+    "es": "adaptador",
+    "de": "Adapter"
+  },
+  {
+    "en": "charger",
+    "hi": "चार्जर",
+    "fr": "chargement",
+    "es": "cargador",
+    "de": "Ladegerät"
+  },
+  {
+    "en": "hardware",
+    "hi": "हार्डवेयर",
+    "fr": "matériel",
+    "es": "hardware",
+    "de": "Hardware"
+  },
+  {
+    "en": "software",
+    "hi": "सॉफ्टवेयर",
+    "fr": "logiciel",
+    "es": "software",
+    "de": "Software"
+  },
+  {
+    "en": "operating system",
+    "hi": "ऑपरेटिंग सिस्टम",
+    "fr": "système d'exploitation",
+    "es": "sistema operativo",
+    "de": "Betriebssystem"
+  },
+  {
+    "en": "OS",
+    "hi": "ओएस",
+    "fr": "les",
+    "es": "de los",
+    "de": "aus"
+  },
+  {
+    "en": "driver",
+    "hi": "चालक",
+    "fr": "conducteur",
+    "es": "conductor",
+    "de": "Fahrer"
+  },
+  {
+    "en": "version",
+    "hi": "version",
+    "fr": "version",
+    "es": "version",
+    "de": "version"
+  },
+  {
+    "en": "patch",
+    "hi": "patch",
+    "fr": "patch",
+    "es": "patch",
+    "de": "patch"
+  },
+  {
+    "en": "license",
+    "hi": "लाइसेंस",
+    "fr": "licence",
+    "es": "licencia",
+    "de": "Lizenz"
+  },
+  {
+    "en": "expire",
+    "hi": "समाप्त हो जाता है",
+    "fr": "expirer",
+    "es": "caduca",
+    "de": "abgelaufen"
+  },
+  {
+    "en": "access",
+    "hi": "access",
+    "fr": "aCCess",
+    "es": "aCCess",
+    "de": "access"
+  },
+  {
+    "en": "denied",
+    "hi": "अस्वीकार",
+    "fr": "démenti",
+    "es": "rechazado",
+    "de": "Verweigert"
+  },
+  {
+    "en": "approved",
+    "hi": "अनुमोदित",
+    "fr": "approuvé",
+    "es": "aprobado",
+    "de": "genehmigt"
+  },
+  {
+    "en": "blocked",
+    "hi": "अवरुद्ध",
+    "fr": "bloqué",
+    "es": "bloqueado",
+    "de": "blockiert"
+  },
+  {
+    "en": "allowed",
+    "hi": "अनुमति दी गई",
+    "fr": "permis",
+    "es": "permitido",
+    "de": "erlaubt"
+  },
+  {
+    "en": "permitted",
+    "hi": "अनुमति दी गई",
+    "fr": "permis",
+    "es": "permitido",
+    "de": "Erlaubt"
+  },
+  {
+    "en": "grant",
+    "hi": "अनुदान",
+    "fr": "subvention",
+    "es": "subvención",
+    "de": "Zuschuss"
+  },
+  {
+    "en": "revoke",
+    "hi": "निरस्त करना",
+    "fr": "révocation",
+    "es": "revocar",
+    "de": "Rücktritt"
+  },
+  {
+    "en": "admin",
+    "hi": "प्रशासन",
+    "fr": "administrateur",
+    "es": "administrador",
+    "de": "admin"
+  },
+  {
+    "en": "permission",
+    "hi": "अनुमति",
+    "fr": "permis",
+    "es": "permiso",
+    "de": "Erlaubnis"
+  },
+  {
+    "en": "notification",
+    "hi": "सूचना",
+    "fr": "notification",
+    "es": "notificación",
+    "de": "Mitteilung"
+  },
+  {
+    "en": "alert",
+    "hi": "alert",
+    "fr": "alert",
+    "es": "alert",
+    "de": "alert"
+  },
+  {
+    "en": "popup",
+    "hi": "पॉपअप",
+    "fr": "éclaboussure",
+    "es": "popup",
+    "de": "Popup"
+  },
+  {
+    "en": "dialog",
+    "hi": "संवाद",
+    "fr": "dialogue",
+    "es": "diálogo",
+    "de": "Dialog"
+  },
+  {
+    "en": "menu",
+    "hi": "मेनू",
+    "fr": "menu",
+    "es": "menú",
+    "de": "Menü"
+  },
+  {
+    "en": "option",
+    "hi": "विकल्प",
+    "fr": "option",
+    "es": "Opción",
+    "de": "Option"
+  },
+  {
+    "en": "setting",
+    "hi": "सेटिंग",
+    "fr": "réglage",
+    "es": "configuración",
+    "de": "Einstellung"
+  },
+  {
+    "en": "preference",
+    "hi": "प्राथमिकता",
+    "fr": "préférence",
+    "es": "preferencia",
+    "de": "Präferenz"
+  },
+  {
+    "en": "configuration",
+    "hi": "वकॉन्फ़िगरेशन",
+    "fr": "configuration",
+    "es": "configuración",
+    "de": "Konfiguration"
+  },
+  {
+    "en": "default",
+    "hi": "डिफ़ॉल्ट",
+    "fr": "défaut",
+    "es": "por defecto",
+    "de": "Ausfall"
+  },
+  {
+    "en": "system",
+    "hi": "सिस्टम",
+    "fr": "système",
+    "es": "sistema",
+    "de": "System"
+  },
+  {
+    "en": "application",
+    "hi": "एप्लिकेशन",
+    "fr": "demande",
+    "es": "La solicitud",
+    "de": "Anwendung"
+  },
+  {
+    "en": "tool",
+    "hi": "उपकरण",
+    "fr": "outil",
+    "es": "herramienta",
+    "de": "Werkzeug"
+  },
+  {
+    "en": "program",
+    "hi": "कार्यक्रम",
+    "fr": "programme",
+    "es": "programa",
+    "de": "Programm"
+  },
+  {
+    "en": "utility",
+    "hi": "उपयोगिता",
+    "fr": "utilisation",
+    "es": "utilidad",
+    "de": "Nutzen"
+  },
+  {
+    "en": "shortcut",
+    "hi": "शॉर्टकट",
+    "fr": "raccourci",
+    "es": "cortocambio",
+    "de": "Schnittstelle"
+  },
+  {
+    "en": "file",
+    "hi": "फ़ाइल",
+    "fr": "fichier",
+    "es": "archivo",
+    "de": "Akten"
+  },
+  {
+    "en": "folder",
+    "hi": "फ़ोल्डर",
+    "fr": "dossier",
+    "es": "carpeta",
+    "de": "Ordner"
+  },
+  {
+    "en": "directory",
+    "hi": "निर्देशिका",
+    "fr": "répertoire",
+    "es": "directorio",
+    "de": "Verzeichnis"
+  },
+  {
+    "en": "document",
+    "hi": "documentation",
+    "fr": "document",
+    "es": "document",
+    "de": "document"
+  },
+  {
+    "en": "email",
+    "hi": "ईमेल",
+    "fr": "courriel",
+    "es": "correo electrónico",
+    "de": "E-Mail"
+  },
+  {
+    "en": "message",
+    "hi": "संदेश",
+    "fr": "message",
+    "es": "mensaje",
+    "de": "Nachricht"
+  },
+  {
+    "en": "inbox",
+    "hi": "इनबॉक्स",
+    "fr": "boîte de réception",
+    "es": "caja de entrada",
+    "de": "Inbox"
+  },
+  {
+    "en": "subject",
+    "hi": "विषय",
+    "fr": "sujet",
+    "es": "el tema",
+    "de": "Gegenstand"
+  },
+  {
+    "en": "attachment",
+    "hi": "संलग्नक",
+    "fr": "annexe",
+    "es": "el anexo",
+    "de": "Anschluss"
+  },
+  {
+    "en": "CC",
+    "hi": "सीसी",
+    "fr": "cc",
+    "es": "cc",
+    "de": "ccc"
+  },
+  {
+    "en": "BCC",
+    "hi": "बीसीसी",
+    "fr": "bcc",
+    "es": "bcc",
+    "de": "bcc"
+  },
+  {
+    "en": "forward",
+    "hi": "आगे",
+    "fr": "à l'avant",
+    "es": "hacia adelante",
+    "de": "Vorwärts"
+  },
+  {
+    "en": "reply",
+    "hi": "उत्तर",
+    "fr": "réponse",
+    "es": "respuesta",
+    "de": "Antwort"
+  },
+  {
+    "en": "draft",
+    "hi": "draft",
+    "fr": "project",
+    "es": "project",
+    "de": "design"
+  },
+  {
+    "en": "call",
+    "hi": "call",
+    "fr": "call",
+    "es": "call",
+    "de": "call"
+  },
+  {
+    "en": "meeting",
+    "hi": "बैठक",
+    "fr": "réunion",
+    "es": "reunión",
+    "de": "Treffen"
+  },
+  {
+    "en": "conference",
+    "hi": "conference",
+    "fr": "conference",
+    "es": "conference",
+    "de": "conference"
+  },
+  {
+    "en": "video",
+    "hi": "वीडियो",
+    "fr": "vidéo",
+    "es": "video",
+    "de": "Video"
+  },
+  {
+    "en": "audio",
+    "hi": "ऑडियो",
+    "fr": "audio",
+    "es": "audio",
+    "de": "Audio"
+  },
+  {
+    "en": "calendar",
+    "hi": "कैलेंडर",
+    "fr": "calendrier",
+    "es": "calendario",
+    "de": "Kalender"
+  },
+  {
+    "en": "invite",
+    "hi": "invite",
+    "fr": "invite",
+    "es": "invite",
+    "de": "invite"
+  },
+  {
+    "en": "schedule",
+    "hi": "अनुlist",
+    "fr": "horaire",
+    "es": "horario",
+    "de": "timeplan"
+  },
+  {
+    "en": "time",
+    "hi": "समय",
+    "fr": "temps",
+    "es": "tiempo",
+    "de": "Zeit"
+  },
+  {
+    "en": "timezone",
+    "hi": "समय क्षेत्र",
+    "fr": "zone horaire",
+    "es": "zona horaria",
+    "de": "Zeitzone"
+  },
+  {
+    "en": "note",
+    "hi": "नोट",
+    "fr": "note",
+    "es": "nota",
+    "de": "Hinweis"
+  },
+  {
+    "en": "memo",
+    "hi": "ज्ञापन",
+    "fr": "mémoire",
+    "es": "nota de acuerdo",
+    "de": "Memo"
+  },
+  {
+    "en": "summary",
+    "hi": "summary",
+    "fr": "summary",
+    "es": "summary",
+    "de": "summary"
+  },
+  {
+    "en": "report",
+    "hi": "report",
+    "fr": "report",
+    "es": "report",
+    "de": "report"
+  },
+  {
+    "en": "dashboard",
+    "hi": "dashboard",
+    "fr": "dashboard",
+    "es": "dashboard",
+    "de": "dashboard"
+  },
+  {
+    "en": "review",
+    "hi": "समीक्षा",
+    "fr": "revision",
+    "es": "revision",
+    "de": "Überaudit"
+  },
+  {
+    "en": "feedback",
+    "hi": "प्रतिक्रिया",
+    "fr": "feedback",
+    "es": "feedback",
+    "de": "feedback"
+  },
+  {
+    "en": "comment",
+    "hi": "टिप्पणी",
+    "fr": "commentaire",
+    "es": "comentario",
+    "de": "Kommentar"
+  },
+  {
+    "en": "suggestion",
+    "hi": "सुझाव",
+    "fr": "suggestion",
+    "es": "sugerencia",
+    "de": "Vorschlag"
+  },
+  {
+    "en": "reminder",
+    "hi": "अनुस्मारक",
+    "fr": "rappel",
+    "es": "recordatorio",
+    "de": "Erinnerung"
+  },
+  {
+    "en": "deadline",
+    "hi": "deadline",
+    "fr": "deadline",
+    "es": "deadline",
+    "de": "deadline"
+  },
+  {
+    "en": "extension",
+    "hi": "विस्तार",
+    "fr": "prolongation",
+    "es": "extensión",
+    "de": "Ausdehnung"
+  },
+  {
+    "en": "request",
+    "hi": "request",
+    "fr": "application",
+    "es": "request",
+    "de": "request"
+  },
+  {
+    "en": "approve",
+    "hi": "अनुमोदन",
+    "fr": "approuver",
+    "es": "aprobado",
+    "de": "genehmigen"
+  },
+  {
+    "en": "reject",
+    "hi": "अस्वीकार",
+    "fr": "rejet",
+    "es": "rechazar",
+    "de": "Ablehnen"
+  },
+  {
+    "en": "complete",
+    "hi": "complete",
+    "fr": "complete",
+    "es": "complete",
+    "de": "complete"
+  },
+  {
+    "en": "task",
+    "hi": "task",
+    "fr": "task",
+    "es": "task",
+    "de": "task"
+  },
+  {
+    "en": "team",
+    "hi": "टीम",
+    "fr": "équipe",
+    "es": "equipo",
+    "de": "Team"
+  },
+  {
+    "en": "group",
+    "hi": "समूह",
+    "fr": "groupe",
+    "es": "grupo",
+    "de": "Gruppe"
+  },
+  {
+    "en": "channel",
+    "hi": "चैनल",
+    "fr": "canal",
+    "es": "canal",
+    "de": "Kanal"
+  },
+  {
+    "en": "thread",
+    "hi": "thread",
+    "fr": "thread",
+    "es": "thread",
+    "de": "thread"
+  },
+  {
+    "en": "chat",
+    "hi": "चैट",
+    "fr": "chat",
+    "es": "charla",
+    "de": "Chat"
+  },
+  {
+    "en": "ping",
+    "hi": "पिन",
+    "fr": "le ping",
+    "es": "Pinguín",
+    "de": "Ping"
+  },
+  {
+    "en": "mention",
+    "hi": "उल्लेख",
+    "fr": "mention",
+    "es": "mención",
+    "de": "Erwähnung"
+  },
+  {
+    "en": "busy",
+    "hi": "व्यस्त",
+    "fr": "occupé",
+    "es": "ocupado",
+    "de": "beschäftigt"
+  },
+  {
+    "en": "available",
+    "hi": "उपलब्ध",
+    "fr": "disponible",
+    "es": "disponible",
+    "de": "verfügbar"
+  },
+  {
+    "en": "announcement",
+    "hi": "घोषणा",
+    "fr": "annonce",
+    "es": "el anuncio",
+    "de": "Ankündigung"
+  },
+  {
+    "en": "internal",
+    "hi": "आंतरिक",
+    "fr": "interne",
+    "es": "de las partes internas",
+    "de": "Innen"
+  },
+  {
+    "en": "external",
+    "hi": "बाहरी",
+    "fr": "externe",
+    "es": "de las partes externas",
+    "de": "externen"
+  },
+  {
+    "en": "client",
+    "hi": "client",
+    "fr": "clinkt",
+    "es": "client",
+    "de": "client"
+  },
+  {
+    "en": "vendor",
+    "hi": "विक्रेता",
+    "fr": "fournisseur",
+    "es": "vendedor",
+    "de": "Verkäufer"
+  },
+  {
+    "en": "contact",
+    "hi": "संपर्क",
+    "fr": "contact",
+    "es": "contacto",
+    "de": "Kontakt"
+  },
+  {
+    "en": "reach",
+    "hi": "पहुंच",
+    "fr": "atteinte",
+    "es": "alcance",
+    "de": "Reichweite"
+  },
+  {
+    "en": "outreach",
+    "hi": "आउटरीच",
+    "fr": "de la communication",
+    "es": "el alcance",
+    "de": "Ausweitung"
+  },
+  {
+    "en": "presentation",
+    "hi": "presentation",
+    "fr": "presentation",
+    "es": "presentation",
+    "de": "presentation"
+  },
+  {
+    "en": "slides",
+    "hi": "slides",
+    "fr": "slides",
+    "es": "debug",
+    "de": "slides"
+  },
+  {
+    "en": "deck",
+    "hi": "deck",
+    "fr": "deck",
+    "es": "deck",
+    "de": "deck"
+  },
+  {
+    "en": "pitch",
+    "hi": "पिच",
+    "fr": "la mise en scène",
+    "es": "el lanzamiento",
+    "de": "Schlag"
+  },
+  {
+    "en": "template",
+    "hi": "template",
+    "fr": "template",
+    "es": "template",
+    "de": "presentation"
+  },
+  {
+    "en": "content",
+    "hi": "सामग्री",
+    "fr": "contenu",
+    "es": "contenido",
+    "de": "Inhalt"
+  },
+  {
+    "en": "format",
+    "hi": "प्रारूप",
+    "fr": "format",
+    "es": "formato",
+    "de": "Format"
+  },
+  {
+    "en": "branding",
+    "hi": "ब्रांडिंग",
+    "fr": "la marque",
+    "es": "marca",
+    "de": "Markenverzeichnis"
+  },
+  {
+    "en": "greeting",
+    "hi": "अभिवादन",
+    "fr": "salutation",
+    "es": "Saludo",
+    "de": "Grüße"
+  },
+  {
+    "en": "signoff",
+    "hi": "हस्ताक्षर",
+    "fr": "OTP signe",
+    "es": "el signo",
+    "de": "font"
+  },
+  {
+    "en": "sincerely",
+    "hi": "ईमानदारी से",
+    "fr": "sincèrement",
+    "es": "Sinceramente",
+    "de": "aufrichtig"
+  },
+  {
+    "en": "regards",
+    "hi": "विचार",
+    "fr": "Les points de vue",
+    "es": "consideraciones",
+    "de": "Anmerkungen"
+  },
+  {
+    "en": "best",
+    "hi": "सबसे अच्छा",
+    "fr": "le meilleur",
+    "es": "mejor",
+    "de": "am besten"
+  },
+  {
+    "en": "thanks",
+    "hi": "धन्यवाद",
+    "fr": "Merci",
+    "es": "Gracias.",
+    "de": "Danke."
+  },
+  {
+    "en": "welcome",
+    "hi": "स्वागत है",
+    "fr": "Bienvenue",
+    "es": "Bienvenido",
+    "de": "Willkommen"
+  },
+  {
+    "en": "appreciate",
+    "hi": "सराहना",
+    "fr": "apprécier",
+    "es": "aprecio",
+    "de": "Ich weiß es zu schätzen."
+  },
+  {
+    "en": "followup",
+    "hi": "अनुवर्ती",
+    "fr": "suivi",
+    "es": "seguimiento",
+    "de": "Nachfolgung"
+  },
+  {
+    "en": "apology",
+    "hi": "क्षमा",
+    "fr": "désolé",
+    "es": "Disculpas",
+    "de": "Entschuldigung"
+  },
+  {
+    "en": "language",
+    "hi": "भाषा",
+    "fr": "langue",
+    "es": "lenguaje",
+    "de": "Sprache"
+  },
+  {
+    "en": "tone",
+    "hi": "स्वर",
+    "fr": "tonne",
+    "es": "Tón",
+    "de": "Ton"
+  },
+  {
+    "en": "professional",
+    "hi": "पेशेवर",
+    "fr": "professionnel",
+    "es": "profesionales",
+    "de": "Berufliche"
+  },
+  {
+    "en": "formal",
+    "hi": "औपचारिक",
+    "fr": "formelle",
+    "es": "formales",
+    "de": "Formelle"
+  },
+  {
+    "en": "casual",
+    "hi": "आकस्मिक",
+    "fr": "le temps",
+    "es": "de forma casual",
+    "de": "zufällig"
+  },
+  {
+    "en": "concise",
+    "hi": "संक्षिप्त",
+    "fr": "concis",
+    "es": "concisas",
+    "de": "präzise"
+  },
+  {
+    "en": "clear",
+    "hi": "साफ",
+    "fr": "dégagé",
+    "es": "claro",
+    "de": "Klar"
+  },
+  {
+    "en": "brief",
+    "hi": "संक्षिप्त",
+    "fr": "courte",
+    "es": "breve",
+    "de": "Kurz"
+  },
+  {
+    "en": "articulate",
+    "hi": "संक्षिप्त",
+    "fr": "articuler",
+    "es": "articulado",
+    "de": "artikulieren"
+  },
+  {
+    "en": "respectful",
+    "hi": "आदरणीय",
+    "fr": "respecté",
+    "es": "respetuoso",
+    "de": "Respektiver"
+  },
+  {
+    "en": "data",
+    "hi": "आंकड़े",
+    "fr": "données",
+    "es": "datos",
+    "de": "Daten"
+  },
+  {
+    "en": "metrics",
+    "hi": "मेट्रिक्स",
+    "fr": "les mesures",
+    "es": "Metricas",
+    "de": "Metriken"
+  },
+  {
+    "en": "KPI",
+    "hi": "KPI",
+    "fr": "KPI",
+    "es": "KPI",
+    "de": "KPI"
+  },
+  {
+    "en": "OKR",
+    "hi": "OKR",
+    "fr": "OKR",
+    "es": "KPI",
+    "de": "OKR"
+  },
+  {
+    "en": "performance",
+    "hi": "performance",
+    "fr": "performance",
+    "es": "performance",
+    "de": "performance"
+  },
+  {
+    "en": "goal",
+    "hi": "goal",
+    "fr": "goal",
+    "es": "goal",
+    "de": "goal"
+  },
+  {
+    "en": "target",
+    "hi": "लक्ष्य",
+    "fr": "cible",
+    "es": "objetivo",
+    "de": "Ziel"
+  },
+  {
+    "en": "benchmark",
+    "hi": "बेंचमार्क",
+    "fr": "référence",
+    "es": "índice de referencia",
+    "de": "Benchmark"
+  },
+  {
+    "en": "score",
+    "hi": "स्कोर",
+    "fr": "score",
+    "es": "puntuación",
+    "de": "Punktzahl"
+  },
+  {
+    "en": "progress",
+    "hi": "progress",
+    "fr": "progress",
+    "es": "progress",
+    "de": "progress"
+  },
+  {
+    "en": "milestone",
+    "hi": "milestone",
+    "fr": "miOStone",
+    "es": "milestone",
+    "de": "milestonee"
+  },
+  {
+    "en": "completion",
+    "hi": "पूरा करना",
+    "fr": "réalisation",
+    "es": "finalización",
+    "de": "Abschluss"
+  },
+  {
+    "en": "timeline",
+    "hi": "timeline",
+    "fr": "timeline",
+    "es": "timeline",
+    "de": "timeline"
+  },
+  {
+    "en": "Gantt",
+    "hi": "गंट",
+    "fr": "à la main",
+    "es": "de la misma",
+    "de": "Gänz"
+  },
+  {
+    "en": "forecast",
+    "hi": "forecast",
+    "fr": "forecast",
+    "es": "forecast",
+    "de": "forecast"
+  },
+  {
+    "en": "estimation",
+    "hi": "अनुमान",
+    "fr": "estimation",
+    "es": "estimación",
+    "de": "Schätzung"
+  },
+  {
+    "en": "actual",
+    "hi": "वास्तविक",
+    "fr": "réelle",
+    "es": "actual",
+    "de": "tatsächliche"
+  },
+  {
+    "en": "graph",
+    "hi": "ग्राफ",
+    "fr": "graphique",
+    "es": "gráfico",
+    "de": "Graph"
+  },
+  {
+    "en": "chart",
+    "hi": "चार्ट",
+    "fr": "graphique",
+    "es": "gráfico",
+    "de": "Tabelle"
+  },
+  {
+    "en": "visualization",
+    "hi": "दृश्य",
+    "fr": "visualisation",
+    "es": "visualización",
+    "de": "Visualisierung"
+  },
+  {
+    "en": "trend",
+    "hi": "प्रवृत्ति",
+    "fr": "tendance",
+    "es": "Tendencia",
+    "de": "Trend"
+  },
+  {
+    "en": "growth",
+    "hi": "विकास",
+    "fr": "croissance",
+    "es": "crecimiento",
+    "de": "Wachstum"
+  },
+  {
+    "en": "decline",
+    "hi": "घट",
+    "fr": "déclin",
+    "es": "disminución",
+    "de": "Rückgang"
+  },
+  {
+    "en": "analysis",
+    "hi": "विश्लेषण",
+    "fr": "analyse",
+    "es": "análisis",
+    "de": "Analyse"
+  },
+  {
+    "en": "detail",
+    "hi": "विवरण",
+    "fr": "détails",
+    "es": "Detalle",
+    "de": "Einzelheiten"
+  },
+  {
+    "en": "overview",
+    "hi": "अवलोकन",
+    "fr": "vue d'ensemble",
+    "es": "una visión general",
+    "de": "Überblick"
+  },
+  {
+    "en": "weekly",
+    "hi": "साप्ताहिक",
+    "fr": "chaque semaine",
+    "es": "Semanal",
+    "de": "wöchentlich"
+  },
+  {
+    "en": "monthly",
+    "hi": "मासिक",
+    "fr": "chaque mois",
+    "es": "por mes",
+    "de": "Monatlich"
+  },
+  {
+    "en": "quarterly",
+    "hi": "तिमाही",
+    "fr": "trimestriellement",
+    "es": "trimestral",
+    "de": "Quartal"
+  },
+  {
+    "en": "yearly",
+    "hi": "वार्षिक",
+    "fr": "annuellement",
+    "es": "por año",
+    "de": "jährlich"
+  },
+  {
+    "en": "export",
+    "hi": "export",
+    "fr": "export",
+    "es": "export",
+    "de": "export"
+  },
+  {
+    "en": "import",
+    "hi": "import",
+    "fr": "import",
+    "es": "import",
+    "de": "import"
+  },
+  {
+    "en": "revision",
+    "hi": "revision",
+    "fr": "revision",
+    "es": "revision",
+    "de": "revision"
+  },
+  {
+    "en": "approval",
+    "hi": "approval",
+    "fr": "approbation",
+    "es": "el acuerdo",
+    "de": "Genehmigung"
+  },
+  {
+    "en": "submission",
+    "hi": "submission",
+    "fr": "presentation",
+    "es": "submission",
+    "de": "submission"
+  },
+  {
+    "en": "shared",
+    "hi": "साझा",
+    "fr": "partagé",
+    "es": "compartido",
+    "de": "geteilt"
+  },
+  {
+    "en": "collaboration",
+    "hi": "सहयोग",
+    "fr": "collaboration",
+    "es": "colaboración",
+    "de": "Zusammenarbeit"
+  },
+  {
+    "en": "edit",
+    "hi": "सम्पादन",
+    "fr": "modifier",
+    "es": "editado",
+    "de": "bearbeiten"
+  },
+  {
+    "en": "final",
+    "hi": "final",
+    "fr": "final",
+    "es": "final",
+    "de": "final"
+  },
+  {
+    "en": "date",
+    "hi": "तिथि",
+    "fr": "date",
+    "es": "fecha",
+    "de": "Datum"
+  },
+  {
+    "en": "period",
+    "hi": "अवधि",
+    "fr": "période",
+    "es": "período",
+    "de": "Zeit"
+  },
+  {
+    "en": "range",
+    "hi": "सीमा",
+    "fr": "la portée",
+    "es": "el rango",
+    "de": "Bereich"
+  },
+  {
+    "en": "average",
+    "hi": "औसत",
+    "fr": "moyenne",
+    "es": "promedio",
+    "de": "Durchschnitt"
+  },
+  {
+    "en": "maximum",
+    "hi": "अधिकतम",
+    "fr": "maximum",
+    "es": "máximo",
+    "de": "Höchstbetrag"
+  },
+  {
+    "en": "minimum",
+    "hi": "न्यूनतम",
+    "fr": "minimum",
+    "es": "mínimo",
+    "de": "Mindestwert"
+  },
+  {
+    "en": "total",
+    "hi": "कुल",
+    "fr": "le total",
+    "es": "total",
+    "de": "Gesamtzahl"
+  },
+  {
+    "en": "count",
+    "hi": "गिनती",
+    "fr": "compte",
+    "es": "contables",
+    "de": "Zählen"
+  },
+  {
+    "en": "percentage",
+    "hi": "प्रतिशत",
+    "fr": "pourcentage",
+    "es": "porcentaje",
+    "de": "Prozentsatz"
+  },
+  {
+    "en": "ratio",
+    "hi": "अनुपात",
+    "fr": "rapport",
+    "es": "proporción",
+    "de": "Verhältnis"
+  },
+  {
+    "en": "deviation",
+    "hi": "विचलन",
+    "fr": "déviation",
+    "es": "Desviación",
+    "de": "Abweichung"
+  },
+  {
+    "en": "variance",
+    "hi": "भिन्नता",
+    "fr": "variance",
+    "es": "de variación",
+    "de": "Abweichung"
+  },
+  {
+    "en": "accuracy",
+    "hi": "सटीकता",
+    "fr": "précision",
+    "es": "la precisión",
+    "de": "Genauigkeit"
+  },
+  {
+    "en": "consistency",
+    "hi": "सुसंगतता",
+    "fr": "cohérence",
+    "es": "la coherencia",
+    "de": "Einheitlichkeit"
+  },
+  {
+    "en": "gap",
+    "hi": "अंतर",
+    "fr": "écart",
+    "es": "el espacio",
+    "de": "Schnittstelle"
+  },
+  {
+    "en": "risk",
+    "hi": "risk",
+    "fr": "risk",
+    "es": "risk",
+    "de": "risk"
+  },
+  {
+    "en": "impact",
+    "hi": "प्रभाव",
+    "fr": "l'impact",
+    "es": "impacto",
+    "de": "Wirkung"
+  },
+  {
+    "en": "opportunity",
+    "hi": "अवसर",
+    "fr": "l'occasion",
+    "es": "oportunidad",
+    "de": "Gelegenheit"
+  },
+  {
+    "en": "ROI",
+    "hi": "राजा",
+    "fr": "roi",
+    "es": "rey",
+    "de": "König"
+  },
+  {
+    "en": "productivity",
+    "hi": "उत्पादकता",
+    "fr": "productivité",
+    "es": "Productividad",
+    "de": "Produktivität"
+  },
+  {
+    "en": "output",
+    "hi": "आउटपुट",
+    "fr": "dégagement",
+    "es": "salida",
+    "de": "Ausgabe"
+  },
+  {
+    "en": "quality",
+    "hi": "गुणवत्ता",
+    "fr": "la qualité",
+    "es": "calidad",
+    "de": "Qualität"
+  },
+  {
+    "en": "efficiency",
+    "hi": "efficiency",
+    "fr": "efficiency",
+    "es": "efficiency",
+    "de": "efficiency"
+  },
+  {
+    "en": "speed",
+    "hi": "गति",
+    "fr": "vitesse",
+    "es": "velocidad",
+    "de": "Geschwindigkeit"
+  },
+  {
+    "en": "load",
+    "hi": "लोड",
+    "fr": "charge",
+    "es": "carga",
+    "de": "Verpackung"
+  },
+  {
+    "en": "uptime",
+    "hi": "समय",
+    "fr": "temps de fonctionnement",
+    "es": "tiempo de actividad",
+    "de": "Betriebszeit"
+  },
+  {
+    "en": "downtime",
+    "hi": "अवकाश",
+    "fr": "temps d'arrêt",
+    "es": "tiempo de inactividad",
+    "de": "Ausfallzeit"
+  },
+  {
+    "en": "failure",
+    "hi": "विफलता",
+    "fr": "défaillance",
+    "es": "fallas",
+    "de": "Ausfall"
+  },
+  {
+    "en": "errorrate",
+    "hi": "त्रुटि दर",
+    "fr": "taux d'erreur",
+    "es": "tasa de error",
+    "de": "Fehlerrate"
+  },
+  {
+    "en": "platform",
+    "hi": "मंच",
+    "fr": "plateforme",
+    "es": "plataforma",
+    "de": "Plattform"
+  },
+  {
+    "en": "interface",
+    "hi": "इंटरफेस",
+    "fr": "interface",
+    "es": "Interfaz",
+    "de": "Schnittstelle"
+  },
+  {
+    "en": "user",
+    "hi": "उपयोगकर्ता",
+    "fr": "utilisateur",
+    "es": "el usuario",
+    "de": "Nutzer"
+  },
+  {
+    "en": "experience",
+    "hi": "अनुभव",
+    "fr": "l'expérience",
+    "es": "experiencia",
+    "de": "Erfahrung"
+  },
+  {
+    "en": "design",
+    "hi": "design",
+    "fr": "design",
+    "es": "design",
+    "de": "draft"
+  },
+  {
+    "en": "feature",
+    "hi": "विशेषता",
+    "fr": "caractéristique",
+    "es": "característica",
+    "de": "Funktion"
+  },
+  {
+    "en": "module",
+    "hi": "module",
+    "fr": "module",
+    "es": "module",
+    "de": "module"
+  },
+  {
+    "en": "plugin",
+    "hi": "प्लगइन",
+    "fr": "Plugin",
+    "es": "Plugin",
+    "de": "Plugin"
+  },
+  {
+    "en": "integration",
+    "hi": "समावेशीकरण",
+    "fr": "intégration",
+    "es": "la integración",
+    "de": "Integration"
+  },
+  {
+    "en": "compatibility",
+    "hi": "संगतता",
+    "fr": "compatibilité",
+    "es": "compatibilidad",
+    "de": "Kompatibilität"
+  },
+  {
+    "en": "settings",
+    "hi": "सेटिंग्स",
+    "fr": "réglages",
+    "es": "configuraciones",
+    "de": "Einstellungen"
+  },
+  {
+    "en": "preferences",
+    "hi": "प्राथमिकताएं",
+    "fr": "préférences",
+    "es": "las preferencias",
+    "de": "Vorlieben"
+  },
+  {
+    "en": "customization",
+    "hi": "अनुकूलन",
+    "fr": "personnalisation",
+    "es": "personalización",
+    "de": "Anpassungen"
+  },
+  {
+    "en": "layout",
+    "hi": "लेआउट",
+    "fr": "la mise en page",
+    "es": "el diseño",
+    "de": "Auslegung"
+  },
+  {
+    "en": "theme",
+    "hi": "विषय",
+    "fr": "thème",
+    "es": "tema",
+    "de": "Thema"
+  },
+  {
+    "en": "color",
+    "hi": "रंग",
+    "fr": "couleur",
+    "es": "el color",
+    "de": "Farbe"
+  },
+  {
+    "en": "font",
+    "hi": "फ़ॉन्ट",
+    "fr": "la police",
+    "es": "fuente",
+    "de": "Schrift"
+  },
+  {
+    "en": "banner",
+    "hi": "बैनर",
+    "fr": "bannière",
+    "es": "bandera",
+    "de": "Banner"
+  },
+  {
+    "en": "modal",
+    "hi": "मोडल",
+    "fr": "mode",
+    "es": "el tiempo",
+    "de": "Modelle"
+  },
+  {
+    "en": "scroll",
+    "hi": "स्क्रॉल",
+    "fr": "rouleau",
+    "es": "rollo",
+    "de": "Schriftrollen"
+  },
+  {
+    "en": "button",
+    "hi": "बटन",
+    "fr": "bouton",
+    "es": "botón",
+    "de": "Schaltfläche"
+  },
+  {
+    "en": "icon",
+    "hi": "आइकन",
+    "fr": "icône",
+    "es": "icono",
+    "de": "Symbol"
+  },
+  {
+    "en": "tab",
+    "hi": "टैब",
+    "fr": "tab",
+    "es": "tab",
+    "de": "Tab"
+  },
+  {
+    "en": "section",
+    "hi": "अनुभाग",
+    "fr": "section",
+    "es": "sección",
+    "de": "Abschnitt"
+  },
+  {
+    "en": "authentication",
+    "hi": "authentication",
+    "fr": "authentication",
+    "es": "authentication",
+    "de": "authentication"
+  },
+  {
+    "en": "authorization",
+    "hi": "authorization",
+    "fr": "authorization",
+    "es": "authorization",
+    "de": "approval"
+  },
+  {
+    "en": "role",
+    "hi": "भूमिका",
+    "fr": "rôle",
+    "es": "papel",
+    "de": "Rolle"
+  },
+  {
+    "en": "usergroup",
+    "hi": "उपयोगकर्ता समूह",
+    "fr": "groupe d'utilisateurs",
+    "es": "grupo de usuarios",
+    "de": "Benutzergruppe"
+  },
+  {
+    "en": "session",
+    "hi": "सत्र",
+    "fr": "séance",
+    "es": "sesión",
+    "de": "Sitzung"
+  },
+  {
+    "en": "token",
+    "hi": "टोकन",
+    "fr": "token",
+    "es": "token",
+    "de": "token"
+  },
+  {
+    "en": "upload",
+    "hi": "अपलोड",
+    "fr": "téléchargement",
+    "es": "carga",
+    "de": "hochladen"
+  },
+  {
+    "en": "download",
+    "hi": "डाउनलोड",
+    "fr": "téléchargement",
+    "es": "descarga",
+    "de": "Download"
+  },
+  {
+    "en": "share",
+    "hi": "शेयर",
+    "fr": "partage",
+    "es": "el uso de",
+    "de": "Anteil"
+  },
+  {
+    "en": "link",
+    "hi": "लिंक",
+    "fr": "lien",
+    "es": "enlace",
+    "de": "Link"
+  },
+  {
+    "en": "preview",
+    "hi": "पूर्वावलोकन",
+    "fr": "prévisualisation",
+    "es": "Previsión",
+    "de": "Vorsicht"
+  },
+  {
+    "en": "delete",
+    "hi": "हटाना",
+    "fr": "supprimer",
+    "es": "borrar",
+    "de": "Löschen"
+  },
+  {
+    "en": "restore",
+    "hi": "पुनर्स्थापित करना",
+    "fr": "rétablir",
+    "es": "restaurar",
+    "de": "Wiederherstellen"
+  },
+  {
+    "en": "save",
+    "hi": "सहेजें",
+    "fr": "épargne",
+    "es": "Salvar",
+    "de": "- Sparen"
+  },
+  {
+    "en": "sync",
+    "hi": "समक्रमण",
+    "fr": "synchronisation",
+    "es": "sincronización",
+    "de": "Synchronisierung"
+  },
+  {
+    "en": "cloud",
+    "hi": "बादल",
+    "fr": "nuage",
+    "es": "Nube",
+    "de": "Wolke"
+  },
+  {
+    "en": "server",
+    "hi": "server",
+    "fr": "server",
+    "es": "server",
+    "de": "server"
+  },
+  {
+    "en": "local",
+    "hi": "स्थानीय",
+    "fr": "locaux",
+    "es": "local",
+    "de": "lokale"
+  },
+  {
+    "en": "backup",
+    "hi": "समर्थन",
+    "fr": "de soutien",
+    "es": "apoyo",
+    "de": "Unterstützung"
+  },
+  {
+    "en": "storage",
+    "hi": "भंडारण",
+    "fr": "stockage",
+    "es": "almacenamiento",
+    "de": "Speicherung"
+  },
+  {
+    "en": "path",
+    "hi": "मार्ग",
+    "fr": "chemin",
+    "es": "camino",
+    "de": "Weg"
+  },
+  {
+    "en": "archive",
+    "hi": "अभिलेखागार",
+    "fr": "archives",
+    "es": "archivo",
+    "de": "Archive"
+  },
+  {
+    "en": "search",
+    "hi": "खोज",
+    "fr": "recherche",
+    "es": "búsqueda",
+    "de": "Suche"
+  },
+  {
+    "en": "filter",
+    "hi": "फ़िल्टर",
+    "fr": "filtre",
+    "es": "filtro",
+    "de": "Filter"
+  },
+  {
+    "en": "sort",
+    "hi": "क्रमबद्ध",
+    "fr": "de sorte",
+    "es": "ordenar",
+    "de": "Sortieren"
+  },
+  {
+    "en": "print",
+    "hi": "छाप",
+    "fr": "imprimé",
+    "es": "Impresión",
+    "de": "Druck"
+  },
+  {
+    "en": "copy",
+    "hi": "प्रतिलिपि",
+    "fr": "copie",
+    "es": "copia",
+    "de": "Kopie"
+  },
+  {
+    "en": "paste",
+    "hi": "पेस्ट",
+    "fr": "la pâte",
+    "es": "pasta",
+    "de": "Pfeifen"
+  },
+  {
+    "en": "clone",
+    "hi": "clone",
+    "fr": "clone",
+    "es": "clone",
+    "de": "clone"
+  },
+  {
+    "en": "help",
+    "hi": "सहायता",
+    "fr": "aide",
+    "es": "ayuda",
+    "de": "Hilfe"
+  },
+  {
+    "en": "FAQ",
+    "hi": "फ़ाक़",
+    "fr": "le faq",
+    "es": "el hecho",
+    "de": "FQ"
+  },
+  {
+    "en": "guide",
+    "hi": "मार्गदर्शक",
+    "fr": "guide",
+    "es": "Guía",
+    "de": "Führung"
+  },
+  {
+    "en": "manual",
+    "hi": "मैनुअल",
+    "fr": "manuel",
+    "es": "manual",
+    "de": "Handbuch"
+  },
+  {
+    "en": "tutorial",
+    "hi": "ट्यूटोरियल",
+    "fr": "tutoriel",
+    "es": "Tutorial",
+    "de": "Tutorial"
+  },
+  {
+    "en": "walkthrough",
+    "hi": "पार",
+    "fr": "à travers",
+    "es": "paseo por",
+    "de": "Durchschreiten"
+  },
+  {
+    "en": "code",
+    "hi": "कोड",
+    "fr": "code",
+    "es": "código",
+    "de": "Code"
+  },
+  {
+    "en": "compile",
+    "hi": "संकलित करना",
+    "fr": "compiler",
+    "es": "compilación",
+    "de": "Kompilieren"
+  },
+  {
+    "en": "build",
+    "hi": "निर्माण",
+    "fr": "construire",
+    "es": "construCCión",
+    "de": "Gebäude"
+  },
+  {
+    "en": "debug",
+    "hi": "डिबग",
+    "fr": "débogage",
+    "es": "slides",
+    "de": "Abbau"
+  },
+  {
+    "en": "syntax",
+    "hi": "संश्लेषण",
+    "fr": "syntaxe",
+    "es": "la sintaxis",
+    "de": "Syntax"
+  },
+  {
+    "en": "variable",
+    "hi": "चर",
+    "fr": "variable",
+    "es": "variable",
+    "de": "Variable"
+  },
+  {
+    "en": "constant",
+    "hi": "निरंतर",
+    "fr": "constantes",
+    "es": "constante",
+    "de": "Konstante"
+  },
+  {
+    "en": "loop",
+    "hi": "लूप",
+    "fr": "boucle",
+    "es": "el bucle",
+    "de": "Schleife"
+  },
+  {
+    "en": "function",
+    "hi": "task",
+    "fr": "fonction",
+    "es": "Función",
+    "de": "feature"
+  },
+  {
+    "en": "method",
+    "hi": "विधि",
+    "fr": "méthode",
+    "es": "método",
+    "de": "Methode"
+  },
+  {
+    "en": "class",
+    "hi": "वर्ग",
+    "fr": "classe",
+    "es": "clase",
+    "de": "Klasse"
+  },
+  {
+    "en": "object",
+    "hi": "वस्तु",
+    "fr": "objet",
+    "es": "objeto",
+    "de": "subject"
+  },
+  {
+    "en": "array",
+    "hi": "सरणी",
+    "fr": "tableau",
+    "es": "Array",
+    "de": "Array"
+  },
+  {
+    "en": "list",
+    "hi": "सूची",
+    "fr": "liste",
+    "es": "lista",
+    "de": "Liste"
+  },
+  {
+    "en": "dictionary",
+    "hi": "शब्दकोश",
+    "fr": "le dictionnaire",
+    "es": "DiCCionario",
+    "de": "Wörterbuch"
+  },
+  {
+    "en": "string",
+    "hi": "स्ट्रिंग",
+    "fr": "chaîne",
+    "es": "cuerdas",
+    "de": "String"
+  },
+  {
+    "en": "integer",
+    "hi": "completeांक",
+    "fr": "nombre entier",
+    "es": "número entero",
+    "de": "Vollzahl"
+  },
+  {
+    "en": "boolean",
+    "hi": "बोलियन",
+    "fr": "booléen",
+    "es": "Boolean",
+    "de": "Boolean"
+  },
+  {
+    "en": "float",
+    "hi": "फ्लोट",
+    "fr": "à flot",
+    "es": "flotación",
+    "de": "Schwimmen"
+  },
+  {
+    "en": "parameter",
+    "hi": "पैरामीटर",
+    "fr": "paramètre",
+    "es": "Parámetro",
+    "de": "Parameter"
+  },
+  {
+    "en": "argument",
+    "hi": "तर्क",
+    "fr": "argumentation",
+    "es": "argumento",
+    "de": "Argumentation"
+  },
+  {
+    "en": "return",
+    "hi": "वापसी",
+    "fr": "retour",
+    "es": "retorno",
+    "de": "Rückkehr"
+  },
+  {
+    "en": "package",
+    "hi": "पैकेज",
+    "fr": "le paquet",
+    "es": "paquete",
+    "de": "load"
+  },
+  {
+    "en": "dependency",
+    "hi": "निर्भरता",
+    "fr": "la dépendance",
+    "es": "Dependencia",
+    "de": "Abhängigkeit"
+  },
+  {
+    "en": "repository",
+    "hi": "भंडार",
+    "fr": "référentiel",
+    "es": "Repositorio",
+    "de": "Repository"
+  },
+  {
+    "en": "branch",
+    "hi": "शाखा",
+    "fr": "branche",
+    "es": "rama",
+    "de": "Zweig"
+  },
+  {
+    "en": "commit",
+    "hi": "प्रतिबद्धता",
+    "fr": "de commettre",
+    "es": "Compromiso",
+    "de": "Verpflichten"
+  },
+  {
+    "en": "merge",
+    "hi": "विलय",
+    "fr": "fusionner",
+    "es": "fusionarse",
+    "de": "Verschmelzen"
+  },
+  {
+    "en": "pull",
+    "hi": "खींचें",
+    "fr": "tirer",
+    "es": "tirando",
+    "de": "Ziehen"
+  },
+  {
+    "en": "push",
+    "hi": "धक्का",
+    "fr": "poussé",
+    "es": "empujar",
+    "de": "Schieben"
+  },
+  {
+    "en": "fork",
+    "hi": "कांटा",
+    "fr": "fourchette",
+    "es": "bifurcación",
+    "de": "Gabel"
+  },
+  {
+    "en": "release",
+    "hi": "रिहाई",
+    "fr": "libération",
+    "es": "de liberación",
+    "de": "Freigabe"
+  },
+  {
+    "en": "tag",
+    "hi": "टैग",
+    "fr": "étiquette",
+    "es": "etiqueta",
+    "de": "Tag"
+  },
+  {
+    "en": "deployment",
+    "hi": "तैनाती",
+    "fr": "déploiement",
+    "es": "Despliegue",
+    "de": "Einsatz"
+  },
+  {
+    "en": "CI",
+    "hi": "सीआई",
+    "fr": "ci",
+    "es": "ci",
+    "de": "c)"
+  },
+  {
+    "en": "CD",
+    "hi": "सीडी",
+    "fr": "CD",
+    "es": "cd",
+    "de": "CD"
+  },
+  {
+    "en": "pipeline",
+    "hi": "पाइपलाइन",
+    "fr": "pipeline",
+    "es": "gasoducto",
+    "de": "Pipeline"
+  },
+  {
+    "en": "trigger",
+    "hi": "ट्रिगर",
+    "fr": "déclencheur",
+    "es": "el gatillo",
+    "de": "OSlöser"
+  },
+  {
+    "en": "job",
+    "hi": "काम",
+    "fr": "emploi",
+    "es": "trabajo",
+    "de": "Arbeit"
+  },
+  {
+    "en": "script",
+    "hi": "स्क्रिप्ट",
+    "fr": "scénario",
+    "es": "guión",
+    "de": "signoff"
+  },
+  {
+    "en": "shell",
+    "hi": "शेल",
+    "fr": "la coquille",
+    "es": "concha",
+    "de": "Schal"
+  },
+  {
+    "en": "terminal",
+    "hi": "टर्मिनल",
+    "fr": "terminal",
+    "es": "terminal",
+    "de": "Terminal"
+  },
+  {
+    "en": "command",
+    "hi": "आदेश",
+    "fr": "commandement",
+    "es": "el comando",
+    "de": "Kommando"
+  },
+  {
+    "en": "log",
+    "hi": "लॉग",
+    "fr": "log",
+    "es": "login",
+    "de": "log"
+  },
+  {
+    "en": "stacktrace",
+    "hi": "स्टैकट्रेस",
+    "fr": "traces de piOS",
+    "es": "el reloj de la nave",
+    "de": "Stacktrace"
+  },
+  {
+    "en": "exception",
+    "hi": "अपवाद",
+    "fr": "exception",
+    "es": "excepción",
+    "de": "OSnahme"
+  },
+  {
+    "en": "test",
+    "hi": "परीक्षण",
+    "fr": "test",
+    "es": "el ensayo",
+    "de": "Test"
+  },
+  {
+    "en": "testcase",
+    "hi": "परीक्षण केक",
+    "fr": "éprouvette",
+    "es": "caja de ensayo",
+    "de": "Testkasten"
+  },
+  {
+    "en": "mock",
+    "hi": "व्यंग्य",
+    "fr": "moqueur",
+    "es": "el juego",
+    "de": "Schwindel"
+  },
+  {
+    "en": "stub",
+    "hi": "कच्चे",
+    "fr": "le bâton",
+    "es": "el estudo",
+    "de": "Stücke"
+  },
+  {
+    "en": "environment",
+    "hi": "पर्यावरण",
+    "fr": "environnement",
+    "es": "medio ambiente",
+    "de": "Umwelt"
+  },
+  {
+    "en": "virtualenv",
+    "hi": "वर्चुअल",
+    "fr": "virtuel",
+    "es": "por ejemplo,",
+    "de": "virtuelle"
+  },
+  {
+    "en": "container",
+    "hi": "कंटेनर",
+    "fr": "contenant",
+    "es": "contenedor",
+    "de": "Behälter"
+  },
+  {
+    "en": "docker",
+    "hi": "डॉकर",
+    "fr": "le docker",
+    "es": "el docker",
+    "de": "Docker"
+  },
+  {
+    "en": "kubernetes",
+    "hi": "कुबेरनेट",
+    "fr": "à la fois",
+    "es": "cibernéticos",
+    "de": "Kubernetten"
+  },
+  {
+    "en": "yaml",
+    "hi": "यमुना",
+    "fr": "le moulin",
+    "es": "KPI",
+    "de": "Jammel"
+  },
+  {
+    "en": "json",
+    "hi": "जेसन",
+    "fr": "json",
+    "es": "Json",
+    "de": "Json"
+  },
+  {
+    "en": "config",
+    "hi": "संरेखण",
+    "fr": "config",
+    "es": "config",
+    "de": "configuration"
+  },
+  {
+    "en": "CI/CD",
+    "hi": "सीआई/सीडी",
+    "fr": "ci/cd",
+    "es": "ci/cd",
+    "de": "c/cd"
+  },
+  {
+    "en": "Jenkins",
+    "hi": "जेनकिन्स",
+    "fr": "OS statuss membres",
+    "es": "¿Qué es eso?",
+    "de": "- Das ist nicht wahr."
+  },
+  {
+    "en": "GitHub",
+    "hi": "गिटब",
+    "fr": "github",
+    "es": "github",
+    "de": "Github"
+  },
+  {
+    "en": "GitLab",
+    "hi": "गिटलैब",
+    "fr": "gitlab",
+    "es": "gitlab",
+    "de": "Gitlab"
+  },
+  {
+    "en": "Bitbucket",
+    "hi": "बिटकॉइन",
+    "fr": "débit",
+    "es": "un poco de agua",
+    "de": "Bitbucket"
+  },
+  {
+    "en": "artifact",
+    "hi": "कलाकृतियाँ",
+    "fr": "artéfact",
+    "es": "artefacto",
+    "de": "Kunststoff"
+  },
+  {
+    "en": "buildtool",
+    "hi": "निर्माण tool",
+    "fr": "tool de construction",
+    "es": "tool de construCCión",
+    "de": "BOStoff"
+  },
+  {
+    "en": "linter",
+    "hi": "लैंटर",
+    "fr": "le linter",
+    "es": "el linter",
+    "de": "Schleifschrank"
+  },
+  {
+    "en": "formatter",
+    "hi": "formatक",
+    "fr": "formatteur",
+    "es": "format",
+    "de": "formatter"
+  },
+  {
+    "en": "refactor",
+    "hi": "रिफैक्टर",
+    "fr": "réfacteur",
+    "es": "Refactor",
+    "de": "Refactor"
+  },
+  {
+    "en": "hotfix",
+    "hi": "हॉटफिक्स",
+    "fr": "réparation",
+    "es": "el punto de aCCess",
+    "de": "Hotfix"
+  },
+  {
+    "en": "rollback",
+    "hi": "वापसी",
+    "fr": "réouverture",
+    "es": "el retroceso",
+    "de": "Rückkehr"
+  },
+  {
+    "en": "release-note",
+    "hi": "रिहाई note",
+    "fr": "note de mise en liberté",
+    "es": "note de publicación",
+    "de": "Veröffentlichungsreport"
+  },
+  {
+    "en": "changelog",
+    "hi": "परिवर्तन",
+    "fr": "le changelog",
+    "es": "logout de cambios",
+    "de": "Schalterbuch"
+  },
+  {
+    "en": "IDE",
+    "hi": "आईडीई",
+    "fr": "idée",
+    "es": "de la",
+    "de": "-"
+  },
+  {
+    "en": "editor",
+    "hi": "संपादक",
+    "fr": "rédacteur en chef",
+    "es": "editor",
+    "de": "Verleger"
+  },
+  {
+    "en": "breakpoint",
+    "hi": "टूटने का बिंदु",
+    "fr": "point de rupture",
+    "es": "punto de ruptura",
+    "de": "Bruchpunkt"
+  },
+  {
+    "en": "localhost",
+    "hi": "local होस्ट",
+    "fr": "hôte local",
+    "es": "localhost",
+    "de": "localr Host"
+  },
+  {
+    "en": "API",
+    "hi": "एपीआई",
+    "fr": "l'appareil",
+    "es": "KPI",
+    "de": "- die"
+  },
+  {
+    "en": "REST",
+    "hi": "विश्राम",
+    "fr": "repos",
+    "es": "descanso",
+    "de": "Ruhe"
+  },
+  {
+    "en": "endpoint",
+    "hi": "अंत बिंदु",
+    "fr": "point de fin",
+    "es": "punto final",
+    "de": "Endpunkt"
+  },
+  {
+    "en": "statuscode",
+    "hi": "status कोड",
+    "fr": "code de statut",
+    "es": "código de estado",
+    "de": "statuscode"
+  },
+  {
+    "en": "latency",
+    "hi": "विलंबता",
+    "fr": "la latence",
+    "es": "delay",
+    "de": "delay"
+  },
+  {
+    "en": "websocket",
+    "hi": "वेबसॉकेट",
+    "fr": "websocket",
+    "es": "websocket",
+    "de": "Websocket"
+  },
+  {
+    "en": "process",
+    "hi": "प्रक्रिया",
+    "fr": "processus",
+    "es": "proceso",
+    "de": "Prozess"
+  },
+  {
+    "en": "queue",
+    "hi": "कतार",
+    "fr": "rangée",
+    "es": "colas",
+    "de": "Schlange"
+  },
+  {
+    "en": "scheduler",
+    "hi": "अनुसूचक",
+    "fr": "rédacteur",
+    "es": "programción",
+    "de": "Scheduler"
+  },
+  {
+    "en": "antivirus",
+    "hi": "एंटीवायरस",
+    "fr": "antivirus",
+    "es": "antivirus",
+    "de": "Antivirus"
+  },
+  {
+    "en": "malware",
+    "hi": "मालवेयर",
+    "fr": "Malware",
+    "es": "Malware",
+    "de": "Malware"
+  },
+  {
+    "en": "ransomware",
+    "hi": "रैंसमवेयर",
+    "fr": "ransomware",
+    "es": "el ransomware",
+    "de": "Ransomware"
+  },
+  {
+    "en": "spyware",
+    "hi": "स्पाइवेयर",
+    "fr": "softwares espions",
+    "es": "software espía",
+    "de": "Spyware"
+  },
+  {
+    "en": "trojan",
+    "hi": "ट्रोजन",
+    "fr": "Trojan",
+    "es": "troyano",
+    "de": "Trojaner"
+  },
+  {
+    "en": "phishing",
+    "hi": "फिशिंग",
+    "fr": "pêche à la pêche",
+    "es": "pesca de peces",
+    "de": "Fischerei"
+  },
+  {
+    "en": "threat",
+    "hi": "खतरा",
+    "fr": "menace",
+    "es": "amenaza",
+    "de": "Gefahr"
+  },
+  {
+    "en": "vulnerability",
+    "hi": "कमजोर",
+    "fr": "vulnérabilité",
+    "es": "vulnerabilidad",
+    "de": "Schwachstellen"
+  },
+  {
+    "en": "zero-day",
+    "hi": "शून्य दिन",
+    "fr": "jour nul",
+    "es": "día cero",
+    "de": "Nulltag"
+  },
+  {
+    "en": "encryption",
+    "hi": "एन्क्रिप्शन",
+    "fr": "chiffrement",
+    "es": "cifrado",
+    "de": "Verschlüsselung"
+  },
+  {
+    "en": "decryption",
+    "hi": "डिक्रिप्शन",
+    "fr": "déchiffrement",
+    "es": "Descifrado",
+    "de": "Entzifflung"
+  },
+  {
+    "en": "cipher",
+    "hi": "signalक",
+    "fr": "chiffrement",
+    "es": "cifrado",
+    "de": "Schlüssel"
+  },
+  {
+    "en": "hash",
+    "hi": "हश",
+    "fr": "le haschisme",
+    "es": "el hachís",
+    "de": "Haß"
+  },
+  {
+    "en": "brute-force",
+    "hi": "क्रूर बल",
+    "fr": "force brute",
+    "es": "fuerza bruta",
+    "de": "Brute Kraft"
+  },
+  {
+    "en": "keylogger",
+    "hi": "कीलॉगर",
+    "fr": "le logger de clés",
+    "es": "logout de claves",
+    "de": "Schlüssellogger"
+  },
+  {
+    "en": "intrusion",
+    "hi": "घुसपैठ",
+    "fr": "intrusion",
+    "es": "Intrusión",
+    "de": "Einbruch"
+  },
+  {
+    "en": "detection",
+    "hi": "पता लगाना",
+    "fr": "détection",
+    "es": "deteCCión",
+    "de": "Nachweis"
+  },
+  {
+    "en": "prevention",
+    "hi": "रोकथाम",
+    "fr": "prévention",
+    "es": "Prevención",
+    "de": "Verhütung"
+  },
+  {
+    "en": "monitoring",
+    "hi": "निगरानी",
+    "fr": "le followup",
+    "es": "control",
+    "de": "Überwachung"
+  },
+  {
+    "en": "breach",
+    "hi": "उल्लंघन",
+    "fr": "délit",
+    "es": "el incumplimiento",
+    "de": "Verletzung"
+  },
+  {
+    "en": "exploit",
+    "hi": "शोषण",
+    "fr": "exploitation",
+    "es": "el exploit",
+    "de": "OSbeuten"
+  },
+  {
+    "en": "backdoor",
+    "hi": "पीछे की दरवाजा",
+    "fr": "porte arrière",
+    "es": "puerta trasera",
+    "de": "Hintertür"
+  },
+  {
+    "en": "privilege",
+    "hi": "विशेषाधिकार",
+    "fr": "privilège",
+    "es": "el privilegio",
+    "de": "Vorrecht"
+  },
+  {
+    "en": "policy",
+    "hi": "policy",
+    "fr": "policy",
+    "es": "policy",
+    "de": "policy"
+  },
+  {
+    "en": "certificate",
+    "hi": "प्रमाण पत्र",
+    "fr": "certificat",
+    "es": "Certificado",
+    "de": "Bescheinigung"
+  },
+  {
+    "en": "SSL",
+    "hi": "एसएसएल",
+    "fr": "Ssl",
+    "es": "Ssl",
+    "de": "Ssl"
+  },
+  {
+    "en": "TLS",
+    "hi": "टीएलएस",
+    "fr": "TLS",
+    "es": "TLS",
+    "de": "TLS"
+  },
+  {
+    "en": "VPN",
+    "hi": "वीपीएन",
+    "fr": "vpn",
+    "es": "vpn",
+    "de": "Vpn"
+  },
+  {
+    "en": "MFA",
+    "hi": "एमएफए",
+    "fr": "le niveau de l'teamment",
+    "es": "KPI",
+    "de": "mfa"
+  },
+  {
+    "en": "OTP",
+    "hi": "ओटीपी",
+    "fr": "le",
+    "es": "de la otra parte",
+    "de": "und"
+  },
+  {
+    "en": "digital-signature",
+    "hi": "डिजिटल signoff",
+    "fr": "signature numérique",
+    "es": "firma digital",
+    "de": "Digitale Signatur"
+  },
+  {
+    "en": "securityaudit",
+    "hi": "सुरक्षा लेखा परीक्षा",
+    "fr": "vérification de la sécurité",
+    "es": "Auditoría de seguridad",
+    "de": "Sicherheitsprüfung"
+  },
+  {
+    "en": "compliance",
+    "hi": "compliance",
+    "fr": "compliance",
+    "es": "compliance",
+    "de": "Econtentung"
+  },
+  {
+    "en": "mitigation",
+    "hi": "कम करना",
+    "fr": "l'atténuation",
+    "es": "la mitigación",
+    "de": "Verringerung"
+  },
+  {
+    "en": "attack",
+    "hi": "हमला",
+    "fr": "attaque",
+    "es": "ataque",
+    "de": "Angriff"
+  },
+  {
+    "en": "defense",
+    "hi": "रक्षा",
+    "fr": "défense",
+    "es": "Defensa",
+    "de": "Verteidigung"
+  },
+  {
+    "en": "portscan",
+    "hi": "पोर्ट्सस्कैन",
+    "fr": "analysis des ports",
+    "es": "portscan",
+    "de": "Portscan"
+  },
+  {
+    "en": "whitelist",
+    "hi": "श्वेतसूची",
+    "fr": "liste blanche",
+    "es": "lista blanca",
+    "de": "weiße Liste"
+  },
+  {
+    "en": "blacklist",
+    "hi": "कालासूची",
+    "fr": "liste noire",
+    "es": "lista negra",
+    "de": "Schwarzliste"
+  },
+  {
+    "en": "sandbox",
+    "hi": "रेत बॉक्स",
+    "fr": "boîte à sable",
+    "es": "caja de arena",
+    "de": "Sandbox"
+  },
+  {
+    "en": "logfile",
+    "hi": "लॉगfile",
+    "fr": "file de logout",
+    "es": "file de login",
+    "de": "Logfile"
+  },
+  {
+    "en": "trace",
+    "hi": "निशान",
+    "fr": "trace",
+    "es": "Traza",
+    "de": "Spuren"
+  },
+  {
+    "en": "payload",
+    "hi": "utility भार",
+    "fr": "load utile",
+    "es": "load útil",
+    "de": "Nutzlast"
+  },
+  {
+    "en": "malwareanalysis",
+    "hi": "मालवेयर analysis",
+    "fr": "analysis des softwares malveillants",
+    "es": "analysis de malware",
+    "de": "Malwareanalysis"
+  },
+  {
+    "en": "networksecurity",
+    "hi": "network सुरक्षा",
+    "fr": "sécurité du network",
+    "es": "seguridad de la network",
+    "de": "Netzsicherheit"
+  },
+  {
+    "en": "gateway",
+    "hi": "प्रवेश द्वार",
+    "fr": "porte d'entrée",
+    "es": "puerta de entrada",
+    "de": "Schloss"
+  },
+  {
+    "en": "tunneling",
+    "hi": "सुcolor निर्माण",
+    "fr": "le tunnel",
+    "es": "túnel",
+    "de": "Tunnelbau"
+  },
+  {
+    "en": "secureboot",
+    "hi": "सुरक्षित बूट",
+    "fr": "démarrage sécurisé",
+    "es": "botas seguras",
+    "de": "sichere Boot"
+  },
+  {
+    "en": "firmwarecheck",
+    "hi": "फर्मवेयर चेक",
+    "fr": "vérification du firmware",
+    "es": "control de firmware",
+    "de": "Firmwarecheck"
+  },
+  {
+    "en": "SIEM",
+    "hi": "सिम",
+    "fr": "Sém",
+    "es": "Siem",
+    "de": "Siem"
+  },
+  {
+    "en": "IDS",
+    "hi": "आईडी",
+    "fr": "OS identifiants",
+    "es": "Identificación",
+    "de": "OSweis"
+  },
+  {
+    "en": "IPS",
+    "hi": "आईपीएस",
+    "fr": "OS ips",
+    "es": "Ips",
+    "de": "IPS"
+  },
+  {
+    "en": "honeypot",
+    "hi": "मधुमक्खी",
+    "fr": "poudre de miel",
+    "es": "el polvo de miel",
+    "de": "Schnaps"
+  },
+  {
+    "en": "forensics",
+    "hi": "न्यायिक",
+    "fr": "la médecine judiciaire",
+    "es": "la forense",
+    "de": "Gerichtsmedizin"
+  },
+  {
+    "en": "threatintel",
+    "hi": "खतरा",
+    "fr": "menaces",
+    "es": "amenazas de seguridad",
+    "de": "Gefahr"
+  },
+  {
+    "en": "APT",
+    "hi": "उपयुक्त",
+    "fr": "apt",
+    "es": "apt",
+    "de": "apt"
+  },
+  {
+    "en": "botnet",
+    "hi": "बोटनेट",
+    "fr": "botnet",
+    "es": "botnet",
+    "de": "Botnet"
+  },
+  {
+    "en": "patchmanagement",
+    "hi": "patch प्रबंधन",
+    "fr": "gestion des parches",
+    "es": "gestión de parches",
+    "de": "Patchmanagement"
+  },
+  {
+    "en": "riskassessment",
+    "hi": "risk मूल्यांकन",
+    "fr": "évaluation des risks",
+    "es": "evaluación de risks",
+    "de": "riskbewertung"
+  },
+  {
+    "en": "identity",
+    "hi": "पहचान",
+    "fr": "identité",
+    "es": "identidad",
+    "de": "Identität"
+  },
+  {
+    "en": "IAM",
+    "hi": "आईएएम",
+    "fr": "- le",
+    "es": "en el caso de",
+    "de": "Ich habe"
+  },
+  {
+    "en": "userrole",
+    "hi": "user role",
+    "fr": "role de l'user",
+    "es": "role duser",
+    "de": "userrole"
+  },
+  {
+    "en": "tokenrevocation",
+    "hi": "token रिटर्निंग",
+    "fr": "revoke des symboOS",
+    "es": "Revocación OS valores",
+    "de": "revoke"
+  },
+  {
+    "en": "passwordpolicy",
+    "hi": "password नीति",
+    "fr": "politique de password",
+    "es": "Política de passwords",
+    "de": "passwordpolitik"
+  },
+  {
+    "en": "firewallrule",
+    "hi": "firewall नियम",
+    "fr": "réglementation de firewall",
+    "es": "regla de panetwork de fuego",
+    "de": "firewall-Regel"
+  },
+  {
+    "en": "accesslog",
+    "hi": "access लॉग",
+    "fr": "journaux d'aCCess",
+    "es": "login de aCCess",
+    "de": "accessslog"
+  },
+  {
+    "en": "adminpanel",
+    "hi": "adminिक पैनल",
+    "fr": "panneau d'administration",
+    "es": "panel administrativo",
+    "de": "Verwaltungspanel"
+  },
+  {
+    "en": "phishingreport",
+    "hi": "फिशिंग report",
+    "fr": "report de pêche",
+    "es": "report de pesca",
+    "de": "Fischereireport"
+  },
+  {
+    "en": "securitytraining",
+    "hi": "सुरक्षा प्रशिक्षण",
+    "fr": "formation en matière de sécurité",
+    "es": "formación en seguridad",
+    "de": "Sicherheitstraining"
+  },
+  {
+    "en": "cyberhygiene",
+    "hi": "साइबर स्वच्छता",
+    "fr": "hygiène cybernétique",
+    "es": "ciberhigiene",
+    "de": "Cyberhygiene"
+  },
+  {
+    "en": "SSLcert",
+    "hi": "स्लसर्ट",
+    "fr": "Sslcert",
+    "es": "KPI",
+    "de": "shortcut"
+  },
+  {
+    "en": "SSO",
+    "hi": "एसएसओ",
+    "fr": "le sso",
+    "es": "KPI",
+    "de": "sso"
+  },
+  {
+    "en": "sessiontimeout",
+    "hi": "session timeआउट",
+    "fr": "time de session",
+    "es": "time de session",
+    "de": "sessionstunden"
+  },
+  {
+    "en": "URLfilter",
+    "hi": "urlfilter",
+    "fr": "filter url",
+    "es": "filter de url",
+    "de": "urlfilter"
+  },
+  {
+    "en": "antivirusscan",
+    "hi": "एंटीवायरस स्कैन",
+    "fr": "l'antiviruscan",
+    "es": "anti-virus",
+    "de": "antivirussische Untersuchung"
+  },
+  {
+    "en": "encryptionkey",
+    "hi": "एन्क्रिप्शन कुंजी",
+    "fr": "clé de chiffrement",
+    "es": "clave de cifrado",
+    "de": "Verschlüsselungsschlüssel"
+  },
+  {
+    "en": "securehash",
+    "hi": "सुरक्षित",
+    "fr": "une valeur de sécurité",
+    "es": "seguridad",
+    "de": "Sicherheitsdefault"
+  },
+  {
+    "en": "publickey",
+    "hi": "सार्वजनिक कुंजी",
+    "fr": "clé publique",
+    "es": "llave pública",
+    "de": "öffentlicher Schlüssel"
+  },
+  {
+    "en": "privatekey",
+    "hi": "निजी",
+    "fr": "privée",
+    "es": "El sector privado",
+    "de": "Privatwirtschaft"
+  },
+  {
+    "en": "CEO",
+    "hi": "सीईओ",
+    "fr": "directeur général",
+    "es": "ejecutivo",
+    "de": "Vorstandsvorsitzender"
+  },
+  {
+    "en": "CTO",
+    "hi": "सीटीओ",
+    "fr": "le cto",
+    "es": "de la",
+    "de": "cto"
+  },
+  {
+    "en": "CFO",
+    "hi": "सीएफओ",
+    "fr": "cfo",
+    "es": "cfo",
+    "de": "cfo"
+  },
+  {
+    "en": "CIO",
+    "hi": "सीओ",
+    "fr": "à la fois",
+    "es": "KPI",
+    "de": "- die"
+  },
+  {
+    "en": "CMO",
+    "hi": "सीएमओ",
+    "fr": "le system de",
+    "es": "CMO",
+    "de": "CMO"
+  },
+  {
+    "en": "VP",
+    "hi": "वीपी",
+    "fr": "VP",
+    "es": "VP",
+    "de": "VP"
+  },
+  {
+    "en": "director",
+    "hi": "निदेशक",
+    "fr": "directeur",
+    "es": "director",
+    "de": "Direktor"
+  },
+  {
+    "en": "manager",
+    "hi": "प्रबंधक",
+    "fr": "directeur",
+    "es": "el gerente",
+    "de": "Manager"
+  },
+  {
+    "en": "supervisor",
+    "hi": "पर्यवेक्षक",
+    "fr": "superviseur",
+    "es": "el supervisor",
+    "de": "Aufsichtsbehörde"
+  },
+  {
+    "en": "teamlead",
+    "hi": "team लीडर",
+    "fr": "chef d'team",
+    "es": "líder de team",
+    "de": "teamleiter"
+  },
+  {
+    "en": "employee",
+    "hi": "कर्मचारी",
+    "fr": "employé",
+    "es": "empleado",
+    "de": "Arbeitnehmer"
+  },
+  {
+    "en": "intern",
+    "hi": "इंटर्न",
+    "fr": "stagiaire",
+    "es": "estagiario",
+    "de": "Praktikant"
+  },
+  {
+    "en": "HR",
+    "hi": "श्री",
+    "fr": "le",
+    "es": "Sr. Sr.",
+    "de": "Herr"
+  },
+  {
+    "en": "staff",
+    "hi": "कर्मचारी",
+    "fr": "le personnel",
+    "es": "personal",
+    "de": "Personal"
+  },
+  {
+    "en": "board",
+    "hi": "बोर्ड",
+    "fr": "planche",
+    "es": "tabla",
+    "de": "presentation"
+  },
+  {
+    "en": "executive",
+    "hi": "taskकारी",
+    "fr": "le directeur",
+    "es": "ejecutivo",
+    "de": "guideskräfte"
+  },
+  {
+    "en": "assistant",
+    "hi": "सहायक",
+    "fr": "assistant",
+    "es": "Asistente",
+    "de": "Assistent"
+  },
+  {
+    "en": "department",
+    "hi": "विभाग",
+    "fr": "département",
+    "es": "departamento",
+    "de": "Abteilung"
+  },
+  {
+    "en": "division",
+    "hi": "विभाजन",
+    "fr": "division",
+    "es": "división",
+    "de": "Aufteilung"
+  },
+  {
+    "en": "hierarchy",
+    "hi": "पदानुक्रम",
+    "fr": "hiérarchie",
+    "es": "jerarquía",
+    "de": "Hierarchie"
+  },
+  {
+    "en": "reporting",
+    "hi": "reportिंग",
+    "fr": "reports",
+    "es": "Información",
+    "de": "reporterstattung"
+  },
+  {
+    "en": "designation",
+    "hi": "पद का नाम",
+    "fr": "token",
+    "es": "designación",
+    "de": "Bezeichnung"
+  },
+  {
+    "en": "position",
+    "hi": "status",
+    "fr": "position",
+    "es": "posición",
+    "de": "Position"
+  },
+  {
+    "en": "leadership",
+    "hi": "नेतृत्व",
+    "fr": "Le leadership",
+    "es": "liderazgo",
+    "de": "guide"
+  },
+  {
+    "en": "strategy",
+    "hi": "रणनीति",
+    "fr": "stratégie",
+    "es": "estrategia",
+    "de": "Strategie"
+  },
+  {
+    "en": "operations",
+    "hi": "संचालन",
+    "fr": "opérations",
+    "es": "Operaciones",
+    "de": "Operationen"
+  },
+  {
+    "en": "finance",
+    "hi": "वित्त",
+    "fr": "Finances",
+    "es": "Finanzas",
+    "de": "Finanzen"
+  },
+  {
+    "en": "marketing",
+    "hi": "विपणन",
+    "fr": "comthanksalisation",
+    "es": "comercialización",
+    "de": "Vermarktung"
+  },
+  {
+    "en": "technology",
+    "hi": "प्रौद्योगिकी",
+    "fr": "technologie",
+    "es": "tecnología",
+    "de": "Technologie"
+  },
+  {
+    "en": "product",
+    "hi": "उत्पाद",
+    "fr": "produit",
+    "es": "producto",
+    "de": "Produkt"
+  },
+  {
+    "en": "sales",
+    "hi": "बिक्री",
+    "fr": "ventes",
+    "es": "ventas",
+    "de": "Verkauf"
+  },
+  {
+    "en": "engineering",
+    "hi": "इंजीनियरिंग",
+    "fr": "ingénierie",
+    "es": "ingeniería",
+    "de": "Ingenieur"
+  },
+  {
+    "en": "logistics",
+    "hi": "रसद",
+    "fr": "logistique",
+    "es": "logística",
+    "de": "Logistik"
+  },
+  {
+    "en": "supplychain",
+    "hi": "आपूर्ति श्रृंखला",
+    "fr": "chaîne d'approvisionnement",
+    "es": "cadena de suministro",
+    "de": "Lieferkette"
+  },
+  {
+    "en": "procurement",
+    "hi": "खरीद",
+    "fr": "OS marchés publics",
+    "es": "la adquisición",
+    "de": "Vergabe von Vergabe"
+  },
+  {
+    "en": "training",
+    "hi": "training",
+    "fr": "training",
+    "es": "training",
+    "de": "OSbildung"
+  },
+  {
+    "en": "development",
+    "hi": "growth",
+    "fr": "développement",
+    "es": "desarscroll",
+    "de": "Entwicklung"
+  },
+  {
+    "en": "legal",
+    "hi": "legal",
+    "fr": "OTPgal",
+    "es": "legal",
+    "de": "legal"
+  },
+  {
+    "en": "audit",
+    "hi": "audit",
+    "fr": "audit",
+    "es": "audit",
+    "de": "audit"
+  },
+  {
+    "en": "ethics",
+    "hi": "नैतिकता",
+    "fr": "l'éthique",
+    "es": "ética",
+    "de": "Ethik"
+  },
+  {
+    "en": "governance",
+    "hi": "शासन",
+    "fr": "gouvernance",
+    "es": "gobierno",
+    "de": "Regierungsguide"
+  },
+  {
+    "en": "stakeholder",
+    "hi": "हितधारक",
+    "fr": "parties prenantes",
+    "es": "las partes interesadas",
+    "de": "Beteiligte"
+  },
+  {
+    "en": "shareholder",
+    "hi": "shareधारक",
+    "fr": "actionnaire",
+    "es": "aCCionista",
+    "de": "Aktionäre"
+  },
+  {
+    "en": "investor",
+    "hi": "निवेशक",
+    "fr": "investisseur",
+    "es": "el inversor",
+    "de": "Investor"
+  },
+  {
+    "en": "partner",
+    "hi": "भागीदार",
+    "fr": "partenaire",
+    "es": "socio",
+    "de": "Partner"
+  },
+  {
+    "en": "associate",
+    "hi": "collaborationी",
+    "fr": "associé",
+    "es": "asociado",
+    "de": "Partner"
+  },
+  {
+    "en": "consultant",
+    "hi": "सलाहकार",
+    "fr": "consultant",
+    "es": "consultor",
+    "de": "Berater"
+  },
+  {
+    "en": "analyst",
+    "hi": "विश्लेषक",
+    "fr": "analysisur",
+    "es": "analista",
+    "de": "Analytiker"
+  },
+  {
+    "en": "strategist",
+    "hi": "रणनीतिकार",
+    "fr": "un stratège",
+    "es": "estratégico",
+    "de": "Strategist"
+  },
+  {
+    "en": "coordinator",
+    "hi": "समन्वयक",
+    "fr": "coordonnateur",
+    "es": "coordinador",
+    "de": "Koordinator"
+  },
+  {
+    "en": "administrator",
+    "hi": "प्रशासक",
+    "fr": "admin",
+    "es": "admin",
+    "de": "administrator"
+  },
+  {
+    "en": "advisor",
+    "hi": "सलाहकार",
+    "fr": "conseiller",
+    "es": "consejero",
+    "de": "Berater"
+  },
+  {
+    "en": "officer",
+    "hi": "अधिकारी",
+    "fr": "officier",
+    "es": "oficial",
+    "de": "Beamte"
+  },
+  {
+    "en": "lead",
+    "hi": "लीड",
+    "fr": "plomb",
+    "es": "plomo",
+    "de": "Blei"
+  },
+  {
+    "en": "fellow",
+    "hi": "साथी",
+    "fr": "le compagnon",
+    "es": "compañero",
+    "de": "- Mann"
+  },
+  {
+    "en": "delegate",
+    "hi": "प्रतिनिधि",
+    "fr": "proxy",
+    "es": "delegado",
+    "de": "Delegierte"
+  },
+  {
+    "en": "representative",
+    "hi": "प्रतिनिधि",
+    "fr": "représentatif",
+    "es": "representante",
+    "de": "Vertreter"
+  },
+  {
+    "en": "committee",
+    "hi": "समिति",
+    "fr": "comité",
+    "es": "el comité",
+    "de": "OSschuss"
+  },
+  {
+    "en": "panel",
+    "hi": "पैनल",
+    "fr": "panneau",
+    "es": "panel",
+    "de": "Panel"
+  },
+  {
+    "en": "boardmember",
+    "hi": "बोर्ड सदस्य",
+    "fr": "membre du conseil",
+    "es": "miembro del consejo",
+    "de": "Vorstandsmitglied"
+  },
+  {
+    "en": "unit",
+    "hi": "इकाई",
+    "fr": "unité",
+    "es": "Unidad",
+    "de": "Einheit"
+  },
+  {
+    "en": "affiliate",
+    "hi": "संबद्ध",
+    "fr": "affilié",
+    "es": "afiliado",
+    "de": "verbundene Unternehmen"
+  },
+  {
+    "en": "subsidiary",
+    "hi": "सहायक कंपनी",
+    "fr": "filiale",
+    "es": "subsidiaria",
+    "de": "Tochtergesellschaft"
+  },
+  {
+    "en": "merger",
+    "hi": "विलय",
+    "fr": "fusion",
+    "es": "Fusión",
+    "de": "Fusion"
+  },
+  {
+    "en": "acquisition",
+    "hi": "अधिग्रहण",
+    "fr": "acquisition",
+    "es": "Adquisición",
+    "de": "Erwerb"
+  },
+  {
+    "en": "restructure",
+    "hi": "पुनर्गठन",
+    "fr": "restructuration",
+    "es": "Reestructuración",
+    "de": "Umstrukturierung"
+  },
+  {
+    "en": "regulation",
+    "hi": "regulation",
+    "fr": "regulation",
+    "es": "regulation",
+    "de": "regulation"
+  },
+  {
+    "en": "standard",
+    "hi": "standard",
+    "fr": "standard",
+    "es": "standard",
+    "de": "standard"
+  },
+  {
+    "en": "objective",
+    "hi": "उद्देश्य",
+    "fr": "objectif",
+    "es": "goal",
+    "de": "goal"
+  },
+  {
+    "en": "vision",
+    "hi": "दृष्टि",
+    "fr": "la vision",
+    "es": "la visión",
+    "de": "Vision"
+  },
+  {
+    "en": "mission",
+    "hi": "मिशन",
+    "fr": "mission",
+    "es": "misión",
+    "de": "Mission"
+  },
+  {
+    "en": "culture",
+    "hi": "संस्कृति",
+    "fr": "culture",
+    "es": "cultura",
+    "de": "Kultur"
+  },
+  {
+    "en": "value",
+    "hi": "मूल्य",
+    "fr": "valeur",
+    "es": "el valor",
+    "de": "Wert"
+  },
+  {
+    "en": "transparency",
+    "hi": "walkthroughदर्शिता",
+    "fr": "transparence",
+    "es": "transparencia",
+    "de": "Transparenz"
+  },
+  {
+    "en": "alignment",
+    "hi": "संरेखण",
+    "fr": "l'alignement",
+    "es": "Alineación",
+    "de": "OSrichtung"
+  },
+  {
+    "en": "responsibility",
+    "hi": "जिम्मेदारी",
+    "fr": "responsabilité",
+    "es": "responsabilidad",
+    "de": "Verresponseung"
+  },
+  {
+    "en": "decisionmaking",
+    "hi": "निर्णय लेने",
+    "fr": "prise de décision",
+    "es": "la toma de decisiones",
+    "de": "Entscheidungsprozess"
+  },
+  {
+    "en": "workflow",
+    "hi": "taskप्रवाह",
+    "fr": "flux de travail",
+    "es": "flujo de trabajo",
+    "de": "Arbeitsfluss"
+  },
+  {
+    "en": "mandate",
+    "hi": "task",
+    "fr": "mandat",
+    "es": "mandato",
+    "de": "Mandat"
+  },
+  {
+    "en": "charter",
+    "hi": "chartर",
+    "fr": "Charte",
+    "es": "carta",
+    "de": "Charter"
+  },
+  {
+    "en": "roadmap",
+    "hi": "रोडमैप",
+    "fr": "feuille de route",
+    "es": "Mapa de ruta",
+    "de": "Fahrplan"
+  },
+  {
+    "en": "project",
+    "hi": "परियोजना",
+    "fr": "draft",
+    "es": "draft",
+    "de": "Projekt"
+  },
+  {
+    "en": "deliverable",
+    "hi": "वितरण योग्य",
+    "fr": "livrabOS",
+    "es": "de entregable",
+    "de": "Lieferbar"
+  },
+  {
+    "en": "scope",
+    "hi": "दायरा",
+    "fr": "portée",
+    "es": "outreach",
+    "de": "Umfang"
+  },
+  {
+    "en": "sprint",
+    "hi": "स्प्रिंट",
+    "fr": "sprint",
+    "es": "speed",
+    "de": "Sprint"
+  },
+  {
+    "en": "backlog",
+    "hi": "बैकलॉग",
+    "fr": "logout",
+    "es": "el recuento",
+    "de": "Rückstand"
+  },
+  {
+    "en": "kanban",
+    "hi": "कंबान",
+    "fr": "le kanban",
+    "es": "canban",
+    "de": "Kanban"
+  },
+  {
+    "en": "scrum",
+    "hi": "स्क्रूम",
+    "fr": "le scrum",
+    "es": "el escrofo",
+    "de": "Schrumpf"
+  },
+  {
+    "en": "agile",
+    "hi": "चपल",
+    "fr": "à l'aiguille",
+    "es": "de la línea de trabajo",
+    "de": "agile"
+  },
+  {
+    "en": "waterfall",
+    "hi": "झरना",
+    "fr": "cascade",
+    "es": "cascada",
+    "de": "Wasserfall"
+  },
+  {
+    "en": "methodology",
+    "hi": "पद्धति",
+    "fr": "méthodologie",
+    "es": "metodología",
+    "de": "Methodik"
+  },
+  {
+    "en": "plan",
+    "hi": "योजना",
+    "fr": "plan",
+    "es": "plan",
+    "de": "Plan"
+  },
+  {
+    "en": "planning",
+    "hi": "योजना",
+    "fr": "planification",
+    "es": "Planificación",
+    "de": "Planung"
+  },
+  {
+    "en": "kickoff",
+    "hi": "चकनाचूर",
+    "fr": "démarrage",
+    "es": "el despegue",
+    "de": "pitch"
+  },
+  {
+    "en": "standup",
+    "hi": "खड़े होना",
+    "fr": "de réparation",
+    "es": "el support",
+    "de": "Aufbau"
+  },
+  {
+    "en": "retrospective",
+    "hi": "प्रतिगमन",
+    "fr": "rétrospective",
+    "es": "retrospectiva",
+    "de": "Rückblick"
+  },
+  {
+    "en": "sprintplanning",
+    "hi": "स्प्रिंट प्लानिंग",
+    "fr": "planification de sprint",
+    "es": "Planificación de speedes",
+    "de": "Sprintplanung"
+  },
+  {
+    "en": "burndown",
+    "hi": "जलता हुआ",
+    "fr": "logout",
+    "es": "el fuego",
+    "de": "Brennstätte"
+  },
+  {
+    "en": "velocity",
+    "hi": "speed",
+    "fr": "speed",
+    "es": "speed",
+    "de": "speed"
+  },
+  {
+    "en": "blocker",
+    "hi": "अवरोधक",
+    "fr": "blocage",
+    "es": "blockedr",
+    "de": "Schließgerät"
+  },
+  {
+    "en": "resource",
+    "hi": "संसाधन",
+    "fr": "ressources",
+    "es": "el recurso",
+    "de": "Ressourcen"
+  },
+  {
+    "en": "budget",
+    "hi": "बजट",
+    "fr": "budget",
+    "es": "presupuesto",
+    "de": "HOShaltsplan"
+  },
+  {
+    "en": "cost",
+    "hi": "लागत",
+    "fr": "coût",
+    "es": "El coste",
+    "de": "Kosten"
+  },
+  {
+    "en": "estimate",
+    "hi": "estimation",
+    "fr": "estimation",
+    "es": "estimation",
+    "de": "estimation"
+  },
+  {
+    "en": "allocation",
+    "hi": "आवंटन",
+    "fr": "répartition",
+    "es": "asignación",
+    "de": "Zuweisung"
+  },
+  {
+    "en": "milestonechart",
+    "hi": "milestone chart",
+    "fr": "carte des miOStones",
+    "es": "mapa de hitos",
+    "de": "milestoneeschart"
+  },
+  {
+    "en": "Ganttchart",
+    "hi": "गंतchart",
+    "fr": "carte de la carte",
+    "es": "graph de la",
+    "de": "Galtchart"
+  },
+  {
+    "en": "documentation",
+    "hi": "document",
+    "fr": "documentation",
+    "es": "Documentación",
+    "de": "documentation"
+  },
+  {
+    "en": "actionitem",
+    "hi": "कार्रवाई",
+    "fr": "action",
+    "es": "ACCión",
+    "de": "Aktionsartikel"
+  },
+  {
+    "en": "assign",
+    "hi": "grant",
+    "fr": "attribuer",
+    "es": "asignación",
+    "de": "zuweisen"
+  },
+  {
+    "en": "notify",
+    "hi": "notification",
+    "fr": "à notifier",
+    "es": "notificar",
+    "de": "notification"
+  },
+  {
+    "en": "projectlead",
+    "hi": "परियोजना प्रमुख",
+    "fr": "chef de draft",
+    "es": "director de draft",
+    "de": "Projektleiter"
+  },
+  {
+    "en": "teammember",
+    "hi": "team सदस्य",
+    "fr": "membre de l'team",
+    "es": "miembro del team",
+    "de": "teammitglied"
+  },
+  {
+    "en": "crossfunctional",
+    "hi": "क्रॉसफंक्शनल",
+    "fr": "interfonctionnelle",
+    "es": "de función transversal",
+    "de": "featuresübergreifend"
+  },
+  {
+    "en": "initiative",
+    "hi": "पहल",
+    "fr": "initiative",
+    "es": "la iniciativa",
+    "de": "Initiative"
+  },
+  {
+    "en": "rollout",
+    "hi": "रोलआउट",
+    "fr": "déploiement",
+    "es": "Desarscroll",
+    "de": "OSguide"
+  },
+  {
+    "en": "phase",
+    "hi": "चरण",
+    "fr": "phase",
+    "es": "fase",
+    "de": "Phase"
+  },
+  {
+    "en": "launch",
+    "hi": "प्रक्षेपण",
+    "fr": "lancement",
+    "es": "lanzamiento",
+    "de": "Start"
+  },
+  {
+    "en": "closure",
+    "hi": "समापन",
+    "fr": "fermeture",
+    "es": "cierre",
+    "de": "Schließung"
+  },
+  {
+    "en": "timesheet",
+    "hi": "time सारिणी",
+    "fr": "feuilOTP de time",
+    "es": "plan de time",
+    "de": "timeplan"
+  },
+  {
+    "en": "tracking",
+    "hi": "ट्रैकिंग",
+    "fr": "followup",
+    "es": "followup",
+    "de": "Verfolgung"
+  },
+  {
+    "en": "prioritization",
+    "hi": "priority",
+    "fr": "la priority",
+    "es": "priority",
+    "de": "Priorisierung"
+  },
+  {
+    "en": "iteration",
+    "hi": "पुनरावृत्ति",
+    "fr": "Iteration",
+    "es": "Iteración",
+    "de": "Wiederholung"
+  },
+  {
+    "en": "workload",
+    "hi": "taskभार",
+    "fr": "load de travail",
+    "es": "load de trabajo",
+    "de": "Arbeitsbelastung"
+  },
+  {
+    "en": "tasklist",
+    "hi": "taskसूची",
+    "fr": "liste des tasks",
+    "es": "lista de tasks",
+    "de": "tasknliste"
+  },
+  {
+    "en": "checklist",
+    "hi": "चेकलिस्ट",
+    "fr": "liste de controle",
+    "es": "lista de control",
+    "de": "Checkliste"
+  },
+  {
+    "en": "progressbar",
+    "hi": "progress पट्टी",
+    "fr": "barre de progrès",
+    "es": "barra de progress",
+    "de": "Progressbar"
+  },
+  
+  {
+    "en": "ticketing",
+    "hi": "टिकट",
+    "fr": "billetterie",
+    "es": "venta de entradas",
+    "de": "ticketing"
+  },
+  {
+    "en": "scopecreep",
+    "hi": "परिधि",
+    "fr": "scopecreep",
+    "es": "outreach",
+    "de": "shortcut"
+  },
+  {
+    "en": "changecontrol",
+    "hi": "परिवर्तन नियंत्रण",
+    "fr": "controle des changements",
+    "es": "control de cambios",
+    "de": "Veränderungskontrole"
+  },
+  {
+    "en": "RACI",
+    "hi": "रेस",
+    "fr": "OS races",
+    "es": "raci",
+    "de": "Rassisten"
+  },
+  {
+    "en": "communicationplan",
+    "hi": "संचार योजना",
+    "fr": "plan de communication",
+    "es": "plan de comunicación",
+    "de": "Kommunikationsplan"
+  },
+  {
+    "en": "releaseplan",
+    "hi": "रिलीज़ प्लान",
+    "fr": "plan de libération",
+    "es": "plan de liberación",
+    "de": "Veröffentlichungsplan"
+  },
+  {
+    "en": "testingphase",
+    "hi": "परीक्षण चरण",
+    "fr": "phase de test",
+    "es": "fase de prueba",
+    "de": "Testphase"
+  },
+  {
+    "en": "pilot",
+    "hi": "पायलट",
+    "fr": "pilote",
+    "es": "piloto",
+    "de": "Pilot"
+  },
+  {
+    "en": "attendance",
+    "hi": "उपस्थिति",
+    "fr": "la fréquentation",
+    "es": "asistenCIa",
+    "de": "Teilnahme"
+  },
+  {
+    "en": "leave",
+    "hi": "छुट्टी",
+    "fr": "de la démission",
+    "es": "de baja",
+    "de": "OSsteigen"
+  },
+  {
+    "en": "holiday",
+    "hi": "downtime",
+    "fr": "vacances",
+    "es": "vacaCIones",
+    "de": "Urlaub"
+  },
+  {
+    "en": "payroll",
+    "hi": "वेतन",
+    "fr": "la list de rémunération",
+    "es": "la nómina",
+    "de": "Gehaltslist"
+  },
+  {
+    "en": "salary",
+    "hi": "वेतन",
+    "fr": "salaire",
+    "es": "salario",
+    "de": "Gehalt"
+  },
+  {
+    "en": "payslip",
+    "hi": "पेसलिप",
+    "fr": "salaire",
+    "es": "el pago",
+    "de": "Zahlungsbilanz"
+  },
+  {
+    "en": "reimbursement",
+    "hi": "मुआवजा",
+    "fr": "remboursement",
+    "es": "El reembolso",
+    "de": "Erstattung"
+  },
+  {
+    "en": "bonus",
+    "hi": "बोनस",
+    "fr": "bonus",
+    "es": "el bono",
+    "de": "Bonus"
+  },
+  {
+    "en": "increment",
+    "hi": "escalation",
+    "fr": "augmentation",
+    "es": "incremento",
+    "de": "Ein Zuwachs"
+  },
+  {
+    "en": "promotion",
+    "hi": "पदोन्नति",
+    "fr": "promotion",
+    "es": "PromoCIón",
+    "de": "Förderung"
+  },
+  {
+    "en": "transfer",
+    "hi": "स्थानांतरण",
+    "fr": "transfert",
+    "es": "transferenCIa",
+    "de": "Übertragung"
+  },
+  {
+    "en": "resignation",
+    "hi": "इस्तीफा",
+    "fr": "démission",
+    "es": "resignaCIón",
+    "de": "tokenrevocation"
+  },
+  {
+    "en": "termination",
+    "hi": "समाप्ति",
+    "fr": "résiliation",
+    "es": "terminaCIón",
+    "de": "Aufhebung"
+  },
+  {
+    "en": "onboarding",
+    "hi": "ऑनboardिंग",
+    "fr": "d'embarquement",
+    "es": "embarque",
+    "de": "Aufsteigerung"
+  },
+  {
+    "en": "offboarding",
+    "hi": "अपboardिंग",
+    "fr": "hors bord",
+    "es": "el desembarco fuera IDE zona",
+    "de": "OSland"
+  },
+  {
+    "en": "induction",
+    "hi": "प्रेरण",
+    "fr": "induction",
+    "es": "induCCIón",
+    "de": "Induktion"
+  },
+  {
+    "en": "employeeid",
+    "hi": "employee",
+    "fr": "employee",
+    "es": "employee",
+    "de": "employee"
+  },
+  {
+    "en": "contract",
+    "hi": "अनुबंध",
+    "fr": "contrat",
+    "es": "contrato",
+    "de": "Vertrag"
+  },
+  {
+    "en": "appraisal",
+    "hi": "valueांकन",
+    "fr": "évaluation",
+    "es": "la evaluaCIón",
+    "de": "Beurteilung"
+  },
+  {
+    "en": "recruitment",
+    "hi": "भर्ती",
+    "fr": "OTP recrutement",
+    "es": "Reclutamiento",
+    "de": "Anwerbung"
+  },
+  {
+    "en": "hiring",
+    "hi": "भर्ती",
+    "fr": "d'embauche",
+    "es": "contrataCIón",
+    "de": "setting"
+  },
+  {
+    "en": "candidate",
+    "hi": "उम्मीदवार",
+    "fr": "candidat",
+    "es": "el candidato",
+    "de": "Kandidat"
+  },
+  {
+    "en": "interview",
+    "hi": "साक्षात्कार",
+    "fr": "entrevue",
+    "es": "Entrevista",
+    "de": "Interview"
+  },
+  {
+    "en": "offerletter",
+    "hi": "प्रस्ताव पत्र",
+    "fr": "OTPttre d'offre",
+    "es": "charter de oferta",
+    "de": "Angebotsschreiben"
+  },
+  {
+    "en": "joiningdate",
+    "hi": "जुड़ने की date",
+    "fr": "date de rejointe",
+    "es": "date de incorpoRACIón",
+    "de": "loginsdate"
+  },
+  {
+    "en": "HRMS",
+    "hi": "आरएमएस",
+    "fr": "HMS",
+    "es": "HMS",
+    "de": "Hrs"
+  },
+  {
+    "en": "portal",
+    "hi": "पोर्टल",
+    "fr": "portail",
+    "es": "portal",
+    "de": "Portal"
+  },
+  {
+    "en": "handbook",
+    "hi": "पुस्तिका",
+    "fr": "manual",
+    "es": "manual",
+    "de": "manual"
+  },
+  {
+    "en": "guideline",
+    "hi": "दिशा-निर्देश",
+    "fr": "orientation",
+    "es": "DireCCIón",
+    "de": "Leitlinien"
+  },
+  {
+    "en": "codeofconduct",
+    "hi": "आphase संहिता",
+    "fr": "code de conduite",
+    "es": "code de conducta",
+    "de": "Verhaltenskodex"
+  },
+  {
+    "en": "grievance",
+    "hi": "शिकायत",
+    "fr": "plainte",
+    "es": "queja",
+    "de": "Beschwerde"
+  },
+  {
+    "en": "complaint",
+    "hi": "शिकायत",
+    "fr": "plainte",
+    "es": "queja",
+    "de": "Beschwerde"
+  },
+  {
+    "en": "goalsetting",
+    "hi": "target निर्धारित करना",
+    "fr": "définition des objectives",
+    "es": "fijaCIón de targets",
+    "de": "targetvorgabe"
+  },
+  {
+    "en": "evaluation",
+    "hi": "valueांकन",
+    "fr": "évaluation",
+    "es": "evaluaCIón",
+    "de": "Bevalueung"
+  },
+  {
+    "en": "probation",
+    "hi": "निलंबन",
+    "fr": "la period de probation",
+    "es": "libertad condiCIonal",
+    "de": "Bewährung"
+  },
+  {
+    "en": "confirmation",
+    "hi": "पुष्टि",
+    "fr": "confirmation",
+    "es": "confirmaCIón",
+    "de": "Bestätigung"
+  },
+  {
+    "en": "exitprocess",
+    "hi": "बाहर निकलने की process",
+    "fr": "process de sortie",
+    "es": "process de output",
+    "de": "OSgangsprocess"
+  },
+  {
+    "en": "clearance",
+    "hi": "मंजूरी",
+    "fr": "output",
+    "es": "el permission",
+    "de": "Abgabe"
+  },
+  {
+    "en": "referencecheck",
+    "hi": "संदर्भ जांच",
+    "fr": "audit de benchmark",
+    "es": "monitoring de referenCIa",
+    "de": "Referenzüberaudit"
+  },
+  {
+    "en": "backgroundcheck",
+    "hi": "पृष्ठभूमि जांच",
+    "fr": "audit des antécédents",
+    "es": "monitoring de antecedentes",
+    "de": "HintergrOTPüberaudit"
+  },
+  {
+    "en": "attendancepolicy",
+    "hi": "उपस्थिति policy",
+    "fr": "policy de partiCIpation",
+    "es": "policy de asistenCIa",
+    "de": "Teilnahmepolicy"
+  },
+  {
+    "en": "workhours",
+    "hi": "कार्य time",
+    "fr": "heures de travail",
+    "es": "horarios de job",
+    "de": "jobstime"
+  },
+  {
+    "en": "shift",
+    "hi": "शिफ्ट",
+    "fr": "changement",
+    "es": "cambio",
+    "de": "Schicht"
+  },
+  {
+    "en": "overtime",
+    "hi": "अतिरिक्त time",
+    "fr": "heures supplémentaires",
+    "es": "horas extras",
+    "de": "ÜberstOTPen"
+  },
+  {
+    "en": "roster",
+    "hi": "list",
+    "fr": "list",
+    "es": "list",
+    "de": "list"
+  },
+  {
+    "en": "IDcard",
+    "hi": "IDSकार्ड",
+    "fr": "carte d'identity",
+    "es": "tarjeta de IDS",
+    "de": "IDcard"
+  },
+  {
+    "en": "accesscard",
+    "hi": "पहुँच कार्ड",
+    "fr": "carte d'aCCès",
+    "es": "tarjeta de aCCeso",
+    "de": "Zugangskarte"
+  },
+  {
+    "en": "workstation",
+    "hi": "कार्यस्थान",
+    "fr": "poste de travail",
+    "es": "estaCIón de job",
+    "de": "jobsplatz"
+  },
+  {
+    "en": "workspace",
+    "hi": "कार्यक्षेत्र",
+    "fr": "espace de travail",
+    "es": "espaCIo de job",
+    "de": "jobsplatz"
+  },
+  {
+    "en": "equipment",
+    "hi": "tool",
+    "fr": "teamment",
+    "es": "team",
+    "de": "OSrüstung"
+  },
+  {
+    "en": "seating",
+    "hi": "बैठने की जगह",
+    "fr": "sièges",
+    "es": "asientos",
+    "de": "Sitzplätze"
+  },
+  {
+    "en": "relocation",
+    "hi": "स्थानांतरण",
+    "fr": "déménagement",
+    "es": "reubicaCIón",
+    "de": "Umzugsbepathung"
+  },
+  {
+    "en": "welcomeemail",
+    "hi": "स्वागत email",
+    "fr": "email de welcome",
+    "es": "bienvenida",
+    "de": "welcome"
+  },
+  {
+    "en": "orientation",
+    "hi": "अभिconfiguration",
+    "fr": "orientation",
+    "es": "orientaCIón",
+    "de": "Orientierung"
+  },
+  {
+    "en": "benefits",
+    "hi": "लाभ",
+    "fr": "OS avantages",
+    "es": "BenefiCIos",
+    "de": "performanceen"
+  },
+  {
+    "en": "insurance",
+    "hi": "बीमा",
+    "fr": "assurance",
+    "es": "seguro",
+    "de": "Versicherung"
+  },
+  {
+    "en": "healthcheckup",
+    "hi": "स्वास्थ्य जांच",
+    "fr": "controOTP de santé",
+    "es": "monitoring de salud",
+    "de": "GesOTPheitsüberaudit"
+  },
+  {
+    "en": "wellness",
+    "hi": "कल्याण",
+    "fr": "bien-être",
+    "es": "bienestar",
+    "de": "GesOTPheit"
+  },
+  {
+    "en": "incentive",
+    "hi": "प्रोत्साहन",
+    "fr": "inCItation",
+    "es": "el incentivo",
+    "de": "Anreiz"
+  },
+  {
+    "en": "award",
+    "hi": "पुरस्कार",
+    "fr": "prix",
+    "es": "premio",
+    "de": "OSzeichnung"
+  },
+  {
+    "en": "recognition",
+    "hi": "मान्यता",
+    "fr": "reconnaissance",
+    "es": "reconoCImiento",
+    "de": "Anerkennung"
+  },
+  {
+    "en": "promotionletter",
+    "hi": "पदोन्नति पत्र",
+    "fr": "OTPttre de promotion",
+    "es": "charter de promoCIón",
+    "de": "Beförderungsbrief"
+  },
+  {
+    "en": "transferletter",
+    "hi": "हस्तांतरण पत्र",
+    "fr": "OTPttre de transfert",
+    "es": "charter de transferenCIa",
+    "de": "Übertragungsbrief"
+  },
+  {
+    "en": "leaveapplication",
+    "hi": "छुट्टी का application",
+    "fr": "application de congé",
+    "es": "soliCItud de permission",
+    "de": "OSnahmerlaub"
+  },
+  {
+    "en": "birthday",
+    "hi": "जन्मदिन",
+    "fr": "anniversaire",
+    "es": "cumpleaños",
+    "de": "Geburtstag"
+  },
+  {
+    "en": "anniversary",
+    "hi": "वर्षगांठ",
+    "fr": "anniversaire",
+    "es": "aniversario",
+    "de": "Jahrestag"
+  },
+  {
+    "en": "farewell",
+    "hi": "अलविदा",
+    "fr": "au revoir",
+    "es": "Adiós",
+    "de": "Abschied"
+  },
+  {
+    "en": "resignationletter",
+    "hi": "इस्तीफा पत्र",
+    "fr": "OTPttre de démission",
+    "es": "charter de renunCIa",
+    "de": "tokenrevocationsschreiben"
+  },
+  {
+    "en": "payscale",
+    "hi": "देश स्तर",
+    "fr": "payscaOTP",
+    "es": "IDE región",
+    "de": "Landwirtschaftspolicy"
+  },
+  {
+    "en": "incrementletter",
+    "hi": "escalation पत्र",
+    "fr": "OTPttre d'increements",
+    "es": "letra de incremento",
+    "de": "fontzug"
+  },
+  {
+    "en": "performancebonus",
+    "hi": "performance बोनस",
+    "fr": "bonus de performance",
+    "es": "bonificaCIón de performance",
+    "de": "performancesbonus"
+  },
+  {
+    "en": "travelrequest",
+    "hi": "यात्रा अनुरोध",
+    "fr": "application de voyage",
+    "es": "soliCItud de viaje",
+    "de": "Reiseantrag"
+  },
+  {
+    "en": "expenseclaim",
+    "hi": "व्यय का दावा",
+    "fr": "réclamation de dépenses",
+    "es": "reclamo de gastos",
+    "de": "costforderung"
+  },
+  {
+    "en": "taxdocument",
+    "hi": "कर documentation",
+    "fr": "document fiscal",
+    "es": "document fiscal",
+    "de": "Steuerdocument"
+  },
+  {
+    "en": "GDPR",
+    "hi": "जीडीपीआर",
+    "fr": "Régimes de controOTP",
+    "es": "Gdpr",
+    "de": "Gdpr"
+  },
+  {
+    "en": "ISO",
+    "hi": "आईएसओ",
+    "fr": "iso",
+    "es": "iso",
+    "de": "ISO"
+  },
+  {
+    "en": "HIPAA",
+    "hi": "हायपा",
+    "fr": "OTP bonheur",
+    "es": "¿Qué pasa?",
+    "de": "Schönheit"
+  },
+  {
+    "en": "confidentiality",
+    "hi": "गोपनीयता",
+    "fr": "confidentialité",
+    "es": "la confidenCIalidad",
+    "de": "Vertraulichkeit"
+  },
+  {
+    "en": "security",
+    "hi": "सुdefense",
+    "fr": "sécurité",
+    "es": "securehash",
+    "de": "Sicherheit"
+  },
+  {
+    "en": "agreement",
+    "hi": "समझौता",
+    "fr": "aCCord",
+    "es": "acuerdo",
+    "de": "Vereinbarung"
+  },
+  {
+    "en": "NDA",
+    "hi": "एनडीए",
+    "fr": "NDA",
+    "es": "No",
+    "de": "OTP"
+  },
+  {
+    "en": "MOU",
+    "hi": "मुआ",
+    "fr": "mou",
+    "es": "Mu",
+    "de": "kickoffzeug"
+  },
+  {
+    "en": "SLA",
+    "hi": "स्ला",
+    "fr": "OTP",
+    "es": "el",
+    "de": "kickoffzeug"
+  },
+  {
+    "en": "clause",
+    "hi": "खंड",
+    "fr": "clause",
+    "es": "cláusula",
+    "de": "Artikel"
+  },
+  {
+    "en": "agenda",
+    "hi": "कार्यlist",
+    "fr": "l'ordre du jour",
+    "es": "agenda",
+    "de": "tagesordnung"
+  },
+  {
+    "en": "minutes",
+    "hi": "मिनट",
+    "fr": "minutes",
+    "es": "minutos",
+    "de": "Minuten"
+  },
+  {
+    "en": "reschedule",
+    "hi": "अनुlist",
+    "fr": "réétablissement",
+    "es": "reprogramr",
+    "de": "Umshellten"
+  },
+  {
+    "en": "postpone",
+    "hi": "स्थगित करना",
+    "fr": "délais",
+    "es": "pospone",
+    "de": "latency"
+  },
+  {
+    "en": "discussion",
+    "hi": "variable्चा",
+    "fr": "débat",
+    "es": "DiscuCIón",
+    "de": "Diskussion"
+  },
+  {
+    "en": "brainstorm",
+    "hi": "दिमाग़ की तूफान",
+    "fr": "Une tempête de cerveau",
+    "es": "Tormenta de ideas",
+    "de": "Brainstorm"
+  },
+  {
+    "en": "workshop",
+    "hi": "कार्यशाला",
+    "fr": "atelier",
+    "es": "Taller de job",
+    "de": "Werkstatt"
+  },
+  {
+    "en": "townhall",
+    "hi": "नगरपालिका",
+    "fr": "la vilOTP",
+    "es": "El pueblo",
+    "de": "Stadtbuild"
+  },
+  {
+    "en": "zoom",
+    "hi": "ज़ूम",
+    "fr": "zoom",
+    "es": "zoom",
+    "de": "Zoom"
+  },
+  {
+    "en": "teams",
+    "hi": "team",
+    "fr": "teams",
+    "es": "teams",
+    "de": "teams"
+  },
+  {
+    "en": "recording",
+    "hi": "रिकॉर्डिंग",
+    "fr": "enregistrement",
+    "es": "log",
+    "de": "Aufzeichnung"
+  },
+  {
+    "en": "versioning",
+    "hi": "संस्करण",
+    "fr": "versionnement",
+    "es": "la versión",
+    "de": "version"
+  },
+  {
+    "en": "appendix",
+    "hi": "अनुलग्नक",
+    "fr": "attachment",
+    "es": "el apéndice",
+    "de": "Anhang"
+  },
+  {
+    "en": "annexure",
+    "hi": "अनुलग्नक",
+    "fr": "attachment",
+    "es": "Anexo",
+    "de": "Anhang"
+  },
+  {
+    "en": "printout",
+    "hi": "मुद्रण",
+    "fr": "d'impression",
+    "es": "print",
+    "de": "OSprint"
+  },
+  {
+    "en": "softcopy",
+    "hi": "सॉफ्टकोपी",
+    "fr": "une copy douce",
+    "es": "copy IDE mano",
+    "de": "Softcopy"
+  },
+  {
+    "en": "hardcopy",
+    "hi": "हार्ड कॉपी",
+    "fr": "copy en papier",
+    "es": "copy en role",
+    "de": "font"
+  },
+  {
+    "en": "signature",
+    "hi": "हस्ताक्षर",
+    "fr": "signature",
+    "es": "firma",
+    "de": "Unterfont"
+  },
+  {
+    "en": "initials",
+    "hi": "प्रारम्भिक",
+    "fr": "OS initiaOTPs",
+    "es": "Las iniCIales",
+    "de": "Initialen"
+  },
+  {
+    "en": "seal",
+    "hi": "सील",
+    "fr": "la sCIe",
+    "es": "sello",
+    "de": "Siegel"
+  },
+  {
+    "en": "notary",
+    "hi": "noteरी",
+    "fr": "notaire",
+    "es": "noterio",
+    "de": "Notar"
+  },
+  {
+    "en": "legalteam",
+    "hi": "legal team",
+    "fr": "team juridique",
+    "es": "team legal",
+    "de": "Rechtsteam"
+  },
+  {
+    "en": "legalreview",
+    "hi": "legal समीक्षा",
+    "fr": "revision juridique",
+    "es": "revision legal",
+    "de": "Rechtsüberaudit"
+  },
+  {
+    "en": "terms",
+    "hi": "शर्तें",
+    "fr": "termes",
+    "es": "términos",
+    "de": "Begriffe"
+  },
+  {
+    "en": "policyupdate",
+    "hi": "policy अद्यतन",
+    "fr": "mise à jour de la policy",
+    "es": "actualizaCIón IDE policy",
+    "de": "policyupdate"
+  },
+  {
+    "en": "policyacceptance",
+    "hi": "पुलिस की स्वीकृति",
+    "fr": "l'aCCeptation de font",
+    "es": "aceptaCIón IDE policía",
+    "de": "politische Akzeptanz"
+  },
+  {
+    "en": "documentlog",
+    "hi": "documentation log",
+    "fr": "documentlog",
+    "es": "log de documents",
+    "de": "documentenlog"
+  },
+  {
+    "en": "compliancechecklist",
+    "hi": "compliance जाँच list",
+    "fr": "list de controOTP de compliance",
+    "es": "list de verificaCIón de compliance",
+    "de": "ComplianceIDEChecklist"
+  },
+  {
+    "en": "disclosure",
+    "hi": "खुलासा",
+    "fr": "révélation",
+    "es": "la divulgaCIón",
+    "de": "Veröffentlichung"
+  },
+  {
+    "en": "riskreport",
+    "hi": "जोखिम रिपोर्ट",
+    "fr": "ratio de risque",
+    "es": "informe de riesgo",
+    "de": "Risikoberichterstattung"
+  },
+  {
+    "en": "retention",
+    "hi": "प्रतिधारण",
+    "fr": "Rétention",
+    "es": "retenerse",
+    "de": "Aufbewahrung"
+  },
+  {
+    "en": "expiry",
+    "hi": "समाप्ति",
+    "fr": "expiration",
+    "es": "venCImiento",
+    "de": "OSlauf"
+  },
+  {
+    "en": "audittrail",
+    "hi": "audit",
+    "fr": "Résultats de l'audit",
+    "es": "Auditoria",
+    "de": "OSwahl"
+  },
+  {
+    "en": "dataprivacy",
+    "hi": "डेटा गोपनीयता",
+    "fr": "protection des data",
+    "es": "PrivaCIdad de data",
+    "de": "dataschutz"
+  },
+  {
+    "en": "rolematrix",
+    "hi": "role",
+    "fr": "roOTP",
+    "es": "la matriz de roles",
+    "de": "role"
+  },
+  {
+    "en": "Abhijeet",
+    "hi": "Abhijeet",
+    "fr": "Abhijeet",
+    "es": "Abhijeet",
+    "de": "Abhijeet"
+  },
+  {
+    "en": "Anshul",
+    "hi": "Anshul",
+    "fr": "Anshul",
+    "es": "Anshul",
+    "de": "Anshul"
+  },
+  {
+    "en": "Arul",
+    "hi": "Arul",
+    "fr": "Arul",
+    "es": "Arul",
+    "de": "Arul"
+  },
+  {
+    "en": "Satish",
+    "hi": "Satish",
+    "fr": "Satish",
+    "es": "Satish",
+    "de": "Satish"
+  },
+  {
+    "en": "Lavanya",
+    "hi": "Lavanya",
+    "fr": "Lavanya",
+    "es": "Lavanya",
+    "de": "Lavanya"
+  },
+  {
+    "en": "Bhuvi",
+    "hi": "Bhuvi",
+    "fr": "Bhuvi",
+    "es": "Bhuvi",
+    "de": "Bhuvi"
+  },
+  {
+    "en": "Gopi",
+    "hi": "Gopi",
+    "fr": "Gopi",
+    "es": "Gopi",
+    "de": "Gopi"
+  },
+  {
+    "en": "Irul",
+    "hi": "Irul",
+    "fr": "Irul",
+    "es": "Irul",
+    "de": "Irul"
+  },
+  {
+    "en": "Jabin",
+    "hi": "Jabin",
+    "fr": "Jabin",
+    "es": "Jabin",
+    "de": "Jabin"
+  },
+  {
+    "en": "Kodee",
+    "hi": "Kodee",
+    "fr": "Kodee",
+    "es": "Kodee",
+    "de": "Kodee"
+  },
+  {
+    "en": "Chandrakanth",
+    "hi": "Chandrakanth",
+    "fr": "Chandrakanth",
+    "es": "Chandrakanth",
+    "de": "Chandrakanth"
+  },
+  {
+    "en": "Kowshik",
+    "hi": "Kowshik",
+    "fr": "Kowshik",
+    "es": "Kowshik",
+    "de": "Kowshik"
+  },
+  {
+    "en": "Varun",
+    "hi": "Varun",
+    "fr": "Varun",
+    "es": "Varun",
+    "de": "Varun"
+  },
+  {
+    "en": "Poorna",
+    "hi": "Poorna",
+    "fr": "Poorna",
+    "es": "Poorna",
+    "de": "Poorna"
+  },
+  {
+    "en": "Rajiv",
+    "hi": "Rajiv",
+    "fr": "Rajiv",
+    "es": "Rajiv",
+    "de": "Rajiv"
+  },
+  {
+    "en": "Ravi",
+    "hi": "Ravi",
+    "fr": "Ravi",
+    "es": "Ravi",
+    "de": "Ravi"
+  },
+  {
+    "en": "Gowtham",
+    "hi": "Gowtham",
+    "fr": "Gowtham",
+    "es": "Gowtham",
+    "de": "Gowtham"
+  },
+  {
+    "en": "Shabana",
+    "hi": "Shabana",
+    "fr": "Shabana",
+    "es": "Shabana",
+    "de": "Shabana"
+  },
+  {
+    "en": "Sampath",
+    "hi": "Sampath",
+    "fr": "Sampath",
+    "es": "Sampath",
+    "de": "Sampath"
+  },
+  {
+    "en": "Seernam Mohan",
+    "hi": "Seernam Mohan",
+    "fr": "Seernam Mohan",
+    "es": "Seernam Mohan",
+    "de": "Seernam Mohan"
+  },
+  {
+    "en": "Sriram",
+    "hi": "Sriram",
+    "fr": "Sriram",
+    "es": "Sriram",
+    "de": "Sriram"
+  },
+  {
+    "en": "Subbu",
+    "hi": "Subbu",
+    "fr": "Subbu",
+    "es": "Subbu",
+    "de": "Subbu"
+  },
+  {
+    "en": "Sai",
+    "hi": "Sai",
+    "fr": "Sai",
+    "es": "Sai",
+    "de": "Sai"
+  },
+  {
+    "en": "Venki",
+    "hi": "Venki",
+    "fr": "Venki",
+    "es": "Venki",
+    "de": "Venki"
+  },
+  {
+    "en": "Ajay Raj",
+    "hi": "Ajay Raj",
+    "fr": "Ajay Raj",
+    "es": "Ajay Raj",
+    "de": "Ajay Raj"
+  },
+  {
+    "en": "Ashwin Koduri",
+    "hi": "Ashwin Koduri",
+    "fr": "Ashwin Koduri",
+    "es": "Ashwin Koduri",
+    "de": "Ashwin Koduri"
+  },
+  {
+    "en": "Hari S K",
+    "hi": "Hari S K",
+    "fr": "Hari S K",
+    "es": "Hari S K",
+    "de": "Hari S K"
+  },
+  {
+    "en": "Jagadeeswar",
+    "hi": "Jagadeeswar",
+    "fr": "Jagadeeswar",
+    "es": "Jagadeeswar",
+    "de": "Jagadeeswar"
+  },
+  {
+    "en": "Lokesh",
+    "hi": "Lokesh",
+    "fr": "Lokesh",
+    "es": "Lokesh",
+    "de": "Lokesh"
+  },
+  {
+    "en": "Mohit",
+    "hi": "Mohit",
+    "fr": "Mohit",
+    "es": "Mohit",
+    "de": "Mohit"
+  },
+  {
+    "en": "Sameer",
+    "hi": "Sameer",
+    "fr": "Sameer",
+    "es": "Sameer",
+    "de": "Sameer"
+  },
+  {
+    "en": "Sampath Kumar",
+    "hi": "Sampath Kumar",
+    "fr": "Sampath Kumar",
+    "es": "Sampath Kumar",
+    "de": "Sampath Kumar"
+  },
+  {
+    "en": "Sai Vijay",
+    "hi": "Sai Vijay",
+    "fr": "Sai Vijay",
+    "es": "Sai Vijay",
+    "de": "Sai Vijay"
+  },
+  {
+    "en": "Pinjari Haneef",
+    "hi": "Pinjari Haneef",
+    "fr": "Pinjari Haneef",
+    "es": "Pinjari Haneef",
+    "de": "Pinjari Haneef"
+  },
+  {
+    "en": "Sai Subash",
+    "hi": "Sai Subash",
+    "fr": "Sai Subash",
+    "es": "Sai Subash",
+    "de": "Sai Subash"
+  },
+  {
+    "en": "Swetha",
+    "hi": "Swetha",
+    "fr": "Swetha",
+    "es": "Swetha",
+    "de": "Swetha"
+  },
+  {
+    "en": " Haneef",
+    "hi": " Haneef",
+    "fr": " Haneef",
+    "es": " Haneef",
+    "de": " Haneef"
+  },
+  {
+    "en": "Sampath ",
+    "hi": "Sampath ",
+    "fr": "Sampath ",
+    "es": "Sampath ",
+    "de": "Sampath "
+  },
+  {
+    "en": "Hari ",
+    "hi": "Hari ",
+    "fr": "Hari ",
+    "es": "Hari ",
+    "de": "Hari "
+  },
+  {
+    "en": "Ashwin ",
+    "hi": "Ashwin ",
+    "fr": "Ashwin ",
+    "es": "Ashwin ",
+    "de": "Ashwin "
   }
+  , {
+    "en": "Adarsh ",
+    "hi": "Adarsh ",
+    "fr": "Adarsh",
+    "es": "Adarsh",
+    "de": "Adarsh"
+  }
+
+
+  
+  
 ]
